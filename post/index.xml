@@ -1,0 +1,977 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts | Silas Bergen</title>
+    <link>/post/</link>
+      <atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <description>Posts</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2021 Silas Bergen</copyright><lastBuildDate>Tue, 23 Feb 2021 00:00:00 -0600</lastBuildDate>
+    <image>
+      <url>/images/icon_hu88e77fda8259aec1ad610bc9dd60fa00_1241_512x512_fill_lanczos_center_2.png</url>
+      <title>Posts</title>
+      <link>/post/</link>
+    </image>
+    
+    <item>
+      <title>A sabbatical of eagles (part 1)</title>
+      <link>/post/sabbatical1/</link>
+      <pubDate>Tue, 23 Feb 2021 00:00:00 -0600</pubDate>
+      <guid>/post/sabbatical1/</guid>
+      <description>&lt;p&gt;What happens when you combine the increasing need for carbon-free energy with an increasing eagle population?  The potential for some not-so-pretty collisions!   For my sabbatical research I have been collaborating with a great group of colleagues from USGS and Conservation Science Global on 
+some fascinating data they&amp;rsquo;ve collected from GPS devices attached to hundreds of bald eagles in the Midwest.  (If you prefer listening instead of reading, I have a &lt;a href=&#34;https://mediaspace.minnstate.edu/media/WWRM&amp;#43;final&amp;#43;draft/1_pcw8c5no&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;video presentation&lt;/a&gt; essentially narrating this post that I presented at the Wind Wildlife Research Meeting in December 2020.)&lt;/p&gt;
+&lt;center&gt; 
+&lt;figure&gt; 
+&lt;img src=&#34;/media/smola_eagles.png&#34; width=&#34;400&#34;/&gt;
+&lt;figcaption&gt;  &lt;em&gt; Eagles flying through a wind farm in Smøla, Noway. Photo by Todd Katzner. &lt;/em&gt; &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/center&gt;
+&lt;p&gt;I was super fortunate to have my sabbatical coincide with the 2020-2021 academic year, which was right in the throes of the COVID pandemic.  So I got to skip out on all the virtual teaching, &lt;em&gt;whew&lt;/em&gt;.  Major props to my colleagues here at Winona State and universities everywhere who battled through this year in the trenches; they seriously deserve &lt;em&gt;two&lt;/em&gt; sabbaticals after the year they endured.  Fortunately the pre-COVID plan already was to collaborate remotely, so the research could proceed in spite of a global pandemic.&lt;/p&gt;
+&lt;center&gt; 
+&lt;figure&gt; 
+&lt;img src=&#34;/media/eagle_captures.png&#34; width=&#34;600&#34;/&gt;
+&lt;figcaption&gt;  &lt;em&gt; (Left) An eagle snare is set using a deer carcass (Top right) young eagles tagged with GPS telemetry devices (bottom right) a mature baldy flies away into the snowy day, GPS telemetry device attached. 
+Photos by Mike Lanzone and Trish Miller. &lt;/em&gt; &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/center&gt;
+&lt;p&gt;For my sabbatical I restricted attention to GPS measurements in Iowa, of which there are over 1.7 million for a few dozen eagles over 5 or so years.&lt;/p&gt;
+&lt;center&gt; 
+&lt;figure&gt; 
+&lt;img src=&#34;/media/ia_map.png&#34; width=&#34;300&#34;/&gt;
+&lt;figcaption&gt;  &lt;em&gt; 1.7 million observed bald eagle GPS points across the state of Iowa&lt;/em&gt; &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/center&gt;
+&lt;p&gt;The devices record data at 1-11 second intervals while birds are in flight, and from these observations we have the following variables
+about each point in time:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Velocity (Kilometers per hour)&lt;/li&gt;
+&lt;li&gt;Angle (in radians); is the bird flying straight or in a &amp;ldquo;tortuous&amp;rdquo; path?&lt;/li&gt;
+&lt;li&gt;Meters above ground level (AGL)&lt;/li&gt;
+&lt;li&gt;Vertical rate (m/s): is the bird increasing or decreasing its AGL?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Our goals with these data are essentially two-pronged:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Using eagle GPS measurements, can we come up with a way to characterize consistent flight behaviors using the GPS data?&lt;/li&gt;
+&lt;li&gt;Given the flight behaviors we come up with, can we model what underlying land features are related to certain types of behaviors?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;For the first question, I used &lt;em&gt;k&lt;/em&gt;-means clustering to come up with classifications for every single one of the GPS points into one of &lt;em&gt;k&lt;/em&gt; behaviors.  So what is &lt;em&gt;k&lt;/em&gt;-means clustering?  Maybe the animation below will help.&lt;/p&gt;
+&lt;center&gt; 
+&lt;figure&gt; 
+&lt;img src=&#34;/media/cluster_animation.gif&#34; width=&#34;400&#34;/&gt;
+&lt;/figure&gt;
+&lt;/center&gt;
+&lt;p&gt;In this animation we are trying to classify 2-dimensional data (with &amp;lsquo;X&amp;rsquo; and &amp;lsquo;Y&amp;rsquo; coordinates) into one of &lt;em&gt;k&lt;/em&gt;=2 clusters.  The algorithm iterates between assigning each data point to the cluster with the nearest centroid then recomputing the centroid.
+This idea extends directly to &lt;em&gt;p&lt;/em&gt;-dimensional data.&lt;/p&gt;
+&lt;p&gt;Choosing &lt;em&gt;k&lt;/em&gt; is a bit of an art, which I won&amp;rsquo;t go into here (we have a forthcoming manuscript you can read for more details), but for our analysis it appeared the &lt;em&gt;k&lt;/em&gt;=5 was the appropriate choice.  Showing my colleagues boxplots
+of the GPS variables with cluster indications got them really excited!  Here&amp;rsquo;s the fun thing about working with people who know animals well: what, to me, are &amp;ldquo;clusters numbers 1, 2, 3, 4, and 5&amp;rdquo; are, to them, &amp;ldquo;ah! perching!&amp;rdquo; or,
+&amp;ldquo;gliding from a thermal!&amp;rdquo;   So it was they who identified the following actually relevant eagle behaviors from my clusters.&lt;/p&gt;
+&lt;center&gt; 
+&lt;figure&gt; 
+&lt;img src=&#34;/media/flight_clusters.png&#34; width=&#34;800&#34;/&gt;
+&lt;/figure&gt;
+&lt;/center&gt;
+&lt;p&gt;What&amp;rsquo;s really cool is watching an eagle &amp;ldquo;fly&amp;rdquo; and seeing these behaviors represented in action.  Take a look.&lt;/p&gt;
+&lt;center&gt; 
+&lt;figure&gt; 
+&lt;img src=&#34;/media/flight_animation.gif&#34; width=&#34;1000&#34;/&gt;
+&lt;/figure&gt;
+&lt;/center&gt;
+&lt;p&gt;Here you can really see the different behavioral modes as defined by the &lt;em&gt;k&lt;/em&gt;-means clustering.  The blue &amp;ldquo;gliding&amp;rdquo; points tend to be straight and descending; the pink &amp;ldquo;at altitude&amp;rdquo; points occur when the bird levels out. 
+The green and yellow flights are much more angular (&amp;ldquo;tortuous&amp;rdquo; as my eagle expert colleagues like to say), with the yellow &amp;ldquo;gaining altitude&amp;rdquo; points more obviously doing just that: going &amp;ldquo;up.&amp;rdquo;  All of this with a little 
+unsupervised learning!&lt;/p&gt;
+&lt;p&gt;You might notice the wind turbines at the bottom of the animation, which represent 250 meters AGL. This is the turbine rotor-swept zone (RSZ), within which bald eagles are potentially imperiled. What&amp;rsquo;s more, my biologist colleagues suspect that the green and yellow behaviors (&amp;ldquo;flapping&amp;rdquo; and &amp;ldquo;ascending&amp;rdquo;) are riskier to the eagle than the straighter pink (&amp;ldquo;soaring/flapping at altitude&amp;rdquo;) and blue (&amp;ldquo;gliding from thermal&amp;rdquo;) behaviors, as they are potentially more distracted in the former behaviors.  These can be defined to come up with three levels of risk:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&amp;ldquo;Low risk&amp;rdquo;: any GPS point outside the RSZ (&amp;gt;250m AGL)&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;Moderate risk&amp;rdquo;: any GPS point within the RSZ ($\leq$ 250m) that is also clustered into the &amp;ldquo;pink&amp;rdquo; or &amp;ldquo;blue&amp;rdquo; cluster&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;High risk&amp;rdquo;: any GPS point within the RSZ that is also clustered in the &amp;ldquo;green&amp;rdquo; or &amp;ldquo;yellow&amp;rdquo; cluster&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So there we have it!  A framework for classifying every eagle GPS point into one of three risk categories, based on the topological flight characteristics of that point.  Next, we need to figure out if and how underlying land features can be used to predict which risk category overhead eagle points are most likely to be engaged in.  But that&amp;rsquo;s for a future post!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>A life of war (MakeoverMonday Week 6)</title>
+      <link>/post/mm6-2020-uswar/</link>
+      <pubDate>Fri, 14 Feb 2020 00:00:00 -0600</pubDate>
+      <guid>/post/mm6-2020-uswar/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://data.world/makeovermonday/2020w6&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;This week&amp;rsquo;s MakeoverMonday&lt;/a&gt; is a good one.  Without further ado, the original visualization by Philip Bump, appearing in his &lt;a href=&#34;https://www.washingtonpost.com/politics/2020/01/08/nearly-quarter-americans-have-never-experienced-us-time-peace/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Washington Post article&lt;/a&gt; entitled &lt;em&gt;Nearly 
+a quarter of Americans have never experienced the U.S. in a time of peace&lt;/em&gt;:&lt;/p&gt;
+&lt;figure&gt; 
+&lt;img src=&#34;/img/mm6-original.png&#34; alt=&#34;placeholder&#34; title=&#34;original graph&#34; height=&#34;400&#34; width=&#34;400&#34; /&gt;
+&lt;/figure&gt;
+&lt;p&gt;This graph triggered my pedagogical Pavlovian dog.  Not just because it&amp;rsquo;s easy to malign the poor pie chart (of which this graph has 115!), but because I had a hunch that a 
+redesign would reveal features of the data that are obscured above.&lt;/p&gt;
+&lt;p&gt;But first, since we &lt;em&gt;do&lt;/em&gt; have pie charts, why not briefly discuss their relative merits and demerits.  Pie charts are fine if we want to show portions of a whole, and then 
+only if we have relatively few slices.  In each pie above, we have only two slices for most years. So a pie chart would be just fine if, for example, I only cared about 
+showing the relative portion of life lived in war and peace for people born in 1905.  The problem is that we don&amp;rsquo;t just have a pie for 1905, but for every year 1905-2019.  If we 
+wanted to see how the percents change over time, we have to compare slice sizes &lt;em&gt;across pies&lt;/em&gt;, and this is very hard to do perceptually.  This draws from the work of William Cleveland, who ranked the elementary perceptual tasks we use to 
+compare quantities.  We are very bad at making accurate comparisons when the quantities are encoded as angles (I discuss this in more detail &lt;a href=&#34;http://driftlessdata.space/post/on-epts/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;In the Washington Post graph, the thing that jumps out at me is the column of all-red on the right, and how much less red there is on the left.  It&amp;rsquo;s easy to see that people born since 2001 have lived their entire life 
+during a U.S. war; those born in the early 20th century lived a much smaller portion of their lives during war.  What is &lt;em&gt;much less&lt;/em&gt; obvious is the nature of the upward trend: was it monotone?  Up-and-down? 
+This is hard to tell!  It doesn&amp;rsquo;t help that in the original article, with my desktop Chrome browser at normal zoom, the graph is so tall that you have to scroll up and down to take it all in.&lt;/p&gt;
+&lt;p&gt;Here is my redesign (&lt;a href=&#34;https://public.tableau.com/views/WhatportionofyourlifehastheU_S_beenatwarMakeoverMondayW6/Dashboard1?:display_count=y&amp;amp;publish=yes&amp;amp;:origin=viz_share_link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Tableau Public link&lt;/a&gt;):&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/US_at_war.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;I like to think of area charts as pie charts that work over time.  The redesign still shows us what the original did: people born in the early 20th century lived a much smaller portion of their lives
+during war than people born in 2001.  We have preserved the &amp;ldquo;part-of-a-whole&amp;rdquo; story that pie charts have to tell. What the redesign reveals is that the upward trend is not monotone.  Rather we see a &amp;ldquo;sawtooth&amp;rdquo; pattern, where the saw teeth peak during wars
+and and dip following wars.  Now that we have mapped these percents to a common vertical axis instead of encoded them as angles in a pie chart, we can perceive differences between them much more clearly.   And as a bonus, we don&amp;rsquo;t have to do any scrolling!&lt;/p&gt;
+&lt;p&gt;A quick caveat: my redesign only includes the same wars listed in the original article, but you could argue the U.S. has been involved in many wars beyond just the ones shown.  Take a look for example at
+&lt;a href=&#34;https://en.wikipedia.org/wiki/List_of_wars_involving_the_United_States&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;this list from Wikipedia&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>MakeoverMonday: Pesticide usage in US</title>
+      <link>/post/makeovermondayweek2-pesticides/</link>
+      <pubDate>Fri, 17 Jan 2020 00:00:00 -0600</pubDate>
+      <guid>/post/makeovermondayweek2-pesticides/</guid>
+      <description>&lt;p&gt;It&amp;rsquo;s been a while since I&amp;rsquo;ve posted!  For a while I&amp;rsquo;ve been interested in joining the &lt;a href=&#34;https://www.makeovermonday.co.uk/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MakeoverMonday&lt;/a&gt; community, a group
+of data visualizers who come together each week to critique and redesign a visualization provided by Eva Murray and Andy Kriebel.  I haven&amp;rsquo;t, due to busyness mostly, but this semester I finally took the 
+dive and signed up!  Call it a 2020 resolution. I hope that this will become a regular opportunity for me to keep developing my visualization critique and design skills.&lt;/p&gt;
+&lt;p&gt;I enjoyed my first challenge, &lt;a href=&#34;https://data.world/makeovermonday/2020w2&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MakeoverMonday 2020 Week 2&lt;/a&gt;,  a simple visualization that nonetheless provides a lot to think about and was a challenging redesign.&lt;/p&gt;
+&lt;p&gt;Here&amp;rsquo;s the original visualization, Figure 1 from the &lt;em&gt;Environmental Health&lt;/em&gt; article &lt;a href=&#34;https://ehjournal.biomedcentral.com/articles/10.1186/s12940-019-0488-0&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;em&gt;The USA lags behind other agricultural nations in banning harmful pesticides&lt;/em&gt;:&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/mm2-original.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&#34;https://data.world/makeovermonday/2020w2/workspace/file?filename=MM&amp;#43;data&amp;#43;week&amp;#43;2&amp;#43;2020.xlsx&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;data provided at data.world&lt;/a&gt; for the redesign don&amp;rsquo;t actually contain the same information on counts that we see in the original viz, but rather
+data on total weight of pesticides that are banned/phased out in other countries that were applied used in the U.S. in 2016.&lt;/p&gt;
+&lt;p&gt;My critiques of the original figure:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The way the &amp;ldquo;whole&amp;rdquo; is divvied up (whether that &amp;ldquo;whole&amp;rdquo; is number of pesticides or total lbs applied) between EU, Brazil, and China is very unclear.  The figure tries to get at intersections by
+including $\geq 1$, $\geq 2$ and All 3, but it&amp;rsquo;s impossible to know which pesticides are banned by (for example) both China and Brazil.  It takes a while to understand what the &amp;ldquo;whole&amp;rdquo; is.&lt;/li&gt;
+&lt;li&gt;The categories along the horizontal are a mix of both country labels and &lt;em&gt;number of countries&lt;/em&gt;.  I don&amp;rsquo;t like this mixing of label types.&lt;/li&gt;
+&lt;li&gt;Only counts of pesticides are shown: no information about &lt;em&gt;amount&lt;/em&gt; of pesticides applied is available in the visualization shown.  For example, China has banned only 11 pesticides, but does it ban the &amp;ldquo;big ones&amp;rdquo; as applied in the U.S.?  We can&amp;rsquo;t 
+tell from the figure.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In my redesign, I had a couple goals to address these critiques:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Make clear what the &amp;ldquo;whole&amp;rdquo; is.&lt;/li&gt;
+&lt;li&gt;Allow the viewer to see where the intersections in banned pesticides exist.  E.g., if a pesticide is banned in the EU, is it also banned in China, or in Brazil?  All 3?&lt;/li&gt;
+&lt;li&gt;Visualization amount applied rather than counts.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;To accomplish this I had to dig a bit deeper than the data provided on Data World, and found what I was looking for with &lt;a href=&#34;https://static-content.springer.com/esm/art%3A10.1186%2Fs12940-019-0488-0/MediaObjects/12940_2019_488_MOESM5_ESM.xlsx&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Additional File 5, Tables S131-S133&lt;/a&gt; from
+the article.  I also had to do a bit of cleaning.  Here&amp;rsquo;s a &lt;a href=&#34;https://www.dropbox.com/s/oop1g8ws3dbwir3/pesticide_clean.csv?dl=0&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;link to the data&lt;/a&gt; I ultimately ended up connecting to in Tableau&lt;/p&gt;
+&lt;p&gt;Finally, my redesign (&lt;a href=&#34;https://public.tableau.com/views/pesticide_viz/Dashboard32?:display_count=y&amp;amp;publish=yes&amp;amp;:origin=viz_share_link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Tableau Public version&lt;/a&gt;):&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/mm2.PNG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Some design comments:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;This accomplishes (I think) a clear visual of &amp;ldquo;the whole&amp;rdquo;: the giant (perhaps too giant) grey box with &amp;ldquo;328 million pounds&amp;rdquo; are the first things you see&lt;/li&gt;
+&lt;li&gt;If desired, you can see which pesticides are banned in the EU, China, &lt;em&gt;&lt;strong&gt;and/or&lt;/strong&gt;&lt;/em&gt; Brazil.  This information was obscured before.&lt;/li&gt;
+&lt;li&gt;You can now see that although China has banned fewer pesticides, they are pesticides that are more widely used (at least in the U.S.).&lt;/li&gt;
+&lt;li&gt;A critique of my own redesign: are the percents meaningful?  &amp;ldquo;98%&amp;rdquo; is a weird percent: the percent of &lt;em&gt;US-applied&lt;/em&gt; pesticides that are banned in the EU.  If they were banned in the US,
+would they be replaced by something else?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Some technical comments:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The grey box is giant, perhaps too much so, but getting Tableau to label the cells of the treemap in a satisfactory way was a pain.  Some of the labels (e.g. Fomesan) I added manually.&lt;/li&gt;
+&lt;li&gt;Getting the four treemaps to divide the pesticides up in the same way, while applying different color schemes, was a pain and I used a hack approach (download the Tableau workbook if you are curious).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;R code for creating the .csv I used in my redesign, which begins with a &lt;a href=&#34;https://www.dropbox.com/s/npu4pp5oaxewznz/pesticide_complete_stack.csv?dl=0&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;stacked version&lt;/a&gt; of Tables S131-S133 from 
+&lt;a href=&#34;https://static-content.springer.com/esm/art%3A10.1186%2Fs12940-019-0488-0/MediaObjects/12940_2019_488_MOESM5_ESM.xlsx&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Additional file 5&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pest &amp;lt;- read.csv(&#39;pesticide_complete_stack.csv&#39;)
+
+library(tidyr) 
+library(dplyr)
+lbs &amp;lt;- pest %&amp;gt;% group_by(Pesticide) %&amp;gt;% summarize(USLbs2016 = mean(USLbs2016))
+use &amp;lt;- function(col) ifelse(is.na(col),0,1)
+
+out &amp;lt;- pest %&amp;gt;% spread(key = CountryBanned, value = USLbs2016) %&amp;gt;%
+  inner_join(lbs, by = &#39;Pesticide&#39;) %&amp;gt;%
+  mutate_at(vars(EU:Brazil), use) %&amp;gt;%
+  mutate(nbanned = Brazil + China + EU) %&amp;gt;%
+  mutate(used_US = ifelse(USLbs2016&amp;gt; 0, 1, 0)) %&amp;gt;% 
+  select(Pesticide, USLbs2016, EU,China,Brazil,nbanned,used_US)
+
+write.csv(out, file = &#39;pesticide_clean.csv&#39;,row.names=FALSE)
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>A word in favor of summarytools</title>
+      <link>/post/summarytools/</link>
+      <pubDate>Tue, 08 Jan 2019 00:00:00 +0000</pubDate>
+      <guid>/post/summarytools/</guid>
+      <description>&lt;p&gt;Yesterday, I was preparing material for STAT 405 (biostatistics) I am teaching this spring, and was on the prowl for something that is an improvement upon the base R &lt;code&gt;summary()&lt;/code&gt; function (it doesn&amp;rsquo;t even give standard deviations!).  The ideal package would also improve upon the base R &lt;code&gt;table()&lt;/code&gt; method, for which getting row and/or column percents is a huge pain. Base function &lt;code&gt;xtabs()&lt;/code&gt; is great for getting arrays of contigency tables, but no percents.  My first stop was the &lt;a href=&#34;https://cran.r-project.org/web/packages/Hmisc/Hmisc.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;Hmisc&lt;/code&gt; package&lt;/a&gt;, which has a good summary method via its &lt;code&gt;describe()&lt;/code&gt; function.&lt;br&gt;
+To demonstrate I use the &lt;a href=&#34;http://www.biostat.ucsf.edu/vgsm/data.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Western Collaborative Group Survey (WCGS)&lt;/a&gt; data from Eric Vittingoff&amp;rsquo;s excellent book &lt;em&gt;Regression Methods in Biostatistics&lt;/em&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;Hmisc::describe(wcgs[,1:5])
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## wcgs[, 1:5] 
+## 
+##  5  Variables      3154  Observations
+## --------------------------------------------------------------------------------
+## age 
+##        n  missing distinct     Info     Mean      Gmd      .05      .10 
+##     3154        0       21    0.996    46.28    6.256       39       40 
+##      .25      .50      .75      .90      .95 
+##       42       45       50       55       57 
+## 
+## lowest : 39 40 41 42 43, highest: 55 56 57 58 59
+## --------------------------------------------------------------------------------
+## arcus 
+##        n  missing distinct     Info      Sum     Mean      Gmd 
+##     3152        2        2    0.628      941   0.2985    0.419 
+## 
+## --------------------------------------------------------------------------------
+## behpat 
+##        n  missing distinct 
+##     3154        0        4 
+##                                   
+## Value         A1    A2    B3    B4
+## Frequency    264  1325  1216   349
+## Proportion 0.084 0.420 0.386 0.111
+## --------------------------------------------------------------------------------
+## bmi 
+##        n  missing distinct     Info     Mean      Gmd      .05      .10 
+##     3154        0      679        1    24.52    2.803    20.59    21.52 
+##      .25      .50      .75      .90      .95 
+##    22.96    24.39    25.84    27.45    28.73 
+## 
+## lowest : 11.19061 15.66050 16.87200 17.21633 17.22242
+## highest: 36.04248 37.22973 37.24805 37.65281 38.94737
+## --------------------------------------------------------------------------------
+## chd69 
+##        n  missing distinct 
+##     3154        0        2 
+##                       
+## Value         No   Yes
+## Frequency   2897   257
+## Proportion 0.919 0.081
+## --------------------------------------------------------------------------------
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;It also has a &lt;code&gt;summary&lt;/code&gt; method for objects of class &lt;code&gt;formula&lt;/code&gt; which ultimately can be used to create tables that are ready for markdown:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;summary(chd69~agec, data = wcgs,method=&#39;reverse&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## 
+## Descriptive Statistics by chd69
+## 
+## +------------+-----------+-----------+
+## |            |No         |Yes        |
+## |            |(N=2897)   |(N=257)    |
+## +------------+-----------+-----------+
+## |agec : 35-40|18%  ( 512)|12%  (  31)|
+## +------------+-----------+-----------+
+## |    41-45   |36%  (1036)|21%  (  55)|
+## +------------+-----------+-----------+
+## |    46-50   |23%  ( 680)|27%  (  70)|
+## +------------+-----------+-----------+
+## |    51-55   |16%  ( 463)|25%  (  65)|
+## +------------+-----------+-----------+
+## |    56-60   | 7%  ( 206)|14%  (  36)|
+## +------------+-----------+-----------+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;It does not work as well as you would expect for additional dimensions, however:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;summary(chd69~agec+behpat, data = wcgs,method=&#39;reverse&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## 
+## Descriptive Statistics by chd69
+## 
+## +------------+-----------+-----------+
+## |            |No         |Yes        |
+## |            |(N=2897)   |(N=257)    |
+## +------------+-----------+-----------+
+## |agec : 35-40|18%  ( 512)|12%  (  31)|
+## +------------+-----------+-----------+
+## |    41-45   |36%  (1036)|21%  (  55)|
+## +------------+-----------+-----------+
+## |    46-50   |23%  ( 680)|27%  (  70)|
+## +------------+-----------+-----------+
+## |    51-55   |16%  ( 463)|25%  (  65)|
+## +------------+-----------+-----------+
+## |    56-60   | 7%  ( 206)|14%  (  36)|
+## +------------+-----------+-----------+
+## |behpat : A1 | 8%  ( 234)|12%  (  30)|
+## +------------+-----------+-----------+
+## |    A2      |41%  (1177)|58%  ( 148)|
+## +------------+-----------+-----------+
+## |    B3      |40%  (1155)|24%  (  61)|
+## +------------+-----------+-----------+
+## |    B4      |11%  ( 331)| 7%  (  18)|
+## +------------+-----------+-----------+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Enter &lt;a href=&#34;https://cran.r-project.org/web/packages/summarytools/vignettes/Introduction.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;summarytools&lt;/a&gt;, immediately appealing in its simplicity.  Indeed it only has four primary functions, centered on its wonderful &lt;code&gt;dfSummary()&lt;/code&gt; function:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(summarytools)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Registered S3 method overwritten by &#39;pryr&#39;:
+##   method      from
+##   print.bytes Rcpp
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## For best results, restart R session and update pander using devtools:: or remotes::install_github(&#39;rapporter/pander&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../img/dfsummary1.PNG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;This is the prettiest, most thorough output I&amp;rsquo;ve come across in a summary function, complete with ASCII bar graphs or histograms representing categorical or quantitative variables.  You can prettify it even further in the browser with the &lt;code&gt;view()&lt;/code&gt; command:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;view(dfSummary(wcgs))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../../img/dfsummary2.PNG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Two-way tables come by way of &lt;code&gt;ctable()&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ctable(wcgs$agec,wcgs$chd69)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Cross-Tabulation, Row Proportions  
+## agec * chd69  
+## Data Frame: wcgs  
+## 
+## ------- ------- -------------- ------------- ---------------
+##           chd69             No           Yes           Total
+##    agec                                                     
+##   35-40            512 (94.3%)    31 ( 5.7%)    543 (100.0%)
+##   41-45           1036 (95.0%)    55 ( 5.0%)   1091 (100.0%)
+##   46-50            680 (90.7%)    70 ( 9.3%)    750 (100.0%)
+##   51-55            463 (87.7%)    65 (12.3%)    528 (100.0%)
+##   56-60            206 (85.1%)    36 (14.9%)    242 (100.0%)
+##   Total           2897 (91.9%)   257 ( 8.1%)   3154 (100.0%)
+## ------- ------- -------------- ------------- ---------------
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;A couple drawbacks to &lt;code&gt;summarytools&lt;/code&gt;: (1) It is not very compatible with the tidyverse, as you can see with the above use of &lt;code&gt;ctable()&lt;/code&gt;.  (2) Even the nice 2x2 table is not easily extentable to higher dimensions.  You could use &lt;code&gt;by()&lt;/code&gt;, but&amp;hellip;who wants to do that?&lt;/p&gt;
+&lt;p&gt;In finishing this post I see Adam Medcalf from Dabbling with Data has a &lt;a href=&#34;https://dabblingwithdata.wordpress.com/2018/01/02/my-favourite-r-package-for-summarising-data/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;nice post&lt;/a&gt; on Hmisc, summarytools, and a couple others as well.  For my money, I&amp;rsquo;ll take summarytools, though I wish its beautiful 2x2 table displays were more easily extended and its &lt;code&gt;ctable()&lt;/code&gt; and &lt;code&gt;descr()&lt;/code&gt; functions more tidyverseable!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Stat consulting: a data science playground</title>
+      <link>/post/dsci-consulting/</link>
+      <pubDate>Wed, 02 Jan 2019 00:00:00 +0000</pubDate>
+      <guid>/post/dsci-consulting/</guid>
+      <description>&lt;p&gt;This past semester I taught our &lt;a href=&#34;../../courses/stat370/stat370-home/&#34;&gt;STAT 370 (statistical consulting and communication)&lt;/a&gt; for the first time.  This course gave student experience consulting for real clients from the university and community and focused on communicating with a client as well as report and presentation preparation best practices.  Most of the required analyses were simple: paired t-tests, simple linear regression, etc.  What struck me was the nontrivality of the data tidying process!  While STAT 370 is taken mostly by our statistics majors, so many of the examples we encountered would be beautiful case studies for our introductory DSCI (data science) curriculum. In this post I present an actual example from a client that illustrates this.&lt;/p&gt;
+&lt;p&gt;The data here concerned undergraduate nursing students in one of four terms of the nursing program.  Of interest was measuring the students&#39; resiliency as measured by the Connor-Davidson Resiliency Scale (CDRS), both prior to and following impelementation of a Stress Management and Resiliency Training (SMART).  The client was interested in determining for which of the four terms was there a significant change in resilience.&lt;/p&gt;
+&lt;p&gt;Here are the data we&amp;rsquo;re working with (&lt;a href=&#34;../../files/cdrs_data_pre.csv&#34;&gt;link to pre&lt;/a&gt; | &lt;a href=&#34;../../files/cdrs_data_post.csv&#34;&gt;link to post&lt;/a&gt;). &lt;code&gt;id&lt;/code&gt; stands for a unique student identifier.  We also have responses to 18 of the CDRS items (each on a 5-point Likert scale).  The &lt;code&gt;post&lt;/code&gt; data set also contains the student terms; notably this information is &lt;em&gt;not&lt;/em&gt; available in the &lt;code&gt;pre&lt;/code&gt; data set.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(dplyr)
+library(tidyr)
+library(ggplot2)
+pre &amp;lt;- read.csv(&#39;cdrs_data_pre.csv&#39;)
+post &amp;lt;- read.csv(&#39;cdrs_data_post.csv&#39;)
+head(post)
+names(pre) #missing term information!!
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##    id  Term CDRS_Q1 CDRS_Q2 CDRS_Q3 CDRS_Q4 CDRS_Q5 CDRS_Q6 CDRS_Q7 CDRS_Q8
+## 1  23 Term1       4       4       3       4       4       3       3       4
+## 2 183 Term1       3       4       4       3       4       3       4       2
+## 3  80 Term1       3       4       4       3       4       3       4       3
+## 4   1 Term1       3       4       4       3       3       2       4       4
+## 5 166 Term1       3       4       3       4       4       4       4       4
+## 6  15 Term1       3       3       2       3       3       2       3       3
+##   CDRS_Q9 CDRS_Q10 CDRS_Q11 CDRS_Q12 CDRS_Q20 CDRS_Q21 CDRS_Q22 CDRS_Q23
+## 1       4        4        4        3        2        3        3        3
+## 2       3        3        3        3        3        3        3        3
+## 3       4        4        4        4        4        4        4        3
+## 4       4        4        4        4        2        3        3        2
+## 5       4        4        4        4        3        4        4        4
+## 6       2        3        3        3        2        3        3        3
+##   CDRS_Q24 CDRS_Q25
+## 1        4        4
+## 2        4        4
+## 3        4        4
+## 4        3        4
+## 5        4        4
+## 6        3        3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] &amp;quot;id&amp;quot;       &amp;quot;CDRS_Q1&amp;quot;  &amp;quot;CDRS_Q2&amp;quot;  &amp;quot;CDRS_Q3&amp;quot;  &amp;quot;CDRS_Q4&amp;quot;  &amp;quot;CDRS_Q5&amp;quot; 
+##  [7] &amp;quot;CDRS_Q6&amp;quot;  &amp;quot;CDRS_Q7&amp;quot;  &amp;quot;CDRS_Q8&amp;quot;  &amp;quot;CDRS_Q9&amp;quot;  &amp;quot;CDRS_Q10&amp;quot; &amp;quot;CDRS_Q11&amp;quot;
+## [13] &amp;quot;CDRS_Q12&amp;quot; &amp;quot;CDRS_Q20&amp;quot; &amp;quot;CDRS_Q21&amp;quot; &amp;quot;CDRS_Q22&amp;quot; &amp;quot;CDRS_Q23&amp;quot; &amp;quot;CDRS_Q24&amp;quot;
+## [19] &amp;quot;CDRS_Q25&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Note that the data are not &lt;a href=&#34;https://www.jstatsoft.org/article/view/v059i10&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;tidy&lt;/a&gt; in the sense that each row is a person, and we have variable information on the questions in columns.  I&amp;rsquo;ll return to this in a bit.&lt;/p&gt;
+&lt;p&gt;Here ultimately is a visualization that we could use to determine for which terms are the SMART effects strongest, and for which terms is the effect statistically significant:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/dsci-consulting_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;We can see that the average resilience pre-SMART was lower than average resilience post-SMART, and that these differences were most extreme for students in Terms 2 and 3 (which were also the only statistically significant differences).  Additionally, students in Term 4 had very high pre- and post-SMART resilience (they&amp;rsquo;re seasoned veterans, after all!)&lt;/p&gt;
+&lt;p&gt;A simple plot, with a simple interpretation.  But the path to get there is anything but!  To create this plot we need:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;to average the 18 CDRS items for each student;&lt;/li&gt;
+&lt;li&gt;join the data sets;&lt;/li&gt;
+&lt;li&gt;compute paired t-tests for each term;&lt;/li&gt;
+&lt;li&gt;prepare data for plotting;&lt;/li&gt;
+&lt;li&gt;plot&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;So, let&amp;rsquo;s proceed!&lt;/p&gt;
+&lt;h2 id=&#34;average-the-cdrs-items&#34;&gt;Average the CDRS items&lt;/h2&gt;
+&lt;p&gt;This is perhaps the most interesting step in the process.  As mentioned earlier, the data are not tidy in the sense that we have variable information in columns instead of rows.  We could reshape (&amp;ldquo;gather&amp;rdquo; or &amp;ldquo;melt&amp;rdquo;) to average CDRS score by term.  Doing this for the post data set:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;post_melt &amp;lt;- post %&amp;gt;% 
+  gather(key = &#39;Question&#39;,value=&#39;Response&#39;,CDRS_Q1:CDRS_Q25)
+head(post_melt)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##    id  Term Question Response
+## 1  23 Term1  CDRS_Q1        4
+## 2 183 Term1  CDRS_Q1        3
+## 3  80 Term1  CDRS_Q1        3
+## 4   1 Term1  CDRS_Q1        3
+## 5 166 Term1  CDRS_Q1        3
+## 6  15 Term1  CDRS_Q1        3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;post_melt %&amp;gt;% 
+  group_by(id,Term) %&amp;gt;%
+  summarize(post_mean = mean(Response))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## `summarise()` regrouping output by &#39;id&#39; (override with `.groups` argument)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 67 x 3
+## # Groups:   id [67]
+##       id Term  post_mean
+##    &amp;lt;int&amp;gt; &amp;lt;chr&amp;gt;     &amp;lt;dbl&amp;gt;
+##  1     1 Term1      3.33
+##  2     2 Term3      3   
+##  3     4 Term2      2.83
+##  4     8 Term2      3.11
+##  5     9 Term1      2.72
+##  6    13 Term4      2.72
+##  7    15 Term1      2.78
+##  8    20 Term1      3   
+##  9    23 Term1      3.5 
+## 10    26 Term4      2.56
+## # ... with 57 more rows
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We could also forego the melting, since ultimately all we want is the average response for each student.  We can use the original &lt;code&gt;post&lt;/code&gt; data set, and an application of the &lt;code&gt;rowMeans()&lt;/code&gt; function within which is nested the &lt;code&gt;select()&lt;/code&gt; command:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;post2 &amp;lt;- post %&amp;gt;%
+  mutate(post_mean = rowMeans(select(.,CDRS_Q1:CDRS_Q25))) %&amp;gt;%
+  select(id, Term, post_mean)
+head(post2)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##    id  Term post_mean
+## 1  23 Term1  3.500000
+## 2 183 Term1  3.277778
+## 3  80 Term1  3.722222
+## 4   1 Term1  3.333333
+## 5 166 Term1  3.833333
+## 6  15 Term1  2.777778
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;One could argue that the first approach (using &lt;code&gt;gather()&lt;/code&gt;) is the best, since it first creates a &amp;ldquo;tidy&amp;rdquo; data set and is arguably more readable.  But the second appears more succinct.  I&amp;rsquo;ll use the second approach to carry out the same task on the &lt;code&gt;pre&lt;/code&gt; data:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pre2 &amp;lt;- pre %&amp;gt;%
+  mutate(pre_mean = rowMeans(select(.,CDRS_Q1:CDRS_Q25))) %&amp;gt;%
+  select(id, pre_mean)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;join-pre-and-post&#34;&gt;Join pre and post&lt;/h2&gt;
+&lt;p&gt;This step is easy!&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;both &amp;lt;- inner_join(pre2,post2,by=&#39;id&#39;)
+head(both)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   id pre_mean  Term post_mean
+## 1  1 3.333333 Term1  3.333333
+## 2  2 2.944444 Term3  3.000000
+## 3  4 2.888889 Term2  2.833333
+## 4  8 2.944444 Term2  3.111111
+## 5  9 2.444444 Term1  2.722222
+## 6 13 2.944444 Term4  2.722222
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;carry-out-paired-t-tests-by-term&#34;&gt;Carry out paired t-tests by term&lt;/h2&gt;
+&lt;p&gt;Here is the lone &amp;ldquo;formal&amp;rdquo; statistical aspect of the whole problem!  We can carry out paired t-tests by term as follows using some ugly base-R code: the &lt;code&gt;by()&lt;/code&gt; command.  I won&amp;rsquo;t show the output, but here we can see that only for Terms 2 and 3 is the SMART effect statistically significant:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;by(both, both$Term, function(df) t.test(df$pre_mean,df$post_mean,paired=TRUE))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;prepare-data-for-plotting&#34;&gt;Prepare data for plotting&lt;/h2&gt;
+&lt;p&gt;Referring back to the figure, the geometric mapping includes four points for the four pre-SMART CDRS averages (one for each term); four points for the post-SMART CDRS averages (one for each term); and a line segment connecting them.  We can use the joined data set to form our &amp;ldquo;plotting&amp;rdquo; data set.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;toplot &amp;lt;- both %&amp;gt;%
+  group_by(Term) %&amp;gt;%
+  summarize(avg_pre = mean(pre_mean),avg_post = mean(post_mean)) %&amp;gt;% 
+  mutate(sig = c(&#39;no&#39;,&#39;yes&#39;,&#39;yes&#39;,&#39;no&#39;))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## `summarise()` ungrouping output (override with `.groups` argument)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;toplot
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 4 x 4
+##   Term  avg_pre avg_post sig  
+##   &amp;lt;chr&amp;gt;   &amp;lt;dbl&amp;gt;    &amp;lt;dbl&amp;gt; &amp;lt;chr&amp;gt;
+## 1 Term1    2.97     3.10 no   
+## 2 Term2    2.98     3.16 yes  
+## 3 Term3    2.95     3.26 yes  
+## 4 Term4    3.21     3.2  no
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Note that the &lt;code&gt;avg_pre&lt;/code&gt; and &lt;code&gt;avg_post&lt;/code&gt; columns are in fact &amp;ldquo;means of means,&amp;rdquo; and we have manually added a column to indicate whether the difference was statistically significant.&lt;/p&gt;
+&lt;h2 id=&#34;plot&#34;&gt;Plot!&lt;/h2&gt;
+&lt;p&gt;And now the fun begins!  Here is ggplot code to create the original figure:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ggplot(data = toplot) + 
+  geom_point(aes(x = avg_pre, y = 1:4, shape=&#39;a&#39;,color=sig),size=2)  + 
+  geom_point(aes(x = avg_post, y = 1:4,shape=&#39;b&#39;,color=sig),size=2) + 
+  geom_segment(aes(x = avg_pre, xend = avg_post, y=1:4,yend=1:4,color=sig)) + 
+  scale_y_reverse() + xlab(&#39;average CDRS&#39;) + ylab(&#39;Term&#39;) + 
+  scale_shape_manual(name=&#39;&#39;,values=c(&#39;a&#39;=19,&#39;b&#39;=17),labels=c(&#39;pre SMART&#39;,&#39;post SMART&#39;)) + 
+  scale_color_discrete(name=&#39;significant?&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/dsci-consulting_files/figure-html/unnamed-chunk-10-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;h2 id=&#34;moral&#34;&gt;Moral&lt;/h2&gt;
+&lt;p&gt;Wow!  The only truly &amp;ldquo;statistical&amp;rdquo; aspect of this whole process was a paired t-test.  And even that was a bit tricky: figuring out how to carry out these t-tests by term!  In reflecting back on the semester, I am struck that our data science students would do well to take our stat consulting course.  They would be kept very interested in data &amp;ldquo;wrangling&amp;rdquo; tasks such as this. On the flip side, it&amp;rsquo;s an invaluable experience for our STAT majors (who comprise the usual audience of this course) to realize that the formal statistical analysis in which they are most trained is ultimately the last in a long series of data wrangling steps.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Data vizzing in Japan</title>
+      <link>/post/icots/</link>
+      <pubDate>Sat, 14 Jul 2018 00:00:00 -0500</pubDate>
+      <guid>/post/icots/</guid>
+      <description>&lt;p&gt;This July, my colleage Todd Iverson and I had the incredible opportunity to lead a &lt;a href=&#34;https://icots.info/10/?workshop=E&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;pre-conference workshop&lt;/a&gt; at &lt;a href=&#34;https://icots.info/10/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ICOTS 10&lt;/a&gt; in Kyoto, Japan.  Our workshop was titled &lt;em&gt;Data visualization: best practices and principles using Tableau Public and Python.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Our workshop began by covering &lt;a href=&#34;https://www.springer.com/us/book/9780387245447&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Leland Wilkinson&amp;rsquo;s grammar of graphics&lt;/a&gt;.  Most data visualization software (Tableau, Python, R, JMP) employ some version of this grammar, and with a firm understanding it becomes easy to transition between them.  We focused primarily on Tableau and Python in our workshop.  All the workshop materials are available at the designated &lt;a href=&#34;https://github.com/WSU-DataScience/ICOTS10_Data_Visualization&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Github repository&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;It was an engaging four hours that felt more like one hour, with participants from all over the world!  Our fantastic crew:&lt;/p&gt;
+&lt;center&gt;
+ &lt;figure&gt;
+    &lt;img width=&#34;500&#34; src=&#34;/img/icots.jpg&#34;&gt;
+ &lt;/figure&gt;
+&lt;/center&gt; 
+&lt;p&gt;ICOTS 10 itself was fantastic, including keynotes from Chris Wild, Hillary Parker, and Anna Rosling Rönnlund. And of course, we made time to explore and sample the local cuisine.&lt;/p&gt;
+&lt;img src=&#34;/img/fushimi.jpg&#34;  style=&#34;float: left; width: 48%; margin-right: 1%; margin-bottom: 0.5em;&#34;&gt;
+&lt;img src=&#34;/img/ramen.jpg&#34;  style=&#34;float: left; width: 48%; margin-right: 1%; margin-bottom: 0.5em;&#34;&gt;
+&lt;p style=&#34;clear: both;&#34;&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Modeling the Vitruvian Man</title>
+      <link>/post/vitruvian/</link>
+      <pubDate>Wed, 23 May 2018 00:00:00 +0000</pubDate>
+      <guid>/post/vitruvian/</guid>
+      <description>&lt;p&gt;This post describes an activity I developed for Stat 310: Intermediate Statistics.  This course is the second course on statistics at Winona State.  I like to think of it as our &amp;ldquo;introduction to modeling&amp;rdquo; course, and this activity does just that: introduces students to the idea of a statistical model, including model assessment and fitting.  The activity actually comes in two parts, administered at different times in the semester.  In the first part, I am trying to get students to think about how to assess and compare proposed models using residuals.  In the second, students need to fit their own models, and compare performance of fitted models.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.dropbox.com/s/rgco495f3mhy9my/Vitruvian%20man.docx?dl=0&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Link to Part 1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.dropbox.com/s/u8paynlm9gom22m/HW4.docx?dl=0&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Link to Part 2 (Question 3)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The &lt;em&gt;Vitruvian Man&lt;/em&gt; is a well-known drawing and study by Leonardo DaVinci:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/vitruvian-man.jpg&#34; alt=&#34;Figure Source:   https://en.wikipedia.org/wiki/Vitruvian_Man&#34;&gt;&lt;/p&gt;
+&lt;p&gt;This work is sometimes referred to as &lt;em&gt;Canon of Proportions&lt;/em&gt;, and is essentially a series of proposed proportions.  My activity focuses on two of these proportions:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;&lt;strong&gt;the length of the outspread arms is equal to the height of a man&lt;/strong&gt;&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;&lt;strong&gt;the distance from the elbow to the tip of the hand is a quarter of the height of a man&lt;/strong&gt;&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;part-1-comparing-proposed-models&#34;&gt;Part 1: comparing proposed models&lt;/h2&gt;
+&lt;p&gt;These proportions proposed by DaVinci are essentially two proposed statistical models!  We can test these models by collecting some data. This I did by having the students pair up and measure the following three quantities:&lt;/p&gt;
+&lt;p&gt;A. Height;&lt;br&gt;
+B. &amp;ldquo;Wingspan&amp;rdquo; (length of the outspread arms);&lt;br&gt;
+C. &amp;ldquo;Elbow-tip&amp;rdquo; (the distance from the elbow to the tip of the hand).&lt;/p&gt;
+&lt;p&gt;With these three measurements, we can assess which of DaVinci&amp;rsquo;s proposed proportions is &amp;ldquo;best!&amp;rdquo;  Notice that his first proportion is like fitting the model:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;$$Height = \beta_0 + \beta_1 \times Wingspan + \epsilon$$&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;In this model, both the intercept and the slope are fixed with &lt;code&gt;\(\beta_0 = 0\)&lt;/code&gt; and &lt;code&gt;\(\beta_1 = 1\)&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The second model is:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;$$Height = \beta_0 + \beta_1 \times ElbowTip + \epsilon$$&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Again in this model, the model parameters are fixed with &lt;code&gt;\(\beta_0 = 0\)&lt;/code&gt; and &lt;code&gt;\(\beta_1 = 4\)&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;So which model is better?!  This motivates finding the modeled &lt;code&gt;\(\widehat{Height}\)&lt;/code&gt; given each equation, and comparing the sum of squared residuals, &lt;em&gt;SSError&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;But first, let&amp;rsquo;s visualize!  Here is a scatterplot of Height vs Wingspan using the data collected by the 22 students in my Spring 2018 section of Stat 310.  The line indicates the proposed model with &lt;code&gt;\(\beta_0 = 0\)&lt;/code&gt; and &lt;code&gt;\(\beta_1 = 1\)&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/vitruvian_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;The model is about perfect for two students; but clearly imperfect for the other 20.  What about Elbow-Tip?&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/vitruvian_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Clearly, this fit looks worse.  We can quantify this by computing SSError, which equals 156 using wingspan and 504 using Elbow-Tip.&lt;/p&gt;
+&lt;h2 id=&#34;part-2-fitting-simple-linear-regression-models&#34;&gt;Part 2: Fitting simple linear regression models&lt;/h2&gt;
+&lt;p&gt;So, DaVinci&amp;rsquo;s proposed model using Wingspan wasn&amp;rsquo;t horrible, but the proposal using Elbow-Tip was.  Can we improve these proposed proportions by fitting simple linear regression models, and if so, which &lt;em&gt;fitted&lt;/em&gt; model is best?&lt;/p&gt;
+&lt;p&gt;The figure below shows the actual height plotted versus the fitted heights from the two mdoels, along with the (0,1) line:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/vitruvian_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s difficult to tell which model performs best!  Here we really do need the SSErrors, which are 117.8 using wingspan and 122.4 using Elbow-Tip.  So, close!  But Wingspan slightly out-performs Elbow-Tip as a predictor of height.  (Of course, these are in-sample SSErrors; a more accurate comparison would cross-validate which we discuss later in the course.)&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Public data resources with social justice applications</title>
+      <link>/post/about-social-justice/</link>
+      <pubDate>Thu, 15 Mar 2018 00:00:00 -0500</pubDate>
+      <guid>/post/about-social-justice/</guid>
+      <description>&lt;p&gt;Yesterday, several students and I traveled to St. Olaf to &lt;a href=&#34;../../talk/stolaf/&#34;&gt;illustrate several uses&lt;/a&gt; of interesting, publicly-available data that can be used to investigate &amp;ldquo;social justice&amp;rdquo; issues.  I&amp;rsquo;ve long been meaning to compile all the data sources and some example projects I&amp;rsquo;ve developed over the years, and this talk provided just the right motivation.   Accordingly, I have &lt;a href=&#34;../../project/social-justice-data/&#34;&gt;compiled a list&lt;/a&gt; of some of my favorite data sources and example projects and student work.  It takes some time to gather, wrangle, and aggregate some of these data sources. Part of my goal is to share some of the work I have already done to clean some of the messier data sets and pare them down to a more ready-to-use format.&lt;/p&gt;
+&lt;p&gt;Much thanks goes to Dr. Julie Legler from St. Olaf for reaching out and inviting us to dialogue with her students, and for encouraging me to actually put in the work to compile all these resources!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Data set gold mine</title>
+      <link>/post/ufl/</link>
+      <pubDate>Wed, 21 Feb 2018 00:00:00 +0000</pubDate>
+      <guid>/post/ufl/</guid>
+      <description>&lt;p&gt;Quick one here.  As a statistics educator I am always on the lookout for interesting, real, digestable data that illustrate important statistical concepts.  That&amp;rsquo;s a tall order!&lt;/p&gt;
+&lt;p&gt;One site that I visit again and again is this excellent repository hosted at University of Florida.  &lt;a href=&#34;http://www.stat.ufl.edu/~winner/datasets.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Here&amp;rsquo;s the link.&lt;/a&gt;  I regularly ping this website for classes ranging from intro stats to experimental design to regression analysis.  Not only are they varied in scope and organized by topic, they also have brief descriptions and citations of original sources. It&amp;rsquo;s a gold mine!  Hat tip to my colleague &lt;a href=&#34;http://course1.winona.edu/bdeppa/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Brant Deppa&lt;/a&gt; aka Data Hound for originally cluing me in to this website.&lt;/p&gt;
+&lt;p&gt;Just an example, here&amp;rsquo;s one on modeling math scores as a function of LSD concentration I recently used in a &lt;a href=&#34;https://www.dropbox.com/s/u8paynlm9gom22m/HW4.docx?dl=0&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;homework assignment&lt;/a&gt; for my &lt;a href=&#34;../courses/stat310-home/&#34;&gt;intermediate statistics course&lt;/a&gt; (spoiler alert: taking LSD is &lt;em&gt;not&lt;/em&gt; recommended to improve math test score.)&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(ggplot2)
+df &amp;lt;- read.table(&#39;http://www.stat.ufl.edu/~winner/data/lsd.dat&#39;,header=FALSE,col.names=c(&#39;LSD&#39;,&#39;Score&#39;))
+ggplot(data = df,aes(x = LSD, y = Score)) + 
+  geom_point() + geom_smooth(method=&amp;quot;lm&amp;quot;) + 
+  xlab(&#39;LSD concentration (mcg/kg)&#39;) + ylab(&#39;Math score (out of 100)&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## `geom_smooth()` using formula &#39;y ~ x&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/UFL_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Notes from Liberal Arts Data Science Workshop</title>
+      <link>/post/lads/</link>
+      <pubDate>Mon, 15 Jan 2018 00:00:00 -0600</pubDate>
+      <guid>/post/lads/</guid>
+      <description>&lt;p&gt;When temperatures hit 0°F in Minnesota, what better remedy than to head to Florida and talk data science curriculum!  The 2-day workshop was held at the New College of Florida in Sarasota, FL.  This post reflects some of the ideas circulated at the workshop that stood out to me.&lt;/p&gt;
+&lt;h3 id=&#34;multivariate-thinking-and-the-introductory-statistics-and-data-science-course-preparing-students-to-make-sense-of-a-world-of-observational-data-nick-horton&#34;&gt;Multivariate thinking and the introductory statistics and data science course: preparing students to make sense of a world of observational data (Nick Horton)&lt;/h3&gt;
+&lt;p&gt;In this talk, Dr. Horton emphasized the fact that most data nowadays is &amp;ldquo;found data&amp;rdquo; of the observational nature.  In other words, it is rare to encounter studies that implement careful randomization into groups in order to account for confounding variables.
+In light of this, he made the following suggestions.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;In introductory statistics classes, focus less on technical assumptions of 2-sample t-test (for example sample size and degrees-of-freedom), and more on issues of confounding and randomization.&lt;/li&gt;
+&lt;li&gt;Bring multivariate thinking into the course early.  One easy way this can be done is to introduce data visualization from Day 1.&lt;/li&gt;
+&lt;li&gt;Introductory classes should emphasize writing, projects, and visualization&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;He also gave several examples of confounding; one can never have too many in their repertoire!  An example I really liked:  if a study finds that people who use sunscreen tend to have higher rates of skin cancer, would this imply that sunscreen is dangerous to use?  The confounding variable in this case would be sun exposure.  Of course, people who are using sunscreen are probably experiencing greater sun exposure, which is a risk factor for skin cancer.&lt;/p&gt;
+&lt;h3 id=&#34;projects-first-in-an-interdisciplinary-data-science-curriculum-jessen-havill&#34;&gt;Projects first in an interdisciplinary data science curriculum (Jessen Havill)&lt;/h3&gt;
+&lt;p&gt;Dr. Havill gave an overview of the new Data Analytics major at Denison University.  The major is intentionally &lt;em&gt;not&lt;/em&gt; named Data Science to emphasize  the liberal arts nature of the major.  It is extremely cross-disciplinary (the two new upper-level Data Analytics courses are taught by an &lt;a href=&#34;https://denison.edu/people/sarah-supp&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ecologist&lt;/a&gt; and an &lt;a href=&#34;https://denison.edu/people/anthony-bonifonte&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;operations researcher&lt;/a&gt;).  It was interesting to hear about the program at Denison and the thought they put into it.  Check out the &lt;a href=&#34;https://denison.edu/academics/data-analytics&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;program website&lt;/a&gt; for more details.&lt;/p&gt;
+&lt;h3 id=&#34;computer-science-in-the-data-science-curriculum-panel&#34;&gt;Computer science in the data science curriculum (Panel)&lt;/h3&gt;
+&lt;p&gt;This panel included Jessen Havill of Denison University; Dennis F.X. Mathaisel of Babson College; Julie Medero of Harvey Mudd College; and Imad Rahal of St. John&amp;rsquo;s University and The College of St. Benedict.  Some pertinent features of the panel:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;What CS skills are essential for data science?&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The single most important thing, according to Dr. Havill, is &lt;em&gt;&lt;strong&gt;abstraction&lt;/strong&gt;&lt;/em&gt;.  This concept is more important than the argument of whether this language is better than that language, and is something that can be taught in CS courses from Day 1.&lt;/li&gt;
+&lt;li&gt;Computational thinking that translates a problem into a computational solution, according to Dr. Medero.&lt;/li&gt;
+&lt;li&gt;How to even represent data that comes in nonstandard form, according to Dr. Rahal.  The ability to work with data of large Volume, Velocity, and in a wide Varieties of structure.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;Are more proprietary tools or more general purpose tools more important?&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The ability to learn something new is more important than expertise in a specific tool, according to Dr. Medero.&lt;/li&gt;
+&lt;li&gt;We will never keep up with all the proprietary tools.  The languages I want to use are those that are best for teaching.  Choosing a tool because it&amp;rsquo;s hot right now is not necessarily wise, according to Dr. Havill.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;florida-panthers-consulting-projects-brian-macdonald&#34;&gt;Florida Panthers consulting projects (Brian Macdonald)&lt;/h3&gt;
+&lt;p&gt;Probably my favorite presentation!  Brian is the Director of Hockey Analytics for the Florida Panthers, transitioning toward DIrector of Data Science and Research for the Panthers.  In this talk, Brian discussed some fascinating projects he&amp;rsquo;s worked on with students pursuing master&amp;rsquo;s degrees in business analytics.&lt;/p&gt;
+&lt;p&gt;In the first project, he described a model for predicting attendance for games using only information known before tickets go on sale.  This will help answer questions like, which games should be in which tiers for variable pricing?  What kinds of requests should the team make when the league is developing the schedule?  For example, does it make better sense from a sales standpoint to schedule good teams on a Saturday and a bad team during the week, or vice versa?&lt;/p&gt;
+&lt;p&gt;This project used data on announced attendance from nhl.com.  Predictors of attendance included day of week, holiday, month, opponent.  Interesting nuggets: nobody wants to go to games on Halloween or Easter; and people like to go to games against the &amp;ldquo;original 6&amp;rdquo; NHL teams.&lt;/p&gt;
+&lt;p&gt;The second project centered on understanding what influences season ticket renewal.  In short, people who attend more high-scoring, close games that their team wins, are more likely to renew.&lt;/p&gt;
+&lt;p&gt;Brian also discussed skills he looks for in interns.  He emphasized skills in data management and merging and data visualization more than analysis skills.  Coding experience is non-negotiable.&lt;/p&gt;
+&lt;h3 id=&#34;and-of-course&#34;&gt;And, of course&amp;hellip;&lt;/h3&gt;
+&lt;p&gt;&amp;hellip;there was beach time.&lt;/p&gt;
+&lt;center&gt;
+ &lt;figure&gt; 
+ &lt;img src=&#34;/img/beach2.jpg&#34; width=&#34;750&#34;&gt;
+ &lt;/figure&gt;
+&lt;/center&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>What students have to say about group homework</title>
+      <link>/post/group-homework/</link>
+      <pubDate>Fri, 05 Jan 2018 00:00:00 +0000</pubDate>
+      <guid>/post/group-homework/</guid>
+      <description>&lt;p&gt;The past two semesters of teaching our lower-level introductory statistics course here at WSU, I&amp;rsquo;ve incorporated in-class group homework.  I could go on at length about why *I* think group homework is beneficial, but that&amp;rsquo;s not the point of this post.  Rather, this is about  what the &lt;em&gt;students&lt;/em&gt; think.  I think it&amp;rsquo;s quite striking!&lt;/p&gt;
+&lt;p&gt;First, though, I do need to provide a couple quick details about how I manage group homework.  They occur approximately once a week, and I alternate between randomly assigning the students into groups of three and letting them choose their own groups.  When students choose their own, I encourage groups of three but allow four (no higher).&lt;/p&gt;
+&lt;p&gt;On end-of-semester course evaluations the past two semesters, I asked the following questions:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;What do you like BEST about in-class group homework?&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;What did you like LEAST about in-class group homework?&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Here is a word cloud of the responses to the first question (what did you like BEST?):&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/group-homework_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;There are a lot of words in here that I&amp;rsquo;m glad to see! (And that echo my motivation for implementing group homework.)  Students can &lt;em&gt;ask questions&lt;/em&gt;; &lt;em&gt;work&lt;/em&gt; with &lt;em&gt;people&lt;/em&gt;; &lt;em&gt;talk&lt;/em&gt; with &lt;em&gt;others&lt;/em&gt;; etc.  &lt;em&gt;Professor&lt;/em&gt; shows up in the cloud too; I&amp;rsquo;m always present and able to help problem-solve, or ask redirecting questions if students are off-topic.&lt;/p&gt;
+&lt;p&gt;Well and good.  But even more striking is the word cloud for student reponses to what they liked &lt;em&gt;LEAST&lt;/em&gt; about group homework:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in tm_map.SimpleCorpus(corpus, tm::removePunctuation): transformation
+## drops documents
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in tm_map.SimpleCorpus(corpus, function(x) tm::removeWords(x,
+## tm::stopwords())): transformation drops documents
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/group-homework_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;People didn&amp;rsquo;t work sometimes&lt;/strong&gt;&lt;/em&gt;&amp;hellip;it&amp;rsquo;s even grammatically correct!  It&amp;rsquo;s pretty obvious what I need to work on this semester regarding group homework.  One possibility to encourage universal participation: I assign the &amp;ldquo;scribe&amp;rdquo; of the group (the person writing down and submitting the group&amp;rsquo;s answers to be graded), and make sure it&amp;rsquo;s someone different each week.  Maybe simply paying better attention to students who are &amp;ldquo;staring off&amp;rdquo; and gently encouraging them to participate.&lt;/p&gt;
+&lt;p&gt;Also not surprising, given the groans when I announce it&amp;rsquo;s &amp;ldquo;random assignment week&amp;rdquo;, are the words &lt;em&gt;assigned&lt;/em&gt;, &lt;em&gt;random&lt;/em&gt;, and &lt;em&gt;randomly&lt;/em&gt;.  Students aren&amp;rsquo;t fond of being randomly assigned to groups, although it&amp;rsquo;s not something I see myself dropping.  It&amp;rsquo;s important to mix up the voices; give international and domestic students a chance to work together; and give students experience working in a team with people they don&amp;rsquo;t necessarily choose (that&amp;rsquo;s real life after all!)&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>On elementary perceptual tasks</title>
+      <link>/post/on-epts/</link>
+      <pubDate>Tue, 19 Dec 2017 00:00:00 +0000</pubDate>
+      <guid>/post/on-epts/</guid>
+      <description>&lt;p&gt;One of the first concepts I talk about in my &lt;a href=&#34;../../courses/dsci310/dsci310-home/&#34;&gt;data visualization course&lt;/a&gt; is the idea of the &lt;a href=&#34;http://info.slis.indiana.edu/~katy/S637-S11/cleveland84.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;em&gt;elementary perceptual task&lt;/em&gt;&lt;/a&gt; (EPT), an idea explored in depth by visualization pioneers William S. Cleveland and Robert McGill.  Essentially, EPTs are visual building blocks for comparing quantities.  The EPTs are summarized nicely in Figure 1 from &lt;a href=&#34;http://info.slis.indiana.edu/~katy/S637-S11/cleveland84.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;em&gt;Graphical Perception: Theory, Experiementation, and Application to the Development of Graphical Methods&lt;/em&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;center&gt;
+&lt;figure&gt;
+&lt;img src = &#34;../../img/ept.JPG&#34; width=&#34;500&#34;&gt;
+&lt;/figure&gt;
+&lt;/center&gt;
+&lt;p&gt;For example, looking at the two dots in the upper-left pane, we perceive that the top dot represents a larger quantity than the bottom dot, because it is &lt;em&gt;higher on a common scale&lt;/em&gt; than the bottom dot.   In the middle panel (&amp;ldquo;Angle&amp;rdquo;), we perceive that the angle on the right represents a larger quantity than the angle on the left, since it is a larger angle.&lt;/p&gt;
+&lt;p&gt;A fundamental finding from the article is that, as humans, we are better at some elementary perceptual tasks than at others.  We more accurately and easily compare quantities if they are mapped using &lt;em&gt;&lt;strong&gt;position on a common scale&lt;/strong&gt;&lt;/em&gt; than if they are mapped using &lt;em&gt;&lt;strong&gt;length&lt;/strong&gt;&lt;/em&gt;, &lt;em&gt;&lt;strong&gt;angle&lt;/strong&gt;&lt;/em&gt; or &lt;em&gt;&lt;strong&gt;size&lt;/strong&gt;&lt;/em&gt;.  In fact, Cleveland and McGill came up with the following ranking of EPTs we perform most efficiently when visually comparing quantities:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;&lt;strong&gt;Position along a common scale;&lt;/strong&gt;&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;&lt;strong&gt;Position along misaligned scales;&lt;/strong&gt;&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;&lt;strong&gt;Length;&lt;/strong&gt;&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;&lt;strong&gt;Angles;&lt;/strong&gt;&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;&lt;strong&gt;Size;&lt;/strong&gt;&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;&lt;strong&gt;Color&lt;/strong&gt;&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Recently, I wrote &lt;a href=&#34;../income-gestalt/&#34;&gt;a post&lt;/a&gt; discussing a few of the Gestalt principles and illustrating them with some ACS data on income, sex, and field of degree.  The Gestalt principles describe how we perceive patterns, while the EPTs describe how we most efficiently compare quantities.  In this post, we continue to use income data from the American Community Survey to illustrate EPTs.&lt;/p&gt;
+&lt;h3 id=&#34;case-study-employment-level-by-sex&#34;&gt;Case study: employment level by sex&lt;/h3&gt;
+&lt;p&gt;In my &lt;a href=&#34;../income-gestalt/&#34;&gt;previous post&lt;/a&gt;, it was apparent that a gender gap in average annual income persisted even when accounting for year, highest degree, and field of degree.  Another important factor that explains income is level of employment, as measured by average hours worked per week.  The data for this example are once again &lt;a href=&#34;https://www.dropbox.com/s/0wmr2brny428lo3/ACS-income-data-aggregated.csv?dl=0&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;aggregated ACS data&lt;/a&gt; from the &lt;a href=&#34;https://usa.ipums.org/usa-action/variables/group&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;IPUMS USA&lt;/a&gt; extract system, filtered to include only employed individuals with at least a Bachelor&amp;rsquo;s degree.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s start by sticking yet another pitchfork in the favorite straw man of data visualization: the pie chart.  With an understanding of EPTs, we can begin to understand why pie charts are &lt;a href=&#34;http://www.businessinsider.com/pie-charts-are-the-worst-2013-6&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;so&lt;/a&gt; &lt;a href=&#34;https://blog.funnel.io/why-we-dont-use-pie-charts-and-some-tips-on-better-data-visualizations&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;maligned&lt;/a&gt; in the data visualization community.  Take a look at the graph below, and try to determine how the percent of females working full time changes over the years:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/on-epts_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Pie charts are fine for visualizing &lt;em&gt;parts of a single whole&lt;/em&gt; (it is easy to tell that, in any given year, a majority of women work full time), but they make it difficult to compare parts of &lt;em&gt;different wholes&lt;/em&gt; (how the percent working full time changes over the years).
+This comparison is difficult to make because we are comparing &lt;em&gt;&lt;strong&gt;angles&lt;/strong&gt;&lt;/em&gt;, an elementary perceptual task that we do not perform very efficiently or well.  Here are the same data, different graph:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/on-epts_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;480&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Notice that it&amp;rsquo;s now much easier to discern that the percent of females working 40 or more hours per week is increasing over time, while the percent of females working part-time is decreasing.  We now compare the &lt;em&gt;&lt;strong&gt;position&lt;/strong&gt;&lt;/em&gt; of the quantities denoted by points along a common scale (the vertical Y-axis), rather than the &lt;em&gt;&lt;strong&gt;angle&lt;/strong&gt;&lt;/em&gt;.  We can also still clearly see that in each year, a majority of women work full time, by comparing the points along the common vertical scale within a single year.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s turn now to comparing the hours worked for females to males, in 2016 alone.  We&amp;rsquo;ll  use a bar chart for this:
+&lt;img src=&#34;/post/on-epts_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;What EPT are we using to compare the percents?  It is &lt;a href=&#34;http://flowingdata.com/2010/03/20/graphical-perception-learn-the-fundamentals-first/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;tempting to think&lt;/a&gt; that when we compare quantities in bar charts, we are comparing &lt;em&gt;&lt;strong&gt;lengths&lt;/strong&gt;&lt;/em&gt; of the bars.  But this is not the primary EPT we are using, here.  We are really comparing &lt;em&gt;&lt;strong&gt;position along a comon scale&lt;/strong&gt;&lt;/em&gt; once again.  This is clearer if we represent the quantities not as bars, but as points.  We are carrying out the same exact elementary perceptual task to compare the percents:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/on-epts_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;This &amp;ldquo;point chart&amp;rdquo; has a much better &lt;a href=&#34;http://www.infovis-wiki.net/index.php/Data-Ink_Ratio&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;em&gt;data-to-ink ratio&lt;/em&gt;&lt;/a&gt; than the bar chart, a concept coined by &lt;a href=&#34;https://www.edwardtufte.com/tufte/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Edward Tufte&lt;/a&gt;.  One could argue that it is cleaner and more succinct; better emphasizes the data; and exploits the same exact EPT as the bar chart.  Why, then, are bar charts so pervasive while these &amp;ldquo;point charts&amp;rdquo; are not?  I think the reason is two-fold.  First, we just have a comfort level with bar charts.  The point of a data visualization is communication: if we can communicate quicker with a more familiar medium, that has advantages.  Second, perhaps more importantly, when we see points we immediately start looking for trends.  &lt;em&gt;&lt;strong&gt;Direction&lt;/strong&gt;&lt;/em&gt; is one of Cleveland and McGill&amp;rsquo;s EPTs; we are more inclined to try to visually connect points than the tops of bars.  However, we shouldn&amp;rsquo;t always connect points, especially if the categories on the horizontal have no sense of ordering (for example, if &amp;ldquo;race,&amp;rdquo; which has no ordering, was on the horizontal instead of employment level).&lt;/p&gt;
+&lt;p&gt;For these reasons, let&amp;rsquo;s go back to the bar chart.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/on-epts_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;What comparison does this encourage us to make?  Because of the two separate panels for females and males (the &lt;a href=&#34;../income-gestalt/&#34;&gt;Gestalt principle&lt;/a&gt; of &lt;em&gt;&lt;strong&gt;enclosure&lt;/strong&gt;&lt;/em&gt;), the encouraged comparisons seem to be &lt;em&gt;within&lt;/em&gt; sex: among females, a much greater percent of them work 40 or more hours a week than are in the other 3 categories; the same can be said for males.  It is more likely that we want to compare &lt;em&gt;across&lt;/em&gt; sex: assess differences between males and females in work time.  How can we better encourage this comparison?  One approach is to group by hours worked, rather than sex:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/on-epts_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;This better encourages us to compare females to males, but it still requires us to jump from panel to panel to make that comparison for each employment level.  Another major problem with the above graph is that the percents are calculated by conditioning &lt;em&gt;on sex&lt;/em&gt;, whereas the facets make it appear the conditioning is &lt;em&gt;on employment level&lt;/em&gt;.  For example, when we see two bars representing percents in a single panel, we are tempted to think that the total height of the two bars is 100%, which is clearly not the case.  The &amp;ldquo;whole&amp;rdquo; out of which the percents are taken is not at all clear.&lt;/p&gt;
+&lt;p&gt;Here&amp;rsquo;s one last take: a &lt;em&gt;stacked bar chart&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/on-epts_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;This accomplishes two objectives previous visualizations lacked: A) making the most important comparison obvious (comparing females to males), and B) making obvious &amp;ldquo;the whole&amp;rdquo; out of which the percents are taken.  Note that when comparing females to males, we use &lt;em&gt;&lt;strong&gt;position along the common (vertical) axis&lt;/strong&gt;&lt;/em&gt; to compare the percents who work 40 or more hours (by determining which dark blue bar extends &lt;em&gt;highest&lt;/em&gt; on the vertical); and to compare the percents who work 20 or fewer hours (by determining which white bar extends &lt;em&gt;lowest&lt;/em&gt; on the vertical).  However, to compare the percent who work 21-30 or 31-39 across sex, we use &lt;em&gt;&lt;strong&gt;length&lt;/strong&gt;&lt;/em&gt;, since the middle bars do not share a common baseline.  Although we sacrifice making comparisons using &lt;em&gt;&lt;strong&gt;position along a common scale&lt;/strong&gt;&lt;/em&gt; with the stacked bar chart for two of the employment levels, we make up for it with fewer facets; more succinct presentation; and more obvious important comparisons.&lt;/p&gt;
+&lt;h3 id=&#34;data-notes&#34;&gt;Data notes&lt;/h3&gt;
+&lt;p&gt;Some of the averages in the &lt;a href=&#34;https://www.dropbox.com/s/0wmr2brny428lo3/ACS-income-data-aggregated.csv?dl=0&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;data set&lt;/a&gt; I used for this post (for example, average income for Alabaman males with a doctoral degree in 2009) are based on very few observations, and should be taken with a very large grain of salt.  Another brief data note: to aggregate this data set further, it is important to weight by the &lt;code&gt;N&lt;/code&gt; column, which indicates how many individuals in the population the average for that row represents.&lt;/p&gt;
+&lt;h3 id=&#34;r-code&#34;&gt;R code&lt;/h3&gt;
+&lt;p&gt;If interested, here is the R code for creating the bar charts.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(ggplot2)
+library(dplyr)
+
+#Read in the data; assuming current working directory houses the .csv file
+tmp &amp;lt;- read.csv(&#39;ACS-income-data-aggregated.csv&#39;)
+
+#Filter to only 2016; aggregate incomes
+df &amp;lt;- tmp%&amp;gt;%
+ filter(Year == 2016) %&amp;gt;%
+  group_by(Sex,Hours.work) %&amp;gt;%
+  summarize(count = sum(N), avg.income = weighted.mean(avg.income, N)) %&amp;gt;%
+  filter(Hours.work != &amp;quot;&amp;quot;)%&amp;gt;%
+  mutate(pct = count/sum(count))
+
+#Side by side; faceted by sex:
+ggplot(data = df) + 
+ geom_bar(aes(x = Hours.work, y = 100*pct, fill=Hours.work), stat=&#39;identity&#39;) + 
+  scale_fill_brewer(palette=&#39;Blues&#39;) +
+  guides(fill=FALSE) +
+  theme_dark()+
+   ggtitle(&#39;Employment level by sex: Bar chart&#39;) +
+ facet_wrap(~Sex)+
+    theme(panel.grid=element_blank()) + 
+  xlab(&#39;Employment level&#39;) + ylab(&#39;Percent&#39;)+
+  ylim(c(0,100))
+
+#Side by side; faceted by employment level:
+ggplot(data = df) + 
+ geom_bar(aes(x = Sex, y = 100*pct, fill=Hours.work), stat=&#39;identity&#39;) + 
+  scale_fill_brewer(palette=&#39;Blues&#39;) +
+  guides(fill=FALSE) +
+  theme_dark()+
+ facet_grid(.~Hours.work)+
+    theme(panel.grid=element_blank()) + 
+  xlab(&#39;Employment level&#39;) + ylab(&#39;Percent&#39;)+
+  ylim(c(0,100))
+
+#Stacked:
+ggplot(data = df) + 
+ geom_bar(aes(x = Sex, y = 100*pct, fill=Hours.work), stat=&#39;identity&#39;) + 
+  scale_fill_brewer(name=&#39;Employment level&#39;,palette=&#39;Blues&#39;) +
+  theme_dark()+
+    theme(panel.grid=element_blank()) + 
+  xlab(&#39;Employment level&#39;) + ylab(&#39;Percent&#39;)+
+  ylim(c(0,100))
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Gestalt principles and income inequality</title>
+      <link>/post/income-gestalt/</link>
+      <pubDate>Tue, 12 Dec 2017 00:00:00 +0000</pubDate>
+      <guid>/post/income-gestalt/</guid>
+      <description>&lt;p&gt;The fall semester is over and final grades are in, which means it&amp;rsquo;s time to reflect on what just took place and how to grow from here.  Today, I reflect on my third time teaching the &lt;a href=&#34;/courses/dsci310/home/&#34;&gt;data visualization course&lt;/a&gt;.  This course has come a long way since the first time I taught it in Fall 2015, and yet there are still so many improvements to make!  One of the concepts I want to greater emphasize next time I teach the course are the &lt;em&gt;Gestalt principles&lt;/em&gt;, which Gestalt psychologist Kurt Koffka summarizes as the idea that &lt;a href=&#34;https://www.interaction-design.org/literature/topics/gestalt-principles&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&amp;ldquo;The whole is &lt;em&gt;other&lt;/em&gt; than the sum of the parts.&amp;quot;&lt;/a&gt;.  I like to think of the Gestalt principles as ground rules for how to create meaningful patterns out of chaos.&lt;/p&gt;
+&lt;p&gt;Twain Taylor has an &lt;a href=&#34;https://www.fusioncharts.com/blog/how-to-use-the-gestalt-principles-for-visual-storytelling-podv/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;excellent post&lt;/a&gt; on how the Gestalt principles manifest in data visualization.  He summarizes the principles in this chart:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.fusioncharts.com/blog/wp-content/uploads/2014/03/illustrations.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Quoting from his &lt;a href=&#34;https://www.fusioncharts.com/blog/how-to-use-the-gestalt-principles-for-visual-storytelling-podv/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;post&lt;/a&gt;;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Here is what we notice from each of the illustrations:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Proximity&lt;/strong&gt;: We see three rows of dots instead of four columns of dots because they are closer horizontally than vertically.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Similarity&lt;/strong&gt;: We see similar looking objects as part of the same group.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Enclosure&lt;/strong&gt;: We group the first four and and last four dots as two rows instead of eight dots.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Symmetry&lt;/strong&gt;: We see three pairs of symmetrical brackets rather than six individual brackets.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Closure&lt;/strong&gt;: We automatically close the square and circle instead of seeing three disconnected paths.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Continuity&lt;/strong&gt;: We see one continuous path instead of three arbitrary ones.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Connection&lt;/strong&gt;: We group the connected dots as belonging to the same group.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Figure &amp;amp; ground&lt;/strong&gt;: We either notice the two faces, or the vase. Whichever we notice becomes the figure, and the other the ground&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;In my experience visualizing data, it seems the most pervasive principles are &lt;em&gt;proximity&lt;/em&gt;, &lt;em&gt;similarity&lt;/em&gt;, &lt;em&gt;enclosure&lt;/em&gt;, and &lt;em&gt;connection&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;I was struck by the ubiquitousness of these principles as I was reviewing my students&#39; final visualization projects.  One &lt;a href=&#34;https://public.tableau.com/views/STEM_8/Salary?:embed=y&amp;amp;:display_count=yes&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;very fine project in particular&lt;/a&gt; inspired me to write this post.  Next time I teach the visualization course, I hope to include the following example to illustrate these principles to my students.&lt;/p&gt;
+&lt;h3 id=&#34;illustrating-the-gestalt-principles-with-acs-income-data&#34;&gt;Illustrating the Gestalt principles with ACS income data&lt;/h3&gt;
+&lt;p&gt;As an example data set, I settled on data over 2009-2016 from the &lt;a href=&#34;https://www.census.gov/programs-surveys/acs/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;American Community Survey&lt;/a&gt;, which I requested from the &lt;a href=&#34;https://usa.ipums.org/usa/index.shtml&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;IPUMS USA&lt;/a&gt; data request system.  I specifically requested incomes by year, sex, educational attainment, and field of degree.  I filtered the data to only include those with a Bachelor&amp;rsquo;s degree or higher who were currently employed at the time of sampling, and created a new variable to indicate whether or not the field was a STEM field (using a combination of &lt;a href=&#34;http://mentornet.org/service/stem_fields.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;this source&lt;/a&gt; and &lt;a href=&#34;http://stemdegreelist.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;this source&lt;/a&gt; to help me determine).&lt;/p&gt;
+&lt;p&gt;The primary question I want to visualize is: &lt;em&gt;&lt;strong&gt;What is the inequality in average income comparing males to females?&lt;/strong&gt;&lt;/em&gt; Of course, average income depends on many other factors, including field of degree, type of degree, and year, to name just a few.  We&amp;rsquo;ll focus on visualizing the gender income gap adjusting for these other factors as well.&lt;/p&gt;
+&lt;p&gt;Here&amp;rsquo;s a quick look at the first six rows of the data set.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;##   Year    Sex              Educ    Field avg.income
+## 1 2009 Female Bachelor&#39;s degree Non-STEM   47440.41
+## 2 2009 Female Bachelor&#39;s degree     STEM   51423.20
+## 3 2009 Female   Doctoral degree Non-STEM   77378.22
+## 4 2009 Female   Doctoral degree     STEM   87257.88
+## 5 2009 Female   Master&#39;s degree Non-STEM   60549.57
+## 6 2009 Female   Master&#39;s degree     STEM   65621.16
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Notably, the data set consists of one row per year/sex/education/field category, with &lt;code&gt;avg.income&lt;/code&gt; indicating the average income for that combination.&lt;/p&gt;
+&lt;p&gt;So let&amp;rsquo;s visualize!  We want to investigate the gender income gap, so here&amp;rsquo;s a first go:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/income-gestalt_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;288&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Mostly, this is chaos!  But we do see the Gestalt principle of &lt;em&gt;&lt;strong&gt;proximity&lt;/strong&gt;&lt;/em&gt; manifest itself: we perceive the incomes on the left (belonging to females) as a group, and the incomes on the right (belonging to males) as a group.  Let&amp;rsquo;s incorporate &lt;strong&gt;Year&lt;/strong&gt; on the horizontal, since we are accustomed to identifying trends across time:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/income-gestalt_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;384&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;We now see year groupings by way of the &lt;em&gt;&lt;strong&gt;proximity&lt;/strong&gt;&lt;/em&gt; principle, and sex groupings via color-coding with the &lt;em&gt;&lt;strong&gt;similarity&lt;/strong&gt;&lt;/em&gt; principle.  There&amp;rsquo;s still too much chaos, however.  Let&amp;rsquo;s try again:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/income-gestalt_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;The amount of chaos is reduced dramatically, all by way of implementing the &lt;em&gt;&lt;strong&gt;enclosure&lt;/strong&gt;&lt;/em&gt; principle, specifically enclosing the highest level of educational attainments together in separate panels.  This particular type of enclosure is often referred to as &lt;em&gt;faceting&lt;/em&gt; in the data visualization realm. The drastic reduction in chaos, and improvement of clarity, is due to the fact that there were four educational attainment groupings.  We would not have improved the clarity as much if we had, say, grouped by field of degree instead, which only has two groups:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/income-gestalt_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Faceting by educational attainment is better, so let&amp;rsquo;s continue working with that one, now indicating field of degree:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/income-gestalt_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;The new principle is &lt;em&gt;&lt;strong&gt;connection&lt;/strong&gt;&lt;/em&gt;.  Clearly, we perceive each line as an entity, representing now a Sex/Field combination (Male/STEM, for example).  Another instance of &lt;em&gt;&lt;strong&gt;similarity&lt;/strong&gt;&lt;/em&gt; is in play, since the lines for STEM fields are dashed, while the lines for non-STEM fields are solid.&lt;/p&gt;
+&lt;p&gt;So, here we have it, a visualization that illustrates the principles of &lt;em&gt;&lt;strong&gt;proximity&lt;/strong&gt;&lt;/em&gt;, &lt;em&gt;&lt;strong&gt;similarity&lt;/strong&gt;&lt;/em&gt;, &lt;em&gt;&lt;strong&gt;enclosure&lt;/strong&gt;&lt;/em&gt;, and &lt;em&gt;&lt;strong&gt;connection&lt;/strong&gt;&lt;/em&gt;.  We&amp;rsquo;ve implemented these principles to significantly reduce chaos and improve clarity.  But there&amp;rsquo;s still an issue with this visualization.  Remember the intent of the visualization is to explore &lt;strong&gt;gender income inequality&lt;/strong&gt;.  If we take another look at the above visualization, this is not the most obvious comparison to make.  Rather, due to the &lt;em&gt;&lt;strong&gt;proximity&lt;/strong&gt;&lt;/em&gt; and &lt;em&gt;&lt;strong&gt;similarity&lt;/strong&gt;&lt;/em&gt; of the lines within each sex (they are close together, and of the same color), the comparison our brain is encouraged to make is to compare incomes of STEM to non-STEM, &lt;em&gt;within&lt;/em&gt; sex.  That&amp;rsquo;s not the most important comparison!  It makes most sense to compare males to females, &lt;em&gt;within&lt;/em&gt; field.&lt;/p&gt;
+&lt;p&gt;This brings us to a related concept: &lt;em&gt;not all means of introducing similarity are created equal&lt;/em&gt;.  When we group by similarity, we tend to first recognize similarities in &lt;em&gt;color&lt;/em&gt;, then in &lt;em&gt;shape&lt;/em&gt;.  Angela Wright, a color psychologist, states that &lt;a href=&#34;http://businessadvance.com/wp-content/uploads/2015/04/white-paper-sequence-of-cognition.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&amp;ldquo;color is noticed by the brain before shapes or wording.&amp;quot;&lt;/a&gt;  Thus if we want the encourage the viewer to compare the sexes, we should probably color-code by field instead, so we compare income by gender &lt;em&gt;within&lt;/em&gt; field.  Here&amp;rsquo;s how that looks:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/income-gestalt_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m still not convinced that this encourages the brain to first compare the sexes to each other.  The &lt;em&gt;&lt;strong&gt;proximity&lt;/strong&gt;&lt;/em&gt; of the STEM and non-STEM lines is too hard to overcome!  We might need to introduce another layer of &lt;em&gt;&lt;strong&gt;enclosure&lt;/strong&gt;&lt;/em&gt; (by way of faceting) to make the important comparison the most obvious:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/income-gestalt_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;details-on-data-collection-and-visualization&#34;&gt;Details on data collection and visualization&lt;/h3&gt;
+&lt;p&gt;IPUMS stands for &lt;em&gt;Integrated Public-Use Microdata Series&lt;/em&gt;.  The suite of &lt;a href=&#34;https://www.ipums.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;IPUMS tools&lt;/a&gt; is an excellent source of varied data, from health to education to international census data.  I aggregated the data for this example from the microdata extract, and you can download a &lt;a href=&#34;https://www.dropbox.com/s/r729zbwjjxoboy1/ACS-stem-aggregated.csv?dl=0&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;.csv of the aggregated data here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;R code for creating the &amp;ldquo;final two&amp;rdquo; visualizations is below:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(ggplot2)
+#Assuming file is in current working directory:
+stemdata &amp;lt;- read.csv(&amp;quot;ACS-stem-aggregated.csv&amp;quot;)
+stemdata$Educ &amp;lt;- factor(stemdata$Educ, levels = c(&amp;quot;Bachelor&#39;s degree&amp;quot;,&amp;quot;Master&#39;s degree&amp;quot;,&amp;quot;Doctoral degree&amp;quot;,&amp;quot;Professional degree&amp;quot;))
+
+#Faceting by education;
+#color-coding by field;
+#different lines for Sex:
+ggplot(data = stemdata) + 
+   geom_point(aes(x = Year, y = avg.income/1000,color=Field)) +
+     geom_line(aes(x = Year, y = avg.income/1000,color=Field,linetype=Sex)) +
+                facet_grid(.~Educ)+
+  ylab(&#39;Average income (in thousand $)&#39;)
+
+
+#Double faceting:
+ggplot(data = stemdata) + 
+  #geom_point(aes(x = Year, y = avg.income/1000, shape=Sex)) +
+     geom_line(aes(x = Year, y = avg.income/1000,linetype=Sex)) +
+                facet_grid(Field~ Educ)+
+  ylab(&#39;Average income (in thousand $)&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>And the winner is...</title>
+      <link>/post/policedatachallenge/</link>
+      <pubDate>Thu, 07 Dec 2017 00:00:00 -0600</pubDate>
+      <guid>/post/policedatachallenge/</guid>
+      <description>&lt;p&gt;The &lt;a href=&#34;/courses/dsci310/midterm/&#34;&gt;midterm project for my data visualization course&lt;/a&gt; this past fall required students to submit to the &lt;a href=&#34;http://thisisstatistics.org/policedatachallenge/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ASA&amp;rsquo;s Police Data Challenge&lt;/a&gt;.  The competition involved analyzing millions of 911 calls for one of three cities (Baltimore, Cincinnati, or Seattle).  I had the students investigate the Seattle data set, since it contained latitudes and longitudes of each call.&lt;/p&gt;
+&lt;p&gt;Several weeks later, we received the exciting news that one of the teams won &lt;a href=&#34;http://thisisstatistics.org/police-data-challenge-congratulations-to-our-winners/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&amp;ldquo;Best Overall&amp;rdquo;&lt;/a&gt; among undergraduate teams!  Congratulations to Winona State students &lt;a href=&#34;https://www.linkedin.com/in/jimmyjhickey/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Jimmy Hickey&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/kapil-khanal/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Kapil Khanal&lt;/a&gt;, and Luke Peacock for their excellent work.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Minne MUDAC 2017</title>
+      <link>/post/minnemudac/</link>
+      <pubDate>Fri, 10 Nov 2017 00:00:00 -0600</pubDate>
+      <guid>/post/minnemudac/</guid>
+      <description>&lt;center&gt; 
+&lt;figure&gt; 
+&lt;img src=&#34;/img/all-teams.jpg&#34; alt=&#34;placeholder&#34; title=&#34;test&#34; height=&#34;400&#34; width=&#34;600&#34; /&gt;
+ &lt;b&gt; Winona State University undergraduates made a great impression at the 2017 &lt;a href=&#34;http://minneanalytics.org/minnemudac&#34;&gt; MinneMUDAC data analytics competition &lt;/a&gt; &lt;/b&gt; 
+&lt;/figure&gt;
+&lt;/center&gt;
+&lt;p&gt;On November 3-4, Winona State statistics and data science students participated in the fantastic &lt;a href=&#34;http://minneanalytics.org/minnemudac/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MinneMUDAC 2017&lt;/a&gt; data analytics competition.  Students worked 
+in teams of up to five students for one month analyzing de-identified administrative medical and pharmacy claims data provided by &lt;a href=&#34;https://www.optum.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Optum&lt;/a&gt;.  The competition
+required students to analyze complicated data on health insurance claims made by Type-II diabetics.  The event was hosted by &lt;a href=&#34;http://minneanalytics.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MinneAnalytics&lt;/a&gt; at the Optum campus in Bloomington, Minnesota.&lt;/p&gt;
+&lt;p&gt;The event began the evening of November 3. MinneAnalytics provided dinner and a professional Q&amp;amp;A panel of data scientists.  The event kicked off in earnest on Saturday, November 4.  Students gave
+their 5-minute presentations to teams of judges, and  were scored on a variety of criteria ranging from analytic acumen; presentation organization; and team synergy.  Some weight
+was also given by how accurately teams could predict the top-6000 most expensive Type-II diabetics for the next calendar year for a held-out target data set of patients for 
+which the actual insurance costs were known only to the event organizers.&lt;/p&gt;
+&lt;p&gt;The top five teams from the first round went on to present to all judges in a final round.  From this final round, teams were given awards for &amp;ldquo;Best overall&amp;rdquo;; &amp;ldquo;Analytic acumen&amp;rdquo;; and 
+&amp;ldquo;Serendipitous discovery.&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;There were 22 total undergraduate teams who participated.  We were very excited that of the top five teams to proceed to the final round, 
+three were from Winona State!  Of these three, one won &amp;ldquo;Best overall&amp;rdquo; and another the award for &amp;ldquo;Analytic acumen.&amp;rdquo;  We were very proud of all our students
+who participated.  Each one of them took time out of their busy semesters to gain fantastic professional development experience.  From real-life data analysis
+of a very messy and complicated data set to presenting their results to panels of industry and academic professionals, it will be an experience that will serve them all very well.&lt;/p&gt;
+&lt;center&gt; 
+&lt;center&gt; 
+&lt;figure&gt; 
+&lt;img src=&#34;/img/best-overall.jpg&#34; alt=&#34;placeholder&#34; title=&#34;test&#34; height=&#34;400&#34; width=&#34;600&#34; /&gt;
+&lt;b&gt; The &#34;Best Overall&#34; team at MinneMUDAC 2017, from Winona State University.
+From left to right: Sam Meyer; Sam Dokkebakken; Eddie Schmitt; Austin Ellingworth; and Jack Barta &lt;/b&gt;
+&lt;/figure&gt;
+&lt;/center&gt;
+&lt;center&gt; 
+&lt;figure&gt; 
+&lt;img src=&#34;/img/analytic-acumen.jpg&#34; alt=&#34;placeholder&#34; title=&#34;test&#34; height=&#34;400&#34; width=&#34;600&#34; /&gt;
+ &lt;b&gt; The &#34;Analytic Acumen&#34; award went to this team from Winona State University.
+From left to right: Reagan Buske; Chris Humbert; Mariah Quam; David Stampley Jr; and McHale Dye. &lt;/b&gt; 
+&lt;/figure&gt;
+&lt;/center&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Quantifying thrill</title>
+      <link>/post/viz-worldseries-wpa/</link>
+      <pubDate>Tue, 31 Oct 2017 00:00:00 -0500</pubDate>
+      <guid>/post/viz-worldseries-wpa/</guid>
+      <description>&lt;p&gt;Monday morning, October 30, found me groggy and sandy-eyed.  The culprit was the 5-hour and 17-minute, 10-inning thriller between the LA Dodgers and Houston Astros in Game 5 of the 2017 the night before.  Thanks to living in the Central Time Zone, I went to bed around 1am. The Astros ended up defeating the Dodgers 13-12, but the game was insane, featuring three comebacks from deficits of 3 runs or more.  By the end, I was emotionally exhausted, and I didn&amp;rsquo;t even have a stake in either team!  Lots was written about the game over at &lt;a href=&#34;http://www.fangraphs.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Fangraphs&lt;/a&gt;, one of my favorite baseball analytics websites.&lt;/p&gt;
+&lt;p&gt;One &lt;a href=&#34;https://www.fangraphs.com/blogs/game-five-was-as-weird-as-it-felt/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;post in particular&lt;/a&gt; by Craig Edwards caught my attention from a data visualization perspective.  It compared the game to another epic game: &lt;a href=&#34;https://www.baseball-reference.com/boxes/SLN/SLN201110270.shtml&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Game 6 of the 2011 World Series&lt;/a&gt;, where the St. Louis Cardinals staved off elimination by defeating the Texas Rangers 10-9 in 11 innings.  The crux of the article was a table that listed the top-20 &amp;ldquo;most exciting events&amp;rdquo; of each World Series side-by-side.  Here is a screenshot of said table:&lt;/p&gt;
+&lt;center&gt;
+&lt;figure&gt; 
+&lt;img src=&#34;/img/wpa-table.JPG&#34; width=&#34;400&#34; /&gt;
+&lt;/figure&gt;
+&lt;/center&gt;
+&lt;p&gt;An &amp;ldquo;exciting event&amp;rdquo; is one that yields a large swing in the win expectancy of the game, as measured by Win Probability Added, or WPA.  Read Fangraph&amp;rsquo;s &lt;a href=&#34;https://www.fangraphs.com/library/misc/wpa/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;excellent glossary entry on WPA&lt;/a&gt; for more detail, but essentially, the bigger the WPA of an event, the more exciting it is.&lt;/p&gt;
+&lt;p&gt;The table is great, but it&amp;rsquo;s hard to see which of the two games has the &lt;em&gt;most&lt;/em&gt; exciting Top-20 events.  I wanted to visualize!  But I needed the data.  Fangraphs has play logs for every single Major League game, which lists (among other metrics) the events of the game; the win expectancy following the event; and the WPA of the event.  I needed data from the &lt;a href=&#34;https://www.fangraphs.com/plays.aspx?date=2011-10-27&amp;amp;team=Cardinals&amp;amp;dh=0&amp;amp;season=2011&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Game 6, 2011&lt;/a&gt; and the &lt;a href=&#34;https://www.fangraphs.com/plays.aspx?date=2017-10-29&amp;amp;team=Astros&amp;amp;dh=0&amp;amp;season=2017&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Game 5, 2017&lt;/a&gt; play logs.  But I needed them both in the same data source!&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;R&lt;/code&gt; has a great package &lt;code&gt;rvest&lt;/code&gt; that makes web-scraping (especially scraping html tables) quite easy.  Here&amp;rsquo;s the code I wrote to scrape the &lt;a href=&#34;https://www.fangraphs.com/plays.aspx?date=2011-10-27&amp;amp;team=Cardinals&amp;amp;dh=0&amp;amp;season=2011&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Game 6, 2011&lt;/a&gt; data; do some cleaning; and write the cleaned data into a .csv file.  I wrote very similar code to get the &lt;a href=&#34;https://www.fangraphs.com/plays.aspx?date=2017-10-29&amp;amp;team=Astros&amp;amp;dh=0&amp;amp;season=2017&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Game 5, 2017&lt;/a&gt; data:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;library(rvest)
+library(dplyr)
+#Read in the data, find the right table:
+url &amp;lt;- &#39;https://www.fangraphs.com/plays.aspx?date=2011-10-27&amp;amp;team=Cardinals&amp;amp;dh=0&amp;amp;season=2011&#39;
+raw &amp;lt;- read_html(url)%&amp;gt;%
+       html_table(fill=TRUE)
+mytable &amp;lt;- raw[[9]][,1:12]
+
+#Use dplyr to clean it up. By code row:
+  #Create absolute value of WPA
+  #Create new column to indicate the game
+  #Remove the &amp;quot;%&amp;quot; from the win expectancy, create Event number
+  #Arrange in descending order by WPA
+  #Create rank column
+cleantable &amp;lt;- mytable %&amp;gt;%
+  mutate(WPA_abs = abs(WPA)) %&amp;gt;%                                            
+  mutate(Game = rep(&#39;Game 6, 2011&#39;,nrow(mytable))) %&amp;gt;%                    
+  mutate(WE = as.numeric(gsub(&#39;%&#39;,&#39;&#39;,WE)), Event = 1:nrow(mytable)) %&amp;gt;%      
+  arrange(-WPA_abs) %&amp;gt;%                                                     
+  mutate(WPA_Rank = 1:nrow(mytable))                                          
+
+#Write cleaned data to csv file
+write.csv(cleantable,file=&#39;WPA_Game6_2011_all.csv&#39;,row.names=FALSE)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then on to visualizing!  Using Tableau, I created a win-expectancy graph for each of the games.  The red dots indicate &amp;ldquo;exciting events&amp;rdquo;; events with WPA of 15% or more:&lt;/p&gt;
+&lt;center&gt;
+&lt;iframe src=&#34;https://public.tableau.com/views/WPA_WS_blog/tracker-dash?:embed=y?:showVizHome=no&#34;
+ width=&#34;755&#34; height=&#34;392&#34;&gt;&lt;/iframe&gt;
+&lt;/center&gt;
+&lt;p&gt;Clearly, both games were crazy, with wild swings in win expectancy!  If you count up the red dots, Game 6 in 2011 had 8 &amp;ldquo;exciting events&amp;rdquo; while Game 5 in 2017 had 10 &amp;ldquo;exciting events.&amp;rdquo;  15% is quite an arbitrary threshold for &amp;ldquo;exciting&amp;rdquo; however; different thresholds would likely change the comparison.  Comparing total WPA flips the story: the total WPA of 7.2 in Game 6, 2011 was larger than the total WPA of 6.2 in Game 5, 2017.&lt;/p&gt;
+&lt;p&gt;My primary interest, however, was to compare the top-20 most exciting events of both games in a clearer visual manner, respecting principles of human perception:&lt;/p&gt;
+&lt;iframe src=&#34;https://public.tableau.com/views/WPA_WS_blog/Top-20?:embed=y?:showVizHome=no&#34;
+ width=&#34;655&#34; height=&#34;495&#34;&gt;&lt;/iframe&gt;
+&lt;p&gt;From this graph, we can see the four points on the right that lie below the reference line.  These indicate that the top four most exciting events in Game 6, 2011 were &lt;em&gt;more exciting&lt;/em&gt; than the top four most exciting events from Game 5, 2017.  On the other hand, the top 5-10 most exciting events in Game 5, 2017 lie above the reference line, indicating they were more exciting than the events with WPA ranked 5-10 in Game 6, 2011.  The rest of the events ranked 11-20 in WPA go back to lying below the line.&lt;/p&gt;
+&lt;p&gt;So, it does appear that Game 6, 2011 was truly a more thrilling game than Game 5, 2017!   The total WPA of Game 6, 2011 was greater than the total WPA in Game 5, 2017, and of the top-20 &amp;ldquo;most exciting&amp;rdquo; events, they tended to be &lt;em&gt;more exciting&lt;/em&gt; in 2011. Oh well, Game 5, 2017 was still worth losing a few hours of sleep!  I think&amp;hellip;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>A summer REU at Winona State</title>
+      <link>/post/winstats/</link>
+      <pubDate>Sun, 10 Sep 2017 00:00:00 -0500</pubDate>
+      <guid>/post/winstats/</guid>
+      <description>&lt;p&gt;This past summer, I along with my colleagues Chris Malone and Brant Deppa had the fantastic opportunity to host four students for a 10-week summer research experience for undergraduates (REU).  Winona State was awarded the REU by the &lt;a href=&#34;http://www.amstat.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;American Statistical Association&lt;/a&gt;, which had received &lt;a href=&#34;https://www.nsf.gov/awardsearch/showAward?AWD_ID=1560332&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;a grant from the NSF&lt;/a&gt; to fund four students at each of nine sites over the course of three years (three different sites per year).&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.linkedin.com/in/meganaadland/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Megan Aadland&lt;/a&gt; (South Dakota State), &lt;a href=&#34;https://www.linkedin.com/in/jenn-halbleib/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Jenn Halbleib&lt;/a&gt; (Amherst), &lt;a href=&#34;https://www.linkedin.com/in/adriannakallis/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Adrianna Kallis&lt;/a&gt; (Iowa State), and &lt;a href=&#34;https://www.linkedin.com/in/eva-tourangeau/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Eva Tourangeau&lt;/a&gt; (Lawrence) were selected from a competitive, national pool of undergraduates.  Their primary task: to learn!  Their specific task was to partner with researchers at the &lt;a href=&#34;https://international.ipums.org/international/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Integrated Public Use Microdata Series International (IPUMS-I)&lt;/a&gt; to develop data products and visualizations for IPUMS-I users.   Two students worked primarily on using multiple correspondence analysis to develop an index of household wealth, while the other two worked on an &lt;a href=&#34;https://public.tableau.com/views/IPUMS-IWorldInteractiveDashboard/Dashboard1?:embed=y&amp;amp;:display_count=yes&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;interactive data visualization&lt;/a&gt; to summarize basic demographic information for countries of interest to IPUMS-I users.  Both projects required a lot of data cleaning after extracting the microdata from the &lt;a href=&#34;https://international.ipums.org/international-action/variables/group&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;IPUMS-I query service&lt;/a&gt;!&lt;/p&gt;
+&lt;p&gt;Along with their research, the students took several professional development trips to learn about applications of data analytics in the workplace.  These included visits to &lt;a href=&#34;https://www.mayoclinic.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Mayo Clinic&lt;/a&gt;, &lt;a href=&#34;https://bethematch.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Be the Match&lt;/a&gt;, &lt;a href=&#34;https://www.optum.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Optum&lt;/a&gt;, and the &lt;a href=&#34;https://www.wilder.org/Pages/default.aspx&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Wilder Foundation&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;But it wasn&amp;rsquo;t all work!  Fun included:&lt;/p&gt;
+&lt;center&gt; 
+&lt;figure&gt; 
+&lt;img src=&#34;/img/saints_game.jpg&#34; width=&#34;500&#34;/&gt;
+St. Paul Saints baseball game!  
+&lt;/figure&gt;
+&lt;/center&gt;
+&lt;center&gt; 
+&lt;figure&gt; 
+&lt;img src=&#34;/img/pizza_farm.jpg&#34; width=&#34;400&#34;/&gt;
+Suncrest pizza farm!  
+&lt;/figure&gt;
+&lt;/center&gt;
+&lt;p&gt;At the end of the summer, the students traveled to Baltimore to present &lt;a href=&#34;/files/JSM-Poster.pdf&#34;&gt;their&lt;/a&gt; &lt;a href=&#34;/files/JSM_Poster_Presentation.jpg&#34;&gt;research&lt;/a&gt; at the &lt;a href=&#34;https://ww2.amstat.org/meetings/jsm/2017/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;2017 Joint Statistical Meetings&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The 10 weeks flew by!  The students were a joy to spend a summer with, and it is obvious that great things lie ahead for each of them.  The &lt;a href=&#34;https://drive.google.com/file/d/0B8hZWQ0xl_CkbTJHMFk5WTVicmc/view&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;three REU sites for Summer 2018 are already selected&lt;/a&gt;, so go apply (or tell your students to apply)!&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

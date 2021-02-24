@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>web-scraping | Silas Bergen</title>
+    <link>/tag/web-scraping/</link>
+      <atom:link href="/tag/web-scraping/index.xml" rel="self" type="application/rss+xml" />
+    <description>web-scraping</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2021 Silas Bergen</copyright><lastBuildDate>Tue, 31 Oct 2017 00:00:00 -0500</lastBuildDate>
+    <image>
+      <url>/images/icon_hu88e77fda8259aec1ad610bc9dd60fa00_1241_512x512_fill_lanczos_center_2.png</url>
+      <title>web-scraping</title>
+      <link>/tag/web-scraping/</link>
+    </image>
+    
+    <item>
+      <title>Quantifying thrill</title>
+      <link>/post/viz-worldseries-wpa/</link>
+      <pubDate>Tue, 31 Oct 2017 00:00:00 -0500</pubDate>
+      <guid>/post/viz-worldseries-wpa/</guid>
+      <description>&lt;p&gt;Monday morning, October 30, found me groggy and sandy-eyed.  The culprit was the 5-hour and 17-minute, 10-inning thriller between the LA Dodgers and Houston Astros in Game 5 of the 2017 the night before.  Thanks to living in the Central Time Zone, I went to bed around 1am. The Astros ended up defeating the Dodgers 13-12, but the game was insane, featuring three comebacks from deficits of 3 runs or more.  By the end, I was emotionally exhausted, and I didn&amp;rsquo;t even have a stake in either team!  Lots was written about the game over at &lt;a href=&#34;http://www.fangraphs.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Fangraphs&lt;/a&gt;, one of my favorite baseball analytics websites.&lt;/p&gt;
+&lt;p&gt;One &lt;a href=&#34;https://www.fangraphs.com/blogs/game-five-was-as-weird-as-it-felt/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;post in particular&lt;/a&gt; by Craig Edwards caught my attention from a data visualization perspective.  It compared the game to another epic game: &lt;a href=&#34;https://www.baseball-reference.com/boxes/SLN/SLN201110270.shtml&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Game 6 of the 2011 World Series&lt;/a&gt;, where the St. Louis Cardinals staved off elimination by defeating the Texas Rangers 10-9 in 11 innings.  The crux of the article was a table that listed the top-20 &amp;ldquo;most exciting events&amp;rdquo; of each World Series side-by-side.  Here is a screenshot of said table:&lt;/p&gt;
+&lt;center&gt;
+&lt;figure&gt; 
+&lt;img src=&#34;/img/wpa-table.JPG&#34; width=&#34;400&#34; /&gt;
+&lt;/figure&gt;
+&lt;/center&gt;
+&lt;p&gt;An &amp;ldquo;exciting event&amp;rdquo; is one that yields a large swing in the win expectancy of the game, as measured by Win Probability Added, or WPA.  Read Fangraph&amp;rsquo;s &lt;a href=&#34;https://www.fangraphs.com/library/misc/wpa/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;excellent glossary entry on WPA&lt;/a&gt; for more detail, but essentially, the bigger the WPA of an event, the more exciting it is.&lt;/p&gt;
+&lt;p&gt;The table is great, but it&amp;rsquo;s hard to see which of the two games has the &lt;em&gt;most&lt;/em&gt; exciting Top-20 events.  I wanted to visualize!  But I needed the data.  Fangraphs has play logs for every single Major League game, which lists (among other metrics) the events of the game; the win expectancy following the event; and the WPA of the event.  I needed data from the &lt;a href=&#34;https://www.fangraphs.com/plays.aspx?date=2011-10-27&amp;amp;team=Cardinals&amp;amp;dh=0&amp;amp;season=2011&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Game 6, 2011&lt;/a&gt; and the &lt;a href=&#34;https://www.fangraphs.com/plays.aspx?date=2017-10-29&amp;amp;team=Astros&amp;amp;dh=0&amp;amp;season=2017&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Game 5, 2017&lt;/a&gt; play logs.  But I needed them both in the same data source!&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;R&lt;/code&gt; has a great package &lt;code&gt;rvest&lt;/code&gt; that makes web-scraping (especially scraping html tables) quite easy.  Here&amp;rsquo;s the code I wrote to scrape the &lt;a href=&#34;https://www.fangraphs.com/plays.aspx?date=2011-10-27&amp;amp;team=Cardinals&amp;amp;dh=0&amp;amp;season=2011&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Game 6, 2011&lt;/a&gt; data; do some cleaning; and write the cleaned data into a .csv file.  I wrote very similar code to get the &lt;a href=&#34;https://www.fangraphs.com/plays.aspx?date=2017-10-29&amp;amp;team=Astros&amp;amp;dh=0&amp;amp;season=2017&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Game 5, 2017&lt;/a&gt; data:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;library(rvest)
+library(dplyr)
+#Read in the data, find the right table:
+url &amp;lt;- &#39;https://www.fangraphs.com/plays.aspx?date=2011-10-27&amp;amp;team=Cardinals&amp;amp;dh=0&amp;amp;season=2011&#39;
+raw &amp;lt;- read_html(url)%&amp;gt;%
+       html_table(fill=TRUE)
+mytable &amp;lt;- raw[[9]][,1:12]
+
+#Use dplyr to clean it up. By code row:
+  #Create absolute value of WPA
+  #Create new column to indicate the game
+  #Remove the &amp;quot;%&amp;quot; from the win expectancy, create Event number
+  #Arrange in descending order by WPA
+  #Create rank column
+cleantable &amp;lt;- mytable %&amp;gt;%
+  mutate(WPA_abs = abs(WPA)) %&amp;gt;%                                            
+  mutate(Game = rep(&#39;Game 6, 2011&#39;,nrow(mytable))) %&amp;gt;%                    
+  mutate(WE = as.numeric(gsub(&#39;%&#39;,&#39;&#39;,WE)), Event = 1:nrow(mytable)) %&amp;gt;%      
+  arrange(-WPA_abs) %&amp;gt;%                                                     
+  mutate(WPA_Rank = 1:nrow(mytable))                                          
+
+#Write cleaned data to csv file
+write.csv(cleantable,file=&#39;WPA_Game6_2011_all.csv&#39;,row.names=FALSE)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then on to visualizing!  Using Tableau, I created a win-expectancy graph for each of the games.  The red dots indicate &amp;ldquo;exciting events&amp;rdquo;; events with WPA of 15% or more:&lt;/p&gt;
+&lt;center&gt;
+&lt;iframe src=&#34;https://public.tableau.com/views/WPA_WS_blog/tracker-dash?:embed=y?:showVizHome=no&#34;
+ width=&#34;755&#34; height=&#34;392&#34;&gt;&lt;/iframe&gt;
+&lt;/center&gt;
+&lt;p&gt;Clearly, both games were crazy, with wild swings in win expectancy!  If you count up the red dots, Game 6 in 2011 had 8 &amp;ldquo;exciting events&amp;rdquo; while Game 5 in 2017 had 10 &amp;ldquo;exciting events.&amp;rdquo;  15% is quite an arbitrary threshold for &amp;ldquo;exciting&amp;rdquo; however; different thresholds would likely change the comparison.  Comparing total WPA flips the story: the total WPA of 7.2 in Game 6, 2011 was larger than the total WPA of 6.2 in Game 5, 2017.&lt;/p&gt;
+&lt;p&gt;My primary interest, however, was to compare the top-20 most exciting events of both games in a clearer visual manner, respecting principles of human perception:&lt;/p&gt;
+&lt;iframe src=&#34;https://public.tableau.com/views/WPA_WS_blog/Top-20?:embed=y?:showVizHome=no&#34;
+ width=&#34;655&#34; height=&#34;495&#34;&gt;&lt;/iframe&gt;
+&lt;p&gt;From this graph, we can see the four points on the right that lie below the reference line.  These indicate that the top four most exciting events in Game 6, 2011 were &lt;em&gt;more exciting&lt;/em&gt; than the top four most exciting events from Game 5, 2017.  On the other hand, the top 5-10 most exciting events in Game 5, 2017 lie above the reference line, indicating they were more exciting than the events with WPA ranked 5-10 in Game 6, 2011.  The rest of the events ranked 11-20 in WPA go back to lying below the line.&lt;/p&gt;
+&lt;p&gt;So, it does appear that Game 6, 2011 was truly a more thrilling game than Game 5, 2017!   The total WPA of Game 6, 2011 was greater than the total WPA in Game 5, 2017, and of the top-20 &amp;ldquo;most exciting&amp;rdquo; events, they tended to be &lt;em&gt;more exciting&lt;/em&gt; in 2011. Oh well, Game 5, 2017 was still worth losing a few hours of sleep!  I think&amp;hellip;.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

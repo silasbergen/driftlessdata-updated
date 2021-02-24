@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>students | Silas Bergen</title>
+    <link>/tag/students/</link>
+      <atom:link href="/tag/students/index.xml" rel="self" type="application/rss+xml" />
+    <description>students</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2021 Silas Bergen</copyright><lastBuildDate>Wed, 23 May 2018 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/images/icon_hu88e77fda8259aec1ad610bc9dd60fa00_1241_512x512_fill_lanczos_center_2.png</url>
+      <title>students</title>
+      <link>/tag/students/</link>
+    </image>
+    
+    <item>
+      <title>Modeling the Vitruvian Man</title>
+      <link>/post/vitruvian/</link>
+      <pubDate>Wed, 23 May 2018 00:00:00 +0000</pubDate>
+      <guid>/post/vitruvian/</guid>
+      <description>&lt;p&gt;This post describes an activity I developed for Stat 310: Intermediate Statistics.  This course is the second course on statistics at Winona State.  I like to think of it as our &amp;ldquo;introduction to modeling&amp;rdquo; course, and this activity does just that: introduces students to the idea of a statistical model, including model assessment and fitting.  The activity actually comes in two parts, administered at different times in the semester.  In the first part, I am trying to get students to think about how to assess and compare proposed models using residuals.  In the second, students need to fit their own models, and compare performance of fitted models.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.dropbox.com/s/rgco495f3mhy9my/Vitruvian%20man.docx?dl=0&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Link to Part 1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.dropbox.com/s/u8paynlm9gom22m/HW4.docx?dl=0&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Link to Part 2 (Question 3)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The &lt;em&gt;Vitruvian Man&lt;/em&gt; is a well-known drawing and study by Leonardo DaVinci:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/vitruvian-man.jpg&#34; alt=&#34;Figure Source:   https://en.wikipedia.org/wiki/Vitruvian_Man&#34;&gt;&lt;/p&gt;
+&lt;p&gt;This work is sometimes referred to as &lt;em&gt;Canon of Proportions&lt;/em&gt;, and is essentially a series of proposed proportions.  My activity focuses on two of these proportions:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;&lt;strong&gt;the length of the outspread arms is equal to the height of a man&lt;/strong&gt;&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;&lt;strong&gt;the distance from the elbow to the tip of the hand is a quarter of the height of a man&lt;/strong&gt;&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;part-1-comparing-proposed-models&#34;&gt;Part 1: comparing proposed models&lt;/h2&gt;
+&lt;p&gt;These proportions proposed by DaVinci are essentially two proposed statistical models!  We can test these models by collecting some data. This I did by having the students pair up and measure the following three quantities:&lt;/p&gt;
+&lt;p&gt;A. Height;&lt;br&gt;
+B. &amp;ldquo;Wingspan&amp;rdquo; (length of the outspread arms);&lt;br&gt;
+C. &amp;ldquo;Elbow-tip&amp;rdquo; (the distance from the elbow to the tip of the hand).&lt;/p&gt;
+&lt;p&gt;With these three measurements, we can assess which of DaVinci&amp;rsquo;s proposed proportions is &amp;ldquo;best!&amp;rdquo;  Notice that his first proportion is like fitting the model:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;$$Height = \beta_0 + \beta_1 \times Wingspan + \epsilon$$&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;In this model, both the intercept and the slope are fixed with &lt;code&gt;\(\beta_0 = 0\)&lt;/code&gt; and &lt;code&gt;\(\beta_1 = 1\)&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The second model is:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;$$Height = \beta_0 + \beta_1 \times ElbowTip + \epsilon$$&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Again in this model, the model parameters are fixed with &lt;code&gt;\(\beta_0 = 0\)&lt;/code&gt; and &lt;code&gt;\(\beta_1 = 4\)&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;So which model is better?!  This motivates finding the modeled &lt;code&gt;\(\widehat{Height}\)&lt;/code&gt; given each equation, and comparing the sum of squared residuals, &lt;em&gt;SSError&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;But first, let&amp;rsquo;s visualize!  Here is a scatterplot of Height vs Wingspan using the data collected by the 22 students in my Spring 2018 section of Stat 310.  The line indicates the proposed model with &lt;code&gt;\(\beta_0 = 0\)&lt;/code&gt; and &lt;code&gt;\(\beta_1 = 1\)&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/vitruvian_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;The model is about perfect for two students; but clearly imperfect for the other 20.  What about Elbow-Tip?&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/vitruvian_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Clearly, this fit looks worse.  We can quantify this by computing SSError, which equals 156 using wingspan and 504 using Elbow-Tip.&lt;/p&gt;
+&lt;h2 id=&#34;part-2-fitting-simple-linear-regression-models&#34;&gt;Part 2: Fitting simple linear regression models&lt;/h2&gt;
+&lt;p&gt;So, DaVinci&amp;rsquo;s proposed model using Wingspan wasn&amp;rsquo;t horrible, but the proposal using Elbow-Tip was.  Can we improve these proposed proportions by fitting simple linear regression models, and if so, which &lt;em&gt;fitted&lt;/em&gt; model is best?&lt;/p&gt;
+&lt;p&gt;The figure below shows the actual height plotted versus the fitted heights from the two mdoels, along with the (0,1) line:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/vitruvian_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s difficult to tell which model performs best!  Here we really do need the SSErrors, which are 117.8 using wingspan and 122.4 using Elbow-Tip.  So, close!  But Wingspan slightly out-performs Elbow-Tip as a predictor of height.  (Of course, these are in-sample SSErrors; a more accurate comparison would cross-validate which we discuss later in the course.)&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>What students have to say about group homework</title>
+      <link>/post/group-homework/</link>
+      <pubDate>Fri, 05 Jan 2018 00:00:00 +0000</pubDate>
+      <guid>/post/group-homework/</guid>
+      <description>&lt;p&gt;The past two semesters of teaching our lower-level introductory statistics course here at WSU, I&amp;rsquo;ve incorporated in-class group homework.  I could go on at length about why *I* think group homework is beneficial, but that&amp;rsquo;s not the point of this post.  Rather, this is about  what the &lt;em&gt;students&lt;/em&gt; think.  I think it&amp;rsquo;s quite striking!&lt;/p&gt;
+&lt;p&gt;First, though, I do need to provide a couple quick details about how I manage group homework.  They occur approximately once a week, and I alternate between randomly assigning the students into groups of three and letting them choose their own groups.  When students choose their own, I encourage groups of three but allow four (no higher).&lt;/p&gt;
+&lt;p&gt;On end-of-semester course evaluations the past two semesters, I asked the following questions:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;What do you like BEST about in-class group homework?&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;What did you like LEAST about in-class group homework?&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Here is a word cloud of the responses to the first question (what did you like BEST?):&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/group-homework_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;There are a lot of words in here that I&amp;rsquo;m glad to see! (And that echo my motivation for implementing group homework.)  Students can &lt;em&gt;ask questions&lt;/em&gt;; &lt;em&gt;work&lt;/em&gt; with &lt;em&gt;people&lt;/em&gt;; &lt;em&gt;talk&lt;/em&gt; with &lt;em&gt;others&lt;/em&gt;; etc.  &lt;em&gt;Professor&lt;/em&gt; shows up in the cloud too; I&amp;rsquo;m always present and able to help problem-solve, or ask redirecting questions if students are off-topic.&lt;/p&gt;
+&lt;p&gt;Well and good.  But even more striking is the word cloud for student reponses to what they liked &lt;em&gt;LEAST&lt;/em&gt; about group homework:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in tm_map.SimpleCorpus(corpus, tm::removePunctuation): transformation
+## drops documents
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in tm_map.SimpleCorpus(corpus, function(x) tm::removeWords(x,
+## tm::stopwords())): transformation drops documents
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/group-homework_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;People didn&amp;rsquo;t work sometimes&lt;/strong&gt;&lt;/em&gt;&amp;hellip;it&amp;rsquo;s even grammatically correct!  It&amp;rsquo;s pretty obvious what I need to work on this semester regarding group homework.  One possibility to encourage universal participation: I assign the &amp;ldquo;scribe&amp;rdquo; of the group (the person writing down and submitting the group&amp;rsquo;s answers to be graded), and make sure it&amp;rsquo;s someone different each week.  Maybe simply paying better attention to students who are &amp;ldquo;staring off&amp;rdquo; and gently encouraging them to participate.&lt;/p&gt;
+&lt;p&gt;Also not surprising, given the groans when I announce it&amp;rsquo;s &amp;ldquo;random assignment week&amp;rdquo;, are the words &lt;em&gt;assigned&lt;/em&gt;, &lt;em&gt;random&lt;/em&gt;, and &lt;em&gt;randomly&lt;/em&gt;.  Students aren&amp;rsquo;t fond of being randomly assigned to groups, although it&amp;rsquo;s not something I see myself dropping.  It&amp;rsquo;s important to mix up the voices; give international and domestic students a chance to work together; and give students experience working in a team with people they don&amp;rsquo;t necessarily choose (that&amp;rsquo;s real life after all!)&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>And the winner is...</title>
+      <link>/post/policedatachallenge/</link>
+      <pubDate>Thu, 07 Dec 2017 00:00:00 -0600</pubDate>
+      <guid>/post/policedatachallenge/</guid>
+      <description>&lt;p&gt;The &lt;a href=&#34;/courses/dsci310/midterm/&#34;&gt;midterm project for my data visualization course&lt;/a&gt; this past fall required students to submit to the &lt;a href=&#34;http://thisisstatistics.org/policedatachallenge/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ASA&amp;rsquo;s Police Data Challenge&lt;/a&gt;.  The competition involved analyzing millions of 911 calls for one of three cities (Baltimore, Cincinnati, or Seattle).  I had the students investigate the Seattle data set, since it contained latitudes and longitudes of each call.&lt;/p&gt;
+&lt;p&gt;Several weeks later, we received the exciting news that one of the teams won &lt;a href=&#34;http://thisisstatistics.org/police-data-challenge-congratulations-to-our-winners/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&amp;ldquo;Best Overall&amp;rdquo;&lt;/a&gt; among undergraduate teams!  Congratulations to Winona State students &lt;a href=&#34;https://www.linkedin.com/in/jimmyjhickey/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Jimmy Hickey&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/kapil-khanal/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Kapil Khanal&lt;/a&gt;, and Luke Peacock for their excellent work.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Minne MUDAC 2017</title>
+      <link>/post/minnemudac/</link>
+      <pubDate>Fri, 10 Nov 2017 00:00:00 -0600</pubDate>
+      <guid>/post/minnemudac/</guid>
+      <description>&lt;center&gt; 
+&lt;figure&gt; 
+&lt;img src=&#34;/img/all-teams.jpg&#34; alt=&#34;placeholder&#34; title=&#34;test&#34; height=&#34;400&#34; width=&#34;600&#34; /&gt;
+ &lt;b&gt; Winona State University undergraduates made a great impression at the 2017 &lt;a href=&#34;http://minneanalytics.org/minnemudac&#34;&gt; MinneMUDAC data analytics competition &lt;/a&gt; &lt;/b&gt; 
+&lt;/figure&gt;
+&lt;/center&gt;
+&lt;p&gt;On November 3-4, Winona State statistics and data science students participated in the fantastic &lt;a href=&#34;http://minneanalytics.org/minnemudac/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MinneMUDAC 2017&lt;/a&gt; data analytics competition.  Students worked 
+in teams of up to five students for one month analyzing de-identified administrative medical and pharmacy claims data provided by &lt;a href=&#34;https://www.optum.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Optum&lt;/a&gt;.  The competition
+required students to analyze complicated data on health insurance claims made by Type-II diabetics.  The event was hosted by &lt;a href=&#34;http://minneanalytics.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MinneAnalytics&lt;/a&gt; at the Optum campus in Bloomington, Minnesota.&lt;/p&gt;
+&lt;p&gt;The event began the evening of November 3. MinneAnalytics provided dinner and a professional Q&amp;amp;A panel of data scientists.  The event kicked off in earnest on Saturday, November 4.  Students gave
+their 5-minute presentations to teams of judges, and  were scored on a variety of criteria ranging from analytic acumen; presentation organization; and team synergy.  Some weight
+was also given by how accurately teams could predict the top-6000 most expensive Type-II diabetics for the next calendar year for a held-out target data set of patients for 
+which the actual insurance costs were known only to the event organizers.&lt;/p&gt;
+&lt;p&gt;The top five teams from the first round went on to present to all judges in a final round.  From this final round, teams were given awards for &amp;ldquo;Best overall&amp;rdquo;; &amp;ldquo;Analytic acumen&amp;rdquo;; and 
+&amp;ldquo;Serendipitous discovery.&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;There were 22 total undergraduate teams who participated.  We were very excited that of the top five teams to proceed to the final round, 
+three were from Winona State!  Of these three, one won &amp;ldquo;Best overall&amp;rdquo; and another the award for &amp;ldquo;Analytic acumen.&amp;rdquo;  We were very proud of all our students
+who participated.  Each one of them took time out of their busy semesters to gain fantastic professional development experience.  From real-life data analysis
+of a very messy and complicated data set to presenting their results to panels of industry and academic professionals, it will be an experience that will serve them all very well.&lt;/p&gt;
+&lt;center&gt; 
+&lt;center&gt; 
+&lt;figure&gt; 
+&lt;img src=&#34;/img/best-overall.jpg&#34; alt=&#34;placeholder&#34; title=&#34;test&#34; height=&#34;400&#34; width=&#34;600&#34; /&gt;
+&lt;b&gt; The &#34;Best Overall&#34; team at MinneMUDAC 2017, from Winona State University.
+From left to right: Sam Meyer; Sam Dokkebakken; Eddie Schmitt; Austin Ellingworth; and Jack Barta &lt;/b&gt;
+&lt;/figure&gt;
+&lt;/center&gt;
+&lt;center&gt; 
+&lt;figure&gt; 
+&lt;img src=&#34;/img/analytic-acumen.jpg&#34; alt=&#34;placeholder&#34; title=&#34;test&#34; height=&#34;400&#34; width=&#34;600&#34; /&gt;
+ &lt;b&gt; The &#34;Analytic Acumen&#34; award went to this team from Winona State University.
+From left to right: Reagan Buske; Chris Humbert; Mariah Quam; David Stampley Jr; and McHale Dye. &lt;/b&gt; 
+&lt;/figure&gt;
+&lt;/center&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>A summer REU at Winona State</title>
+      <link>/post/winstats/</link>
+      <pubDate>Sun, 10 Sep 2017 00:00:00 -0500</pubDate>
+      <guid>/post/winstats/</guid>
+      <description>&lt;p&gt;This past summer, I along with my colleagues Chris Malone and Brant Deppa had the fantastic opportunity to host four students for a 10-week summer research experience for undergraduates (REU).  Winona State was awarded the REU by the &lt;a href=&#34;http://www.amstat.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;American Statistical Association&lt;/a&gt;, which had received &lt;a href=&#34;https://www.nsf.gov/awardsearch/showAward?AWD_ID=1560332&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;a grant from the NSF&lt;/a&gt; to fund four students at each of nine sites over the course of three years (three different sites per year).&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.linkedin.com/in/meganaadland/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Megan Aadland&lt;/a&gt; (South Dakota State), &lt;a href=&#34;https://www.linkedin.com/in/jenn-halbleib/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Jenn Halbleib&lt;/a&gt; (Amherst), &lt;a href=&#34;https://www.linkedin.com/in/adriannakallis/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Adrianna Kallis&lt;/a&gt; (Iowa State), and &lt;a href=&#34;https://www.linkedin.com/in/eva-tourangeau/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Eva Tourangeau&lt;/a&gt; (Lawrence) were selected from a competitive, national pool of undergraduates.  Their primary task: to learn!  Their specific task was to partner with researchers at the &lt;a href=&#34;https://international.ipums.org/international/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Integrated Public Use Microdata Series International (IPUMS-I)&lt;/a&gt; to develop data products and visualizations for IPUMS-I users.   Two students worked primarily on using multiple correspondence analysis to develop an index of household wealth, while the other two worked on an &lt;a href=&#34;https://public.tableau.com/views/IPUMS-IWorldInteractiveDashboard/Dashboard1?:embed=y&amp;amp;:display_count=yes&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;interactive data visualization&lt;/a&gt; to summarize basic demographic information for countries of interest to IPUMS-I users.  Both projects required a lot of data cleaning after extracting the microdata from the &lt;a href=&#34;https://international.ipums.org/international-action/variables/group&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;IPUMS-I query service&lt;/a&gt;!&lt;/p&gt;
+&lt;p&gt;Along with their research, the students took several professional development trips to learn about applications of data analytics in the workplace.  These included visits to &lt;a href=&#34;https://www.mayoclinic.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Mayo Clinic&lt;/a&gt;, &lt;a href=&#34;https://bethematch.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Be the Match&lt;/a&gt;, &lt;a href=&#34;https://www.optum.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Optum&lt;/a&gt;, and the &lt;a href=&#34;https://www.wilder.org/Pages/default.aspx&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Wilder Foundation&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;But it wasn&amp;rsquo;t all work!  Fun included:&lt;/p&gt;
+&lt;center&gt; 
+&lt;figure&gt; 
+&lt;img src=&#34;/img/saints_game.jpg&#34; width=&#34;500&#34;/&gt;
+St. Paul Saints baseball game!  
+&lt;/figure&gt;
+&lt;/center&gt;
+&lt;center&gt; 
+&lt;figure&gt; 
+&lt;img src=&#34;/img/pizza_farm.jpg&#34; width=&#34;400&#34;/&gt;
+Suncrest pizza farm!  
+&lt;/figure&gt;
+&lt;/center&gt;
+&lt;p&gt;At the end of the summer, the students traveled to Baltimore to present &lt;a href=&#34;/files/JSM-Poster.pdf&#34;&gt;their&lt;/a&gt; &lt;a href=&#34;/files/JSM_Poster_Presentation.jpg&#34;&gt;research&lt;/a&gt; at the &lt;a href=&#34;https://ww2.amstat.org/meetings/jsm/2017/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;2017 Joint Statistical Meetings&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The 10 weeks flew by!  The students were a joy to spend a summer with, and it is obvious that great things lie ahead for each of them.  The &lt;a href=&#34;https://drive.google.com/file/d/0B8hZWQ0xl_CkbTJHMFk5WTVicmc/view&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;three REU sites for Summer 2018 are already selected&lt;/a&gt;, so go apply (or tell your students to apply)!&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

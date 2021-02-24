@@ -1,0 +1,1158 @@
+<!DOCTYPE html><html lang="en-us" >
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  
+  
+  <meta name="generator" content="Wowchemy 5.0.0-beta.1 for Hugo">
+  
+
+  
+
+  
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Silas Bergen">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Data summarization and visualization (Fall 2017) Course overview The amount and extent of data in our world is growing extremely rapidly. As such there is an increasing need for analysts skilled in summarizing data.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/courses/dsci310/syllabus/">
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#795548">
+  
+
+  
+  
+  
+  <script src="/js/mathjax-config.js"></script>
+  
+
+  
+  
+  
+  
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.0/css/academicons.min.css" integrity="sha512-W4yqoT1+8NLkinBLBZko+dFB2ZbHsYLDdr50VElllRcNt2Q4/GSs6u71UHKxB7S6JEMCp5Ve4xjh3eGQl/HRvg==" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha256-FMvZuGapsJLjouA6k7Eo2lusoAX9i0ShlWFG6qt7SLc=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous" media="print" onload="this.media='all'">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/github.min.css" crossorigin="anonymous" title="hl-light" media="print" onload="this.media='all'">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" media="print" onload="this.media='all'" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.css" integrity="sha512-1xoFisiGdy9nvho8EgXuXvnpR5GAMSjFwp40gSRE3NwdUdIMIKuPa7bqoUhLD0O/5tPNhteAsE5XyyMi5reQVA==" crossorigin="anonymous" media="print" onload="this.media='all'">
+    
+
+    
+
+    
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.2/lazysizes.min.js" integrity="sha512-TmDwFLhg3UA4ZG0Eb4MIyT1O1Mb+Oww5kFG0uHqXsdbyZz9DcvYQhKpGgNkamAI6h2lGGZq2X8ftOJvF/XjTUg==" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+
+  
+
+  
+  
+  
+    
+      
+      <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap" media="print" onload="this.media='all'">
+    
+  
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/wowchemy.6fb8abac2e86f269f834cb1c169b5f29.css">
+
+  
+
+
+
+
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+  <link rel="manifest" href="/index.webmanifest">
+  
+
+  <link rel="icon" type="image/png" href="/images/icon_hu88e77fda8259aec1ad610bc9dd60fa00_1241_32x32_fill_lanczos_center_2.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu88e77fda8259aec1ad610bc9dd60fa00_1241_192x192_fill_lanczos_center_2.png">
+
+  <link rel="canonical" href="/courses/dsci310/syllabus/">
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="og:site_name" content="Silas Bergen">
+  <meta property="og:url" content="/courses/dsci310/syllabus/">
+  <meta property="og:title" content="Syllabus (Fall 2017) | Silas Bergen">
+  <meta property="og:description" content="Data summarization and visualization (Fall 2017) Course overview The amount and extent of data in our world is growing extremely rapidly. As such there is an increasing need for analysts skilled in summarizing data."><meta property="og:image" content="/images/icon_hu88e77fda8259aec1ad610bc9dd60fa00_1241_512x512_fill_lanczos_center_2.png">
+  <meta property="twitter:image" content="/images/icon_hu88e77fda8259aec1ad610bc9dd60fa00_1241_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2017-08-20T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2017-08-20T00:00:00&#43;00:00">
+  
+
+  
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>Syllabus (Fall 2017) | Silas Bergen</title>
+
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper  ">
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <script src="/js/wowchemy-init.min.7d92a95e871a711a5c03f82410d0fe5d.js"></script>
+
+  
+
+<aside class="search-modal" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#" aria-label="Close"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control"
+        aria-label="Search...">
+        
+      </div>
+
+      
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+
+  <div class="page-header">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/">Silas Bergen</a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/">Silas Bergen</a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#talks_and_workshops"><span>Talks and workshops</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#teaching"><span>Teaching</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/media/Bergen-CV-noemail.pdf"><span>CV</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+
+      
+      
+        
+      
+
+      
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      
+
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  </div>
+
+  <div class="page-body">
+    <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>Syllabus (Fall 2017)</h1>
+
+  
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Aug 20, 2017
+  </span>
+  
+
+  
+
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      <h3 id="data-summarization-and-visualization-fall-2017dsci310-home"><a href="../dsci310-home/">Data summarization and visualization (Fall 2017)</a></h3>
+<h3 id="course-overview">Course overview</h3>
+<p>The amount and extent of data in our world is growing extremely rapidly. 
+As such there is an increasing need for analysts skilled in summarizing data. 
+Visualizations are an immensely popular way of summarizing data, as they allow viewers to efficiently translate data into information. 
+Modern visualizations are either static or interactive, with a growing trend towards the latter. 
+In this course we will discuss how we perceive information visually, how to identify and avoid data visualization pitfalls, 
+and how to create effective static and interactive visualizations.</p>
+<h3 id="prerequisites">Prerequisites</h3>
+<p>Data Science 210. In DSCI 310 I will assume you have working knowledge of data management tools and techniques. 
+Some tasks in DSCI 310 will require a nontrivial amount of data manipulation and cleaning. 
+While I will provide support for this as needed, I will expect you to be able to obtain and &ldquo;wrangle&rdquo; some data on your own. 
+Examples of data tasks that you should be able to do include reshaping data between wide and long formats.</p>
+<h3 id="textbook">Textbook</h3>
+<p>There is no required textbook for this course. 
+Highly recommended resources are <a href="https://www.amazon.com/Visual-Display-Quantitative-Information/dp/1930824130" target="_blank" rel="noopener">The Visual Display of Quantitative Information</a> by Edward Tufte, and <a href="https://www.amazon.com/Communicating-Data-Tableau-Developing-Visualizations/dp/1449372023/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1513093596&amp;sr=1-1&amp;keywords=communicating&#43;data&#43;with&#43;tableau" target="_blank" rel="noopener">Communicating Data with Tableau</a> by Ben Jones.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Tufte</th>
+<th style="text-align:center">Jones</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="/img/tufte-book.jpg" alt=""></td>
+<td style="text-align:center"><img src="/img/cdwt-book.jpg" alt=""></td>
+</tr>
+</tbody>
+</table>
+<p>We will be looking at examples from these texts over the duration of the semester.</p>
+<h3 id="software">Software</h3>
+<p>We will be using the Tableau software (latest version: 10.2 as of Fall 2017) extensively throughout this semester.
+Tableau is quickly becoming the industry standard for data visualization, 
+as its drag-and-drop user interface is accessible to people who may be uncomfortable with command-line coding. 
+It is also a powerful way to interact with data through the creation of dashboards. Tableau Desktop 10.0 is not usually free, but is available to you as students through the WSU network. We will be uploading vizzes onto Tableau Public, which is free to anybody. Time permitting we will also cover the R package ggplot2. This is the standard for graphics within R, and is better suited for static statistical graphics than Tableau.</p>
+<h3 id="learning-outcomes">Learning outcomes</h3>
+<ul>
+<li>Students will be able to identify and describe the methods and techniques commonly used to describe data both numerically and visually.</li>
+<li>Students will be able to use appropriate methods to summarize and visualize data based upon the data type and the goals of the analysis.</li>
+<li>Students will be able to demonstrate the ability to clean and prepare data for the summarization and visualization process.</li>
+<li>Students will demonstrate the ability to summarize and visualize relationships between variables appropriately given the data type of the variables involved.</li>
+<li>Students will be able to construct an interactive data dashboard to summarize and display the important features of a data set.</li>
+</ul>
+<h3 id="assessments">Assessments</h3>
+<ul>
+<li>Attendance and participation (10%)</li>
+</ul>
+<blockquote>
+<p>DSCI 310 will be heavy on in-class discussion and visualization designs. 
+It is important that all students are a part of these discussions. 
+There will also be many in-class data visualization activities in which it is important for you to participate.
+Accordingly, I will take attendance almost every day throughout the semester and it will be weighted at 10% of your final grade.</p>
+</blockquote>
+<ul>
+<li>Visualization critiques (15%)</li>
+</ul>
+<blockquote>
+<p>Students will be required to submit frequent critiques of assigned visualizations. 
+At the beginning of the semester, critiques will mostly be of visualizations I provide you. 
+As the semester progresses, you will also critique your peers' visualizations using the peer grading resouce <a href="https://www.crowdgrader.org/" target="_blank" rel="noopener">CrowdGrader</a>. 
+Becoming an effective critic is imperative for your own growth as a visualization designer; 
+hence completing thorough critiques is a non-trivial component of your final grade. 
+I will provide you with a rubric to use when you critique your peers' visualizations.</p>
+</blockquote>
+<ul>
+<li>Exam (10%)</li>
+</ul>
+<blockquote>
+<p>There will be one exam in this course, covering visual theory and best practices as well as visualization creation. 
+The exam will assess students’ abilities to critique visualizations, and suggest improvements, by applying perceptual theory and other concepts covered in class.</p>
+</blockquote>
+<ul>
+<li>Design tasks (15%)</li>
+</ul>
+<blockquote>
+<p>There will be frequent design tasks where students will be presented with a data set and asked to create a viz summarizing important aspects of the data set. 
+Some design tasks will come with their own questions of interest, while others may require the student to explore the data in order to find and visualize their own 
+questions of interest. Some design tasks may require a nontrivial amount of data wrangling to get the data into a format suitable for visualizing. 
+All design tasks will include an editing process during which your visualization is critiqued by at least 2 peers and you will have a chance to edit your 
+visualization as a result of these critiques.</p>
+</blockquote>
+<ul>
+<li>Midterm group project (20%)</li>
+</ul>
+<blockquote>
+<p>There will be one midterm group project at various points in the semester. This projects will consist of oral presentations of the projects to the entire class.</p>
+</blockquote>
+<ul>
+<li>Final project (30%)</li>
+</ul>
+<blockquote>
+<p>Each student will be required to find their own data set and visualize it using a series of interactive Dashboards. 
+Each student will prepare a presentation for the class providing the context of their data set, questions posed by the data, 
+and visualizations that communicate the answers to those questions. The data set and a set of preliminary questions must be approved by the instructor.</p>
+</blockquote>
+<h3 id="tentative-course-topics">Tentative course topics</h3>
+<ol>
+<li>Principles of effective data visualization</li>
+</ol>
+<ul>
+<li>Historical background and examples</li>
+<li>How we perceive information: Elementary perceptual tasks (EPT)</li>
+<li>What makes a strong graphic?</li>
+<li>What makes a poor graphic?</li>
+<li>Designing for aesthetic</li>
+<li>Data Type (categorical, ordinal, continuous)</li>
+<li>Matching data type to the appropriate EPT</li>
+</ul>
+<ol start="2">
+<li>Visualizing univariate data</li>
+</ol>
+<ul>
+<li>Visualization techniques for single categorical field</li>
+<li>Visualization techniques for single quantitative field</li>
+</ul>
+<ol start="3">
+<li>Visualizing multivariate data</li>
+</ol>
+<ul>
+<li>Mosaic and stacked bar charts</li>
+<li>Time-series plots</li>
+<li>2- and 3-way Scatterplots</li>
+</ul>
+<ol start="4">
+<li>Visualizing aggregated data</li>
+</ol>
+<ul>
+<li>Rates</li>
+<li>Ratios</li>
+</ul>
+<ol start="5">
+<li>Visualizing spatial data</li>
+</ol>
+<ul>
+<li>Filled maps</li>
+<li>Shape-size maps</li>
+</ul>
+<ol start="6">
+<li>Data Dashboards</li>
+</ol>
+<ul>
+<li>The power of interaction</li>
+<li>Interaction via filter</li>
+<li>Interaction via parameterization</li>
+<li>View filtering</li>
+</ul>
+
+    </div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      
+      <img class="avatar mr-3 avatar-circle" src="/author/silas-bergen/avatar_hu31fb7ce6fe49d44d7c0137af066386f5_83804_270x270_fill_q75_lanczos_center.jpg" alt="Silas Bergen">
+    
+
+    <div class="media-body">
+      <h5 class="card-title">Silas Bergen</h5>
+      <h6 class="card-subtitle">Associate professor of statistics and data science</h6>
+      
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="/media/Bergen-CV-noemail.pdf" >
+        <i class="fas fa-file-pdf"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="http://github.com/silasbergen/driftlessdata-public" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.linkedin.com/in/silas-bergen-3039b785/" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+</article>
+  </div>
+
+  <div class="page-footer">
+    
+    
+    <div class="container">
+      <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    © 2021 Silas Bergen
+  </p>
+
+  
+  
+
+
+
+
+
+
+  <p class="powered-by">
+    
+    
+    
+    Published with
+    <a href="https://wowchemy.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Wowchemy</a>  —
+    the free, <a href="https://github.com/wowchemy/wowchemy-hugo-modules" target="_blank" rel="noopener">
+    open source</a> website builder that empowers creators.
+    
+  </p>
+</footer>
+
+    </div>
+    
+  </div>
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+      
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/instant.page/5.1.0/instantpage.min.js" integrity="sha512-1+qUtKoh9XZW7j+6LhRMAyOrgSQKenQ4mluTR+cvxXjP1Z54RxZuzstR/H9kgPXQsVB8IW7DMDFUJpzLjvhGSQ==" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js" integrity="sha512-TDKKr+IvoqZnPzc3l35hdjpHD0m+b2EC2SrLEgKDRWpxf2rFCxemkgvJ5kfU48ip+Y+m2XVKyOCD85ybtlZDmw==" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/r.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/latex.min.js"></script>
+        
+      
+
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js" integrity="sha512-SeiQaaDh73yrb56sTW/RgVdi/mMqNeM2oBwubFHagc5BkixSpP1fvqF47mKzPGWYSSy4RwbBunrJBQ4Co8fRWA==" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'event' : "Events",
+        'slides' : "Slides"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+      
+    
+    
+    <script src="/js/wowchemy.min.aeecf26c1eff6b9588dbafc1a9f3953c.js"></script>
+
+    
+
+
+
+
+
+
+</body>
+</html>

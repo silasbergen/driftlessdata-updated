@@ -1,0 +1,1130 @@
+<!DOCTYPE html><html lang="en-us" >
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  
+  
+  <meta name="generator" content="Wowchemy 5.0.0-beta.1 for Hugo">
+  
+
+  
+
+  
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Silas Bergen">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="For this semester&rsquo;s midterm project, we will be participating in the American Statistical Association&rsquo;s Police Data Challenge. Read the information on the website for many more details. For the midterm project, all students should visualize the Seattle data set.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/courses/dsci310/midterm/">
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#795548">
+  
+
+  
+  
+  
+  <script src="/js/mathjax-config.js"></script>
+  
+
+  
+  
+  
+  
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.0/css/academicons.min.css" integrity="sha512-W4yqoT1+8NLkinBLBZko+dFB2ZbHsYLDdr50VElllRcNt2Q4/GSs6u71UHKxB7S6JEMCp5Ve4xjh3eGQl/HRvg==" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha256-FMvZuGapsJLjouA6k7Eo2lusoAX9i0ShlWFG6qt7SLc=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous" media="print" onload="this.media='all'">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/github.min.css" crossorigin="anonymous" title="hl-light" media="print" onload="this.media='all'">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" media="print" onload="this.media='all'" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.css" integrity="sha512-1xoFisiGdy9nvho8EgXuXvnpR5GAMSjFwp40gSRE3NwdUdIMIKuPa7bqoUhLD0O/5tPNhteAsE5XyyMi5reQVA==" crossorigin="anonymous" media="print" onload="this.media='all'">
+    
+
+    
+
+    
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.2/lazysizes.min.js" integrity="sha512-TmDwFLhg3UA4ZG0Eb4MIyT1O1Mb+Oww5kFG0uHqXsdbyZz9DcvYQhKpGgNkamAI6h2lGGZq2X8ftOJvF/XjTUg==" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+
+  
+
+  
+  
+  
+    
+      
+      <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap" media="print" onload="this.media='all'">
+    
+  
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/wowchemy.6fb8abac2e86f269f834cb1c169b5f29.css">
+
+  
+
+
+
+
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+  <link rel="manifest" href="/index.webmanifest">
+  
+
+  <link rel="icon" type="image/png" href="/images/icon_hu88e77fda8259aec1ad610bc9dd60fa00_1241_32x32_fill_lanczos_center_2.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu88e77fda8259aec1ad610bc9dd60fa00_1241_192x192_fill_lanczos_center_2.png">
+
+  <link rel="canonical" href="/courses/dsci310/midterm/">
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="og:site_name" content="Silas Bergen">
+  <meta property="og:url" content="/courses/dsci310/midterm/">
+  <meta property="og:title" content="Midterm project | Silas Bergen">
+  <meta property="og:description" content="For this semester&rsquo;s midterm project, we will be participating in the American Statistical Association&rsquo;s Police Data Challenge. Read the information on the website for many more details. For the midterm project, all students should visualize the Seattle data set."><meta property="og:image" content="/images/icon_hu88e77fda8259aec1ad610bc9dd60fa00_1241_512x512_fill_lanczos_center_2.png">
+  <meta property="twitter:image" content="/images/icon_hu88e77fda8259aec1ad610bc9dd60fa00_1241_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2017-10-09T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2017-10-09T00:00:00&#43;00:00">
+  
+
+  
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>Midterm project | Silas Bergen</title>
+
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper  ">
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <script src="/js/wowchemy-init.min.7d92a95e871a711a5c03f82410d0fe5d.js"></script>
+
+  
+
+<aside class="search-modal" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#" aria-label="Close"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control"
+        aria-label="Search...">
+        
+      </div>
+
+      
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+
+  <div class="page-header">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/">Silas Bergen</a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/">Silas Bergen</a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#talks_and_workshops"><span>Talks and workshops</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#teaching"><span>Teaching</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/media/Bergen-CV-noemail.pdf"><span>CV</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+
+      
+      
+        
+      
+
+      
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      
+
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  </div>
+
+  <div class="page-body">
+    <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>Midterm project</h1>
+
+  
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Oct 9, 2017
+  </span>
+  
+
+  
+
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      <p>For this semester&rsquo;s midterm project, we will be participating in the American Statistical Association&rsquo;s <a href="http://thisisstatistics.org/policedatachallenge" target="_blank" rel="noopener">Police Data Challenge</a>. Read the information on the website for many more details.  For the midterm project, <em><strong>all students</strong></em> should visualize the Seattle data set.</p>
+<ul>
+<li>
+<p><a href="http://thisisstatistics.org/wp-content/uploads/2017/09/Police-Data-Challenge-Rules.pdf" target="_blank" rel="noopener">Detailed version of the rules</a>.</p>
+</li>
+<li>
+<p>Fill out <a href="http://thisisstatistics.org/police-data-challenge-2017-declare-your-intent/" target="_blank" rel="noopener">declaration of intent form</a> by <em><strong>Friday, October 6</strong></em>.  Only one team member needs to submit the form.  List me (Silas Bergen) as your sponsor.</p>
+</li>
+</ul>
+<p>From the website:</p>
+<blockquote>
+<p>Awards will be given in three categories (1) Best Overall Analysis, (2) Best Visualization, and (3) Best Use of External Data.</p>
+</blockquote>
+<blockquote>
+<p>Winning teams will receive a $50 Amazon gift card, complimentary memberships to ASA, and a Police Data Challenge 2017 t-shirt, along with bragging rights and a chance to have an impact on local communities.</p>
+</blockquote>
+<blockquote>
+<p>Winners also will be profiled and promoted to ASA&rsquo;s membership of leading statisticians and data scientists in academia, industry, business, and government, and through ASA&rsquo;s public education campaign, ThisisStatistics. Second and third place winners will also be recognized.</p>
+</blockquote>
+<p>###Requirements for the competition</p>
+<p>Prepare the materials that you need to submit to the competition: PowerPoint presentation with up to 10 slides, and document with $\leq 500$ words detailing your process.  Each team should submit these files by Nov 3.</p>
+<p>###Additional requirements for DSCI 310 Midterm</p>
+<p>The main additional requirement is to use Census data <em>to some extent</em> in your project.  One way is to merge Census Tract information with the Tract information in the Seattle data file.  A very nice R package for downloading Census data is <code>tidycensus</code>, especially the function <code>get_acs()</code>.  This function makes use of the Census API, specifically reading in data from the <a href="https://www.census.gov/programs-surveys/acs/about.html" target="_blank" rel="noopener">American Community Survey (ACS)</a>.</p>
+<ul>
+<li><a href="https://www.census.gov/data/developers/data-sets/acs-5year.html" target="_blank" rel="noopener">More information on the ACS API</a></li>
+<li><a href="https://api.census.gov/data/2015/acs5/variables.html" target="_blank" rel="noopener">Complete list of 2011-2015 ACS variables</a></li>
+<li><a href="https://walkerke.github.io/tidycensus/articles/basic-usage.html" target="_blank" rel="noopener">Nice overview of <code>tidycensus</code> by its author, Kyle Walker</a></li>
+</ul>
+<p>Additionally, each team will present their PowerPoint slides beginning on <em><strong>October 27</strong></em> (so really, the deadline to have your PowerPoint done is 10/27, not 11/3).</p>
+<h3 id="rubrics-for-dsci-310-midterm">Rubrics for DSCI 310 midterm</h3>
+<ul>
+<li><a href="https://www.dropbox.com/s/7h03rx03aqfuibz/GroupProjectRubric-Fall2017.docx?dl=0" target="_blank" rel="noopener">Rubric for the visualizations (50%)</a></li>
+<li><a href="https://www.dropbox.com/s/vap4vrwwcayqbub/GroupPresentationRubric-Fall2017.docx?dl=0" target="_blank" rel="noopener">Rubric for presentations (30%)</a></li>
+<li><a href="https://winona.az1.qualtrics.com/jfe/form/SV_4TOSbiNE6e3gzQ1" target="_blank" rel="noopener">Link to group member evaluation (20%)</a></li>
+</ul>
+<h3 id="relevant-resources">Relevant resources</h3>
+<ul>
+<li><a href="https://www.census.gov/geo/reference/geoidentifiers.html" target="_blank" rel="noopener">Understanding Census Geographic Identifiers</a></li>
+</ul>
+<h3 id="group-assignments">Group assignments</h3>
+<p>Professionally, you will not get to always choose your own groups.  For the midterm project you will be assigned into groups, which are listed below.  Divide the work, and conquer!</p>
+<p><strong>Group presentation order:</strong></p>
+<p>4, 2, 7, 1, 9, 8, 6, 5, 3</p>
+<ul>
+<li>
+<p>Group 1:</p>
+<ul>
+<li>Jack Barta</li>
+<li>Sam Meyer</li>
+<li>Mariah Quam</li>
+</ul>
+</li>
+<li>
+<p>Group 2:</p>
+<ul>
+<li>Fengrui Xue</li>
+<li>Thomas Gathje</li>
+<li>Max Oelerking</li>
+</ul>
+</li>
+<li>
+<p>Group 3:</p>
+<ul>
+<li>Kapil Khanal</li>
+<li>Luke Peacock</li>
+<li>Jimmy Hickey</li>
+</ul>
+</li>
+<li>
+<p>Group 4:</p>
+<ul>
+<li>Will Diedrick</li>
+<li>Yulun Xu</li>
+<li>Adam Clemens</li>
+<li>Lauren Willkom</li>
+</ul>
+</li>
+<li>
+<p>Group 5:</p>
+<ul>
+<li>Salman Quraishi</li>
+<li>Waheed Khan</li>
+<li>Linh Nguyen</li>
+</ul>
+</li>
+<li>
+<p>Group 6:</p>
+<ul>
+<li>Nathan Smith</li>
+<li>Paul Boelter</li>
+<li>David Stampley</li>
+<li>Akif Khan</li>
+</ul>
+</li>
+<li>
+<p>Group 7:</p>
+<ul>
+<li>Austin Ellingworth</li>
+<li>Brad Erickson</li>
+<li>Sam Dokkebakken</li>
+</ul>
+</li>
+<li>
+<p>Group 8:</p>
+<ul>
+<li>Matthew Ladin</li>
+<li>McHale Dye</li>
+<li>Catherine Nead</li>
+</ul>
+</li>
+<li>
+<p>Group 9:</p>
+<ul>
+<li>Stacey Miertschin</li>
+<li>Reagan Buske</li>
+<li>Ross Krueger</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      
+      <img class="avatar mr-3 avatar-circle" src="/author/silas-bergen/avatar_hu31fb7ce6fe49d44d7c0137af066386f5_83804_270x270_fill_q75_lanczos_center.jpg" alt="Silas Bergen">
+    
+
+    <div class="media-body">
+      <h5 class="card-title">Silas Bergen</h5>
+      <h6 class="card-subtitle">Associate professor of statistics and data science</h6>
+      
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="/media/Bergen-CV-noemail.pdf" >
+        <i class="fas fa-file-pdf"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="http://github.com/silasbergen/driftlessdata-public" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.linkedin.com/in/silas-bergen-3039b785/" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+</article>
+  </div>
+
+  <div class="page-footer">
+    
+    
+    <div class="container">
+      <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    © 2021 Silas Bergen
+  </p>
+
+  
+  
+
+
+
+
+
+
+  <p class="powered-by">
+    
+    
+    
+    Published with
+    <a href="https://wowchemy.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Wowchemy</a>  —
+    the free, <a href="https://github.com/wowchemy/wowchemy-hugo-modules" target="_blank" rel="noopener">
+    open source</a> website builder that empowers creators.
+    
+  </p>
+</footer>
+
+    </div>
+    
+  </div>
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+      
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/instant.page/5.1.0/instantpage.min.js" integrity="sha512-1+qUtKoh9XZW7j+6LhRMAyOrgSQKenQ4mluTR+cvxXjP1Z54RxZuzstR/H9kgPXQsVB8IW7DMDFUJpzLjvhGSQ==" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js" integrity="sha512-TDKKr+IvoqZnPzc3l35hdjpHD0m+b2EC2SrLEgKDRWpxf2rFCxemkgvJ5kfU48ip+Y+m2XVKyOCD85ybtlZDmw==" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/r.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/latex.min.js"></script>
+        
+      
+
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js" integrity="sha512-SeiQaaDh73yrb56sTW/RgVdi/mMqNeM2oBwubFHagc5BkixSpP1fvqF47mKzPGWYSSy4RwbBunrJBQ4Co8fRWA==" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'event' : "Events",
+        'slides' : "Slides"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+      
+    
+    
+    <script src="/js/wowchemy.min.aeecf26c1eff6b9588dbafc1a9f3953c.js"></script>
+
+    
+
+
+
+
+
+
+</body>
+</html>

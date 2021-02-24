@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>education | Silas Bergen</title>
+    <link>/tag/education/</link>
+      <atom:link href="/tag/education/index.xml" rel="self" type="application/rss+xml" />
+    <description>education</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2021 Silas Bergen</copyright><lastBuildDate>Wed, 02 Jan 2019 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/images/icon_hu88e77fda8259aec1ad610bc9dd60fa00_1241_512x512_fill_lanczos_center_2.png</url>
+      <title>education</title>
+      <link>/tag/education/</link>
+    </image>
+    
+    <item>
+      <title>Stat consulting: a data science playground</title>
+      <link>/post/dsci-consulting/</link>
+      <pubDate>Wed, 02 Jan 2019 00:00:00 +0000</pubDate>
+      <guid>/post/dsci-consulting/</guid>
+      <description>&lt;p&gt;This past semester I taught our &lt;a href=&#34;../../courses/stat370/stat370-home/&#34;&gt;STAT 370 (statistical consulting and communication)&lt;/a&gt; for the first time.  This course gave student experience consulting for real clients from the university and community and focused on communicating with a client as well as report and presentation preparation best practices.  Most of the required analyses were simple: paired t-tests, simple linear regression, etc.  What struck me was the nontrivality of the data tidying process!  While STAT 370 is taken mostly by our statistics majors, so many of the examples we encountered would be beautiful case studies for our introductory DSCI (data science) curriculum. In this post I present an actual example from a client that illustrates this.&lt;/p&gt;
+&lt;p&gt;The data here concerned undergraduate nursing students in one of four terms of the nursing program.  Of interest was measuring the students&#39; resiliency as measured by the Connor-Davidson Resiliency Scale (CDRS), both prior to and following impelementation of a Stress Management and Resiliency Training (SMART).  The client was interested in determining for which of the four terms was there a significant change in resilience.&lt;/p&gt;
+&lt;p&gt;Here are the data we&amp;rsquo;re working with (&lt;a href=&#34;../../files/cdrs_data_pre.csv&#34;&gt;link to pre&lt;/a&gt; | &lt;a href=&#34;../../files/cdrs_data_post.csv&#34;&gt;link to post&lt;/a&gt;). &lt;code&gt;id&lt;/code&gt; stands for a unique student identifier.  We also have responses to 18 of the CDRS items (each on a 5-point Likert scale).  The &lt;code&gt;post&lt;/code&gt; data set also contains the student terms; notably this information is &lt;em&gt;not&lt;/em&gt; available in the &lt;code&gt;pre&lt;/code&gt; data set.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(dplyr)
+library(tidyr)
+library(ggplot2)
+pre &amp;lt;- read.csv(&#39;cdrs_data_pre.csv&#39;)
+post &amp;lt;- read.csv(&#39;cdrs_data_post.csv&#39;)
+head(post)
+names(pre) #missing term information!!
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##    id  Term CDRS_Q1 CDRS_Q2 CDRS_Q3 CDRS_Q4 CDRS_Q5 CDRS_Q6 CDRS_Q7 CDRS_Q8
+## 1  23 Term1       4       4       3       4       4       3       3       4
+## 2 183 Term1       3       4       4       3       4       3       4       2
+## 3  80 Term1       3       4       4       3       4       3       4       3
+## 4   1 Term1       3       4       4       3       3       2       4       4
+## 5 166 Term1       3       4       3       4       4       4       4       4
+## 6  15 Term1       3       3       2       3       3       2       3       3
+##   CDRS_Q9 CDRS_Q10 CDRS_Q11 CDRS_Q12 CDRS_Q20 CDRS_Q21 CDRS_Q22 CDRS_Q23
+## 1       4        4        4        3        2        3        3        3
+## 2       3        3        3        3        3        3        3        3
+## 3       4        4        4        4        4        4        4        3
+## 4       4        4        4        4        2        3        3        2
+## 5       4        4        4        4        3        4        4        4
+## 6       2        3        3        3        2        3        3        3
+##   CDRS_Q24 CDRS_Q25
+## 1        4        4
+## 2        4        4
+## 3        4        4
+## 4        3        4
+## 5        4        4
+## 6        3        3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] &amp;quot;id&amp;quot;       &amp;quot;CDRS_Q1&amp;quot;  &amp;quot;CDRS_Q2&amp;quot;  &amp;quot;CDRS_Q3&amp;quot;  &amp;quot;CDRS_Q4&amp;quot;  &amp;quot;CDRS_Q5&amp;quot; 
+##  [7] &amp;quot;CDRS_Q6&amp;quot;  &amp;quot;CDRS_Q7&amp;quot;  &amp;quot;CDRS_Q8&amp;quot;  &amp;quot;CDRS_Q9&amp;quot;  &amp;quot;CDRS_Q10&amp;quot; &amp;quot;CDRS_Q11&amp;quot;
+## [13] &amp;quot;CDRS_Q12&amp;quot; &amp;quot;CDRS_Q20&amp;quot; &amp;quot;CDRS_Q21&amp;quot; &amp;quot;CDRS_Q22&amp;quot; &amp;quot;CDRS_Q23&amp;quot; &amp;quot;CDRS_Q24&amp;quot;
+## [19] &amp;quot;CDRS_Q25&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Note that the data are not &lt;a href=&#34;https://www.jstatsoft.org/article/view/v059i10&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;tidy&lt;/a&gt; in the sense that each row is a person, and we have variable information on the questions in columns.  I&amp;rsquo;ll return to this in a bit.&lt;/p&gt;
+&lt;p&gt;Here ultimately is a visualization that we could use to determine for which terms are the SMART effects strongest, and for which terms is the effect statistically significant:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/dsci-consulting_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;We can see that the average resilience pre-SMART was lower than average resilience post-SMART, and that these differences were most extreme for students in Terms 2 and 3 (which were also the only statistically significant differences).  Additionally, students in Term 4 had very high pre- and post-SMART resilience (they&amp;rsquo;re seasoned veterans, after all!)&lt;/p&gt;
+&lt;p&gt;A simple plot, with a simple interpretation.  But the path to get there is anything but!  To create this plot we need:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;to average the 18 CDRS items for each student;&lt;/li&gt;
+&lt;li&gt;join the data sets;&lt;/li&gt;
+&lt;li&gt;compute paired t-tests for each term;&lt;/li&gt;
+&lt;li&gt;prepare data for plotting;&lt;/li&gt;
+&lt;li&gt;plot&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;So, let&amp;rsquo;s proceed!&lt;/p&gt;
+&lt;h2 id=&#34;average-the-cdrs-items&#34;&gt;Average the CDRS items&lt;/h2&gt;
+&lt;p&gt;This is perhaps the most interesting step in the process.  As mentioned earlier, the data are not tidy in the sense that we have variable information in columns instead of rows.  We could reshape (&amp;ldquo;gather&amp;rdquo; or &amp;ldquo;melt&amp;rdquo;) to average CDRS score by term.  Doing this for the post data set:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;post_melt &amp;lt;- post %&amp;gt;% 
+  gather(key = &#39;Question&#39;,value=&#39;Response&#39;,CDRS_Q1:CDRS_Q25)
+head(post_melt)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##    id  Term Question Response
+## 1  23 Term1  CDRS_Q1        4
+## 2 183 Term1  CDRS_Q1        3
+## 3  80 Term1  CDRS_Q1        3
+## 4   1 Term1  CDRS_Q1        3
+## 5 166 Term1  CDRS_Q1        3
+## 6  15 Term1  CDRS_Q1        3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;post_melt %&amp;gt;% 
+  group_by(id,Term) %&amp;gt;%
+  summarize(post_mean = mean(Response))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## `summarise()` regrouping output by &#39;id&#39; (override with `.groups` argument)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 67 x 3
+## # Groups:   id [67]
+##       id Term  post_mean
+##    &amp;lt;int&amp;gt; &amp;lt;chr&amp;gt;     &amp;lt;dbl&amp;gt;
+##  1     1 Term1      3.33
+##  2     2 Term3      3   
+##  3     4 Term2      2.83
+##  4     8 Term2      3.11
+##  5     9 Term1      2.72
+##  6    13 Term4      2.72
+##  7    15 Term1      2.78
+##  8    20 Term1      3   
+##  9    23 Term1      3.5 
+## 10    26 Term4      2.56
+## # ... with 57 more rows
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We could also forego the melting, since ultimately all we want is the average response for each student.  We can use the original &lt;code&gt;post&lt;/code&gt; data set, and an application of the &lt;code&gt;rowMeans()&lt;/code&gt; function within which is nested the &lt;code&gt;select()&lt;/code&gt; command:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;post2 &amp;lt;- post %&amp;gt;%
+  mutate(post_mean = rowMeans(select(.,CDRS_Q1:CDRS_Q25))) %&amp;gt;%
+  select(id, Term, post_mean)
+head(post2)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##    id  Term post_mean
+## 1  23 Term1  3.500000
+## 2 183 Term1  3.277778
+## 3  80 Term1  3.722222
+## 4   1 Term1  3.333333
+## 5 166 Term1  3.833333
+## 6  15 Term1  2.777778
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;One could argue that the first approach (using &lt;code&gt;gather()&lt;/code&gt;) is the best, since it first creates a &amp;ldquo;tidy&amp;rdquo; data set and is arguably more readable.  But the second appears more succinct.  I&amp;rsquo;ll use the second approach to carry out the same task on the &lt;code&gt;pre&lt;/code&gt; data:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pre2 &amp;lt;- pre %&amp;gt;%
+  mutate(pre_mean = rowMeans(select(.,CDRS_Q1:CDRS_Q25))) %&amp;gt;%
+  select(id, pre_mean)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;join-pre-and-post&#34;&gt;Join pre and post&lt;/h2&gt;
+&lt;p&gt;This step is easy!&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;both &amp;lt;- inner_join(pre2,post2,by=&#39;id&#39;)
+head(both)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   id pre_mean  Term post_mean
+## 1  1 3.333333 Term1  3.333333
+## 2  2 2.944444 Term3  3.000000
+## 3  4 2.888889 Term2  2.833333
+## 4  8 2.944444 Term2  3.111111
+## 5  9 2.444444 Term1  2.722222
+## 6 13 2.944444 Term4  2.722222
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;carry-out-paired-t-tests-by-term&#34;&gt;Carry out paired t-tests by term&lt;/h2&gt;
+&lt;p&gt;Here is the lone &amp;ldquo;formal&amp;rdquo; statistical aspect of the whole problem!  We can carry out paired t-tests by term as follows using some ugly base-R code: the &lt;code&gt;by()&lt;/code&gt; command.  I won&amp;rsquo;t show the output, but here we can see that only for Terms 2 and 3 is the SMART effect statistically significant:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;by(both, both$Term, function(df) t.test(df$pre_mean,df$post_mean,paired=TRUE))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;prepare-data-for-plotting&#34;&gt;Prepare data for plotting&lt;/h2&gt;
+&lt;p&gt;Referring back to the figure, the geometric mapping includes four points for the four pre-SMART CDRS averages (one for each term); four points for the post-SMART CDRS averages (one for each term); and a line segment connecting them.  We can use the joined data set to form our &amp;ldquo;plotting&amp;rdquo; data set.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;toplot &amp;lt;- both %&amp;gt;%
+  group_by(Term) %&amp;gt;%
+  summarize(avg_pre = mean(pre_mean),avg_post = mean(post_mean)) %&amp;gt;% 
+  mutate(sig = c(&#39;no&#39;,&#39;yes&#39;,&#39;yes&#39;,&#39;no&#39;))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## `summarise()` ungrouping output (override with `.groups` argument)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;toplot
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 4 x 4
+##   Term  avg_pre avg_post sig  
+##   &amp;lt;chr&amp;gt;   &amp;lt;dbl&amp;gt;    &amp;lt;dbl&amp;gt; &amp;lt;chr&amp;gt;
+## 1 Term1    2.97     3.10 no   
+## 2 Term2    2.98     3.16 yes  
+## 3 Term3    2.95     3.26 yes  
+## 4 Term4    3.21     3.2  no
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Note that the &lt;code&gt;avg_pre&lt;/code&gt; and &lt;code&gt;avg_post&lt;/code&gt; columns are in fact &amp;ldquo;means of means,&amp;rdquo; and we have manually added a column to indicate whether the difference was statistically significant.&lt;/p&gt;
+&lt;h2 id=&#34;plot&#34;&gt;Plot!&lt;/h2&gt;
+&lt;p&gt;And now the fun begins!  Here is ggplot code to create the original figure:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ggplot(data = toplot) + 
+  geom_point(aes(x = avg_pre, y = 1:4, shape=&#39;a&#39;,color=sig),size=2)  + 
+  geom_point(aes(x = avg_post, y = 1:4,shape=&#39;b&#39;,color=sig),size=2) + 
+  geom_segment(aes(x = avg_pre, xend = avg_post, y=1:4,yend=1:4,color=sig)) + 
+  scale_y_reverse() + xlab(&#39;average CDRS&#39;) + ylab(&#39;Term&#39;) + 
+  scale_shape_manual(name=&#39;&#39;,values=c(&#39;a&#39;=19,&#39;b&#39;=17),labels=c(&#39;pre SMART&#39;,&#39;post SMART&#39;)) + 
+  scale_color_discrete(name=&#39;significant?&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/dsci-consulting_files/figure-html/unnamed-chunk-10-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;h2 id=&#34;moral&#34;&gt;Moral&lt;/h2&gt;
+&lt;p&gt;Wow!  The only truly &amp;ldquo;statistical&amp;rdquo; aspect of this whole process was a paired t-test.  And even that was a bit tricky: figuring out how to carry out these t-tests by term!  In reflecting back on the semester, I am struck that our data science students would do well to take our stat consulting course.  They would be kept very interested in data &amp;ldquo;wrangling&amp;rdquo; tasks such as this. On the flip side, it&amp;rsquo;s an invaluable experience for our STAT majors (who comprise the usual audience of this course) to realize that the formal statistical analysis in which they are most trained is ultimately the last in a long series of data wrangling steps.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Modeling the Vitruvian Man</title>
+      <link>/post/vitruvian/</link>
+      <pubDate>Wed, 23 May 2018 00:00:00 +0000</pubDate>
+      <guid>/post/vitruvian/</guid>
+      <description>&lt;p&gt;This post describes an activity I developed for Stat 310: Intermediate Statistics.  This course is the second course on statistics at Winona State.  I like to think of it as our &amp;ldquo;introduction to modeling&amp;rdquo; course, and this activity does just that: introduces students to the idea of a statistical model, including model assessment and fitting.  The activity actually comes in two parts, administered at different times in the semester.  In the first part, I am trying to get students to think about how to assess and compare proposed models using residuals.  In the second, students need to fit their own models, and compare performance of fitted models.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.dropbox.com/s/rgco495f3mhy9my/Vitruvian%20man.docx?dl=0&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Link to Part 1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.dropbox.com/s/u8paynlm9gom22m/HW4.docx?dl=0&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Link to Part 2 (Question 3)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The &lt;em&gt;Vitruvian Man&lt;/em&gt; is a well-known drawing and study by Leonardo DaVinci:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/vitruvian-man.jpg&#34; alt=&#34;Figure Source:   https://en.wikipedia.org/wiki/Vitruvian_Man&#34;&gt;&lt;/p&gt;
+&lt;p&gt;This work is sometimes referred to as &lt;em&gt;Canon of Proportions&lt;/em&gt;, and is essentially a series of proposed proportions.  My activity focuses on two of these proportions:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;&lt;strong&gt;the length of the outspread arms is equal to the height of a man&lt;/strong&gt;&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;&lt;strong&gt;the distance from the elbow to the tip of the hand is a quarter of the height of a man&lt;/strong&gt;&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;part-1-comparing-proposed-models&#34;&gt;Part 1: comparing proposed models&lt;/h2&gt;
+&lt;p&gt;These proportions proposed by DaVinci are essentially two proposed statistical models!  We can test these models by collecting some data. This I did by having the students pair up and measure the following three quantities:&lt;/p&gt;
+&lt;p&gt;A. Height;&lt;br&gt;
+B. &amp;ldquo;Wingspan&amp;rdquo; (length of the outspread arms);&lt;br&gt;
+C. &amp;ldquo;Elbow-tip&amp;rdquo; (the distance from the elbow to the tip of the hand).&lt;/p&gt;
+&lt;p&gt;With these three measurements, we can assess which of DaVinci&amp;rsquo;s proposed proportions is &amp;ldquo;best!&amp;rdquo;  Notice that his first proportion is like fitting the model:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;$$Height = \beta_0 + \beta_1 \times Wingspan + \epsilon$$&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;In this model, both the intercept and the slope are fixed with &lt;code&gt;\(\beta_0 = 0\)&lt;/code&gt; and &lt;code&gt;\(\beta_1 = 1\)&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The second model is:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;$$Height = \beta_0 + \beta_1 \times ElbowTip + \epsilon$$&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Again in this model, the model parameters are fixed with &lt;code&gt;\(\beta_0 = 0\)&lt;/code&gt; and &lt;code&gt;\(\beta_1 = 4\)&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;So which model is better?!  This motivates finding the modeled &lt;code&gt;\(\widehat{Height}\)&lt;/code&gt; given each equation, and comparing the sum of squared residuals, &lt;em&gt;SSError&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;But first, let&amp;rsquo;s visualize!  Here is a scatterplot of Height vs Wingspan using the data collected by the 22 students in my Spring 2018 section of Stat 310.  The line indicates the proposed model with &lt;code&gt;\(\beta_0 = 0\)&lt;/code&gt; and &lt;code&gt;\(\beta_1 = 1\)&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/vitruvian_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;The model is about perfect for two students; but clearly imperfect for the other 20.  What about Elbow-Tip?&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/vitruvian_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Clearly, this fit looks worse.  We can quantify this by computing SSError, which equals 156 using wingspan and 504 using Elbow-Tip.&lt;/p&gt;
+&lt;h2 id=&#34;part-2-fitting-simple-linear-regression-models&#34;&gt;Part 2: Fitting simple linear regression models&lt;/h2&gt;
+&lt;p&gt;So, DaVinci&amp;rsquo;s proposed model using Wingspan wasn&amp;rsquo;t horrible, but the proposal using Elbow-Tip was.  Can we improve these proposed proportions by fitting simple linear regression models, and if so, which &lt;em&gt;fitted&lt;/em&gt; model is best?&lt;/p&gt;
+&lt;p&gt;The figure below shows the actual height plotted versus the fitted heights from the two mdoels, along with the (0,1) line:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/vitruvian_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s difficult to tell which model performs best!  Here we really do need the SSErrors, which are 117.8 using wingspan and 122.4 using Elbow-Tip.  So, close!  But Wingspan slightly out-performs Elbow-Tip as a predictor of height.  (Of course, these are in-sample SSErrors; a more accurate comparison would cross-validate which we discuss later in the course.)&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Public data resources with social justice applications</title>
+      <link>/post/about-social-justice/</link>
+      <pubDate>Thu, 15 Mar 2018 00:00:00 -0500</pubDate>
+      <guid>/post/about-social-justice/</guid>
+      <description>&lt;p&gt;Yesterday, several students and I traveled to St. Olaf to &lt;a href=&#34;../../talk/stolaf/&#34;&gt;illustrate several uses&lt;/a&gt; of interesting, publicly-available data that can be used to investigate &amp;ldquo;social justice&amp;rdquo; issues.  I&amp;rsquo;ve long been meaning to compile all the data sources and some example projects I&amp;rsquo;ve developed over the years, and this talk provided just the right motivation.   Accordingly, I have &lt;a href=&#34;../../project/social-justice-data/&#34;&gt;compiled a list&lt;/a&gt; of some of my favorite data sources and example projects and student work.  It takes some time to gather, wrangle, and aggregate some of these data sources. Part of my goal is to share some of the work I have already done to clean some of the messier data sets and pare them down to a more ready-to-use format.&lt;/p&gt;
+&lt;p&gt;Much thanks goes to Dr. Julie Legler from St. Olaf for reaching out and inviting us to dialogue with her students, and for encouraging me to actually put in the work to compile all these resources!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Data set gold mine</title>
+      <link>/post/ufl/</link>
+      <pubDate>Wed, 21 Feb 2018 00:00:00 +0000</pubDate>
+      <guid>/post/ufl/</guid>
+      <description>&lt;p&gt;Quick one here.  As a statistics educator I am always on the lookout for interesting, real, digestable data that illustrate important statistical concepts.  That&amp;rsquo;s a tall order!&lt;/p&gt;
+&lt;p&gt;One site that I visit again and again is this excellent repository hosted at University of Florida.  &lt;a href=&#34;http://www.stat.ufl.edu/~winner/datasets.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Here&amp;rsquo;s the link.&lt;/a&gt;  I regularly ping this website for classes ranging from intro stats to experimental design to regression analysis.  Not only are they varied in scope and organized by topic, they also have brief descriptions and citations of original sources. It&amp;rsquo;s a gold mine!  Hat tip to my colleague &lt;a href=&#34;http://course1.winona.edu/bdeppa/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Brant Deppa&lt;/a&gt; aka Data Hound for originally cluing me in to this website.&lt;/p&gt;
+&lt;p&gt;Just an example, here&amp;rsquo;s one on modeling math scores as a function of LSD concentration I recently used in a &lt;a href=&#34;https://www.dropbox.com/s/u8paynlm9gom22m/HW4.docx?dl=0&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;homework assignment&lt;/a&gt; for my &lt;a href=&#34;../courses/stat310-home/&#34;&gt;intermediate statistics course&lt;/a&gt; (spoiler alert: taking LSD is &lt;em&gt;not&lt;/em&gt; recommended to improve math test score.)&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(ggplot2)
+df &amp;lt;- read.table(&#39;http://www.stat.ufl.edu/~winner/data/lsd.dat&#39;,header=FALSE,col.names=c(&#39;LSD&#39;,&#39;Score&#39;))
+ggplot(data = df,aes(x = LSD, y = Score)) + 
+  geom_point() + geom_smooth(method=&amp;quot;lm&amp;quot;) + 
+  xlab(&#39;LSD concentration (mcg/kg)&#39;) + ylab(&#39;Math score (out of 100)&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## `geom_smooth()` using formula &#39;y ~ x&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/UFL_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Notes from Liberal Arts Data Science Workshop</title>
+      <link>/post/lads/</link>
+      <pubDate>Mon, 15 Jan 2018 00:00:00 -0600</pubDate>
+      <guid>/post/lads/</guid>
+      <description>&lt;p&gt;When temperatures hit 0°F in Minnesota, what better remedy than to head to Florida and talk data science curriculum!  The 2-day workshop was held at the New College of Florida in Sarasota, FL.  This post reflects some of the ideas circulated at the workshop that stood out to me.&lt;/p&gt;
+&lt;h3 id=&#34;multivariate-thinking-and-the-introductory-statistics-and-data-science-course-preparing-students-to-make-sense-of-a-world-of-observational-data-nick-horton&#34;&gt;Multivariate thinking and the introductory statistics and data science course: preparing students to make sense of a world of observational data (Nick Horton)&lt;/h3&gt;
+&lt;p&gt;In this talk, Dr. Horton emphasized the fact that most data nowadays is &amp;ldquo;found data&amp;rdquo; of the observational nature.  In other words, it is rare to encounter studies that implement careful randomization into groups in order to account for confounding variables.
+In light of this, he made the following suggestions.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;In introductory statistics classes, focus less on technical assumptions of 2-sample t-test (for example sample size and degrees-of-freedom), and more on issues of confounding and randomization.&lt;/li&gt;
+&lt;li&gt;Bring multivariate thinking into the course early.  One easy way this can be done is to introduce data visualization from Day 1.&lt;/li&gt;
+&lt;li&gt;Introductory classes should emphasize writing, projects, and visualization&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;He also gave several examples of confounding; one can never have too many in their repertoire!  An example I really liked:  if a study finds that people who use sunscreen tend to have higher rates of skin cancer, would this imply that sunscreen is dangerous to use?  The confounding variable in this case would be sun exposure.  Of course, people who are using sunscreen are probably experiencing greater sun exposure, which is a risk factor for skin cancer.&lt;/p&gt;
+&lt;h3 id=&#34;projects-first-in-an-interdisciplinary-data-science-curriculum-jessen-havill&#34;&gt;Projects first in an interdisciplinary data science curriculum (Jessen Havill)&lt;/h3&gt;
+&lt;p&gt;Dr. Havill gave an overview of the new Data Analytics major at Denison University.  The major is intentionally &lt;em&gt;not&lt;/em&gt; named Data Science to emphasize  the liberal arts nature of the major.  It is extremely cross-disciplinary (the two new upper-level Data Analytics courses are taught by an &lt;a href=&#34;https://denison.edu/people/sarah-supp&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ecologist&lt;/a&gt; and an &lt;a href=&#34;https://denison.edu/people/anthony-bonifonte&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;operations researcher&lt;/a&gt;).  It was interesting to hear about the program at Denison and the thought they put into it.  Check out the &lt;a href=&#34;https://denison.edu/academics/data-analytics&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;program website&lt;/a&gt; for more details.&lt;/p&gt;
+&lt;h3 id=&#34;computer-science-in-the-data-science-curriculum-panel&#34;&gt;Computer science in the data science curriculum (Panel)&lt;/h3&gt;
+&lt;p&gt;This panel included Jessen Havill of Denison University; Dennis F.X. Mathaisel of Babson College; Julie Medero of Harvey Mudd College; and Imad Rahal of St. John&amp;rsquo;s University and The College of St. Benedict.  Some pertinent features of the panel:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;What CS skills are essential for data science?&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The single most important thing, according to Dr. Havill, is &lt;em&gt;&lt;strong&gt;abstraction&lt;/strong&gt;&lt;/em&gt;.  This concept is more important than the argument of whether this language is better than that language, and is something that can be taught in CS courses from Day 1.&lt;/li&gt;
+&lt;li&gt;Computational thinking that translates a problem into a computational solution, according to Dr. Medero.&lt;/li&gt;
+&lt;li&gt;How to even represent data that comes in nonstandard form, according to Dr. Rahal.  The ability to work with data of large Volume, Velocity, and in a wide Varieties of structure.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;Are more proprietary tools or more general purpose tools more important?&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The ability to learn something new is more important than expertise in a specific tool, according to Dr. Medero.&lt;/li&gt;
+&lt;li&gt;We will never keep up with all the proprietary tools.  The languages I want to use are those that are best for teaching.  Choosing a tool because it&amp;rsquo;s hot right now is not necessarily wise, according to Dr. Havill.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;florida-panthers-consulting-projects-brian-macdonald&#34;&gt;Florida Panthers consulting projects (Brian Macdonald)&lt;/h3&gt;
+&lt;p&gt;Probably my favorite presentation!  Brian is the Director of Hockey Analytics for the Florida Panthers, transitioning toward DIrector of Data Science and Research for the Panthers.  In this talk, Brian discussed some fascinating projects he&amp;rsquo;s worked on with students pursuing master&amp;rsquo;s degrees in business analytics.&lt;/p&gt;
+&lt;p&gt;In the first project, he described a model for predicting attendance for games using only information known before tickets go on sale.  This will help answer questions like, which games should be in which tiers for variable pricing?  What kinds of requests should the team make when the league is developing the schedule?  For example, does it make better sense from a sales standpoint to schedule good teams on a Saturday and a bad team during the week, or vice versa?&lt;/p&gt;
+&lt;p&gt;This project used data on announced attendance from nhl.com.  Predictors of attendance included day of week, holiday, month, opponent.  Interesting nuggets: nobody wants to go to games on Halloween or Easter; and people like to go to games against the &amp;ldquo;original 6&amp;rdquo; NHL teams.&lt;/p&gt;
+&lt;p&gt;The second project centered on understanding what influences season ticket renewal.  In short, people who attend more high-scoring, close games that their team wins, are more likely to renew.&lt;/p&gt;
+&lt;p&gt;Brian also discussed skills he looks for in interns.  He emphasized skills in data management and merging and data visualization more than analysis skills.  Coding experience is non-negotiable.&lt;/p&gt;
+&lt;h3 id=&#34;and-of-course&#34;&gt;And, of course&amp;hellip;&lt;/h3&gt;
+&lt;p&gt;&amp;hellip;there was beach time.&lt;/p&gt;
+&lt;center&gt;
+ &lt;figure&gt; 
+ &lt;img src=&#34;/img/beach2.jpg&#34; width=&#34;750&#34;&gt;
+ &lt;/figure&gt;
+&lt;/center&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>What students have to say about group homework</title>
+      <link>/post/group-homework/</link>
+      <pubDate>Fri, 05 Jan 2018 00:00:00 +0000</pubDate>
+      <guid>/post/group-homework/</guid>
+      <description>&lt;p&gt;The past two semesters of teaching our lower-level introductory statistics course here at WSU, I&amp;rsquo;ve incorporated in-class group homework.  I could go on at length about why *I* think group homework is beneficial, but that&amp;rsquo;s not the point of this post.  Rather, this is about  what the &lt;em&gt;students&lt;/em&gt; think.  I think it&amp;rsquo;s quite striking!&lt;/p&gt;
+&lt;p&gt;First, though, I do need to provide a couple quick details about how I manage group homework.  They occur approximately once a week, and I alternate between randomly assigning the students into groups of three and letting them choose their own groups.  When students choose their own, I encourage groups of three but allow four (no higher).&lt;/p&gt;
+&lt;p&gt;On end-of-semester course evaluations the past two semesters, I asked the following questions:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;What do you like BEST about in-class group homework?&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;What did you like LEAST about in-class group homework?&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Here is a word cloud of the responses to the first question (what did you like BEST?):&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/group-homework_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;There are a lot of words in here that I&amp;rsquo;m glad to see! (And that echo my motivation for implementing group homework.)  Students can &lt;em&gt;ask questions&lt;/em&gt;; &lt;em&gt;work&lt;/em&gt; with &lt;em&gt;people&lt;/em&gt;; &lt;em&gt;talk&lt;/em&gt; with &lt;em&gt;others&lt;/em&gt;; etc.  &lt;em&gt;Professor&lt;/em&gt; shows up in the cloud too; I&amp;rsquo;m always present and able to help problem-solve, or ask redirecting questions if students are off-topic.&lt;/p&gt;
+&lt;p&gt;Well and good.  But even more striking is the word cloud for student reponses to what they liked &lt;em&gt;LEAST&lt;/em&gt; about group homework:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in tm_map.SimpleCorpus(corpus, tm::removePunctuation): transformation
+## drops documents
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in tm_map.SimpleCorpus(corpus, function(x) tm::removeWords(x,
+## tm::stopwords())): transformation drops documents
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/group-homework_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;People didn&amp;rsquo;t work sometimes&lt;/strong&gt;&lt;/em&gt;&amp;hellip;it&amp;rsquo;s even grammatically correct!  It&amp;rsquo;s pretty obvious what I need to work on this semester regarding group homework.  One possibility to encourage universal participation: I assign the &amp;ldquo;scribe&amp;rdquo; of the group (the person writing down and submitting the group&amp;rsquo;s answers to be graded), and make sure it&amp;rsquo;s someone different each week.  Maybe simply paying better attention to students who are &amp;ldquo;staring off&amp;rdquo; and gently encouraging them to participate.&lt;/p&gt;
+&lt;p&gt;Also not surprising, given the groans when I announce it&amp;rsquo;s &amp;ldquo;random assignment week&amp;rdquo;, are the words &lt;em&gt;assigned&lt;/em&gt;, &lt;em&gt;random&lt;/em&gt;, and &lt;em&gt;randomly&lt;/em&gt;.  Students aren&amp;rsquo;t fond of being randomly assigned to groups, although it&amp;rsquo;s not something I see myself dropping.  It&amp;rsquo;s important to mix up the voices; give international and domestic students a chance to work together; and give students experience working in a team with people they don&amp;rsquo;t necessarily choose (that&amp;rsquo;s real life after all!)&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

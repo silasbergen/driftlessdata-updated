@@ -1,0 +1,1242 @@
+<!DOCTYPE html><html lang="en-us" >
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  
+  
+  <meta name="generator" content="Wowchemy 5.0.0-beta.1 for Hugo">
+  
+
+  
+
+  
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Silas Bergen">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="This past semester I taught our STAT 370 (statistical consulting and communication) for the first time. This course gave student experience consulting for real clients from the university and community and focused on communicating with a client as well as report and presentation preparation best practices.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/dsci-consulting/">
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#795548">
+  
+
+  
+  
+  
+  <script src="/js/mathjax-config.js"></script>
+  
+
+  
+  
+  
+  
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.0/css/academicons.min.css" integrity="sha512-W4yqoT1+8NLkinBLBZko+dFB2ZbHsYLDdr50VElllRcNt2Q4/GSs6u71UHKxB7S6JEMCp5Ve4xjh3eGQl/HRvg==" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha256-FMvZuGapsJLjouA6k7Eo2lusoAX9i0ShlWFG6qt7SLc=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous" media="print" onload="this.media='all'">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/github.min.css" crossorigin="anonymous" title="hl-light" media="print" onload="this.media='all'">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" media="print" onload="this.media='all'" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.css" integrity="sha512-1xoFisiGdy9nvho8EgXuXvnpR5GAMSjFwp40gSRE3NwdUdIMIKuPa7bqoUhLD0O/5tPNhteAsE5XyyMi5reQVA==" crossorigin="anonymous" media="print" onload="this.media='all'">
+    
+
+    
+
+    
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.2/lazysizes.min.js" integrity="sha512-TmDwFLhg3UA4ZG0Eb4MIyT1O1Mb+Oww5kFG0uHqXsdbyZz9DcvYQhKpGgNkamAI6h2lGGZq2X8ftOJvF/XjTUg==" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+
+  
+
+  
+  
+  
+    
+      
+      <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap" media="print" onload="this.media='all'">
+    
+  
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/wowchemy.6fb8abac2e86f269f834cb1c169b5f29.css">
+
+  
+
+
+
+
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+  <link rel="manifest" href="/index.webmanifest">
+  
+
+  <link rel="icon" type="image/png" href="/images/icon_hu88e77fda8259aec1ad610bc9dd60fa00_1241_32x32_fill_lanczos_center_2.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu88e77fda8259aec1ad610bc9dd60fa00_1241_192x192_fill_lanczos_center_2.png">
+
+  <link rel="canonical" href="/post/dsci-consulting/">
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="og:site_name" content="Silas Bergen">
+  <meta property="og:url" content="/post/dsci-consulting/">
+  <meta property="og:title" content="Stat consulting: a data science playground | Silas Bergen">
+  <meta property="og:description" content="This past semester I taught our STAT 370 (statistical consulting and communication) for the first time. This course gave student experience consulting for real clients from the university and community and focused on communicating with a client as well as report and presentation preparation best practices."><meta property="og:image" content="/images/icon_hu88e77fda8259aec1ad610bc9dd60fa00_1241_512x512_fill_lanczos_center_2.png">
+  <meta property="twitter:image" content="/images/icon_hu88e77fda8259aec1ad610bc9dd60fa00_1241_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2019-01-02T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2019-01-02T00:00:00&#43;00:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/post/dsci-consulting/"
+  },
+  "headline": "Stat consulting: a data science playground",
+  
+  "datePublished": "2019-01-02T00:00:00Z",
+  "dateModified": "2019-01-02T00:00:00Z",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Silas Bergen"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Silas Bergen",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/images/icon_hu88e77fda8259aec1ad610bc9dd60fa00_1241_192x192_fill_lanczos_center_2.png"
+    }
+  },
+  "description": "This past semester I taught our STAT 370 (statistical consulting and communication) for the first time. This course gave student experience consulting for real clients from the university and community and focused on communicating with a client as well as report and presentation preparation best practices."
+}
+</script>
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>Stat consulting: a data science playground | Silas Bergen</title>
+
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper  ">
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <script src="/js/wowchemy-init.min.7d92a95e871a711a5c03f82410d0fe5d.js"></script>
+
+  
+
+<aside class="search-modal" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#" aria-label="Close"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control"
+        aria-label="Search...">
+        
+      </div>
+
+      
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+
+  <div class="page-header">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/">Silas Bergen</a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/">Silas Bergen</a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#talks_and_workshops"><span>Talks and workshops</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#teaching"><span>Teaching</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/media/Bergen-CV-noemail.pdf"><span>CV</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+
+      
+      
+        
+      
+
+      
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      
+
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  </div>
+
+  <div class="page-body">
+    <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>Stat consulting: a data science playground</h1>
+
+  
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Jan 2, 2019
+  </span>
+  
+
+  
+
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      <p>This past semester I taught our <a href="../../courses/stat370/stat370-home/">STAT 370 (statistical consulting and communication)</a> for the first time.  This course gave student experience consulting for real clients from the university and community and focused on communicating with a client as well as report and presentation preparation best practices.  Most of the required analyses were simple: paired t-tests, simple linear regression, etc.  What struck me was the nontrivality of the data tidying process!  While STAT 370 is taken mostly by our statistics majors, so many of the examples we encountered would be beautiful case studies for our introductory DSCI (data science) curriculum. In this post I present an actual example from a client that illustrates this.</p>
+<p>The data here concerned undergraduate nursing students in one of four terms of the nursing program.  Of interest was measuring the students' resiliency as measured by the Connor-Davidson Resiliency Scale (CDRS), both prior to and following impelementation of a Stress Management and Resiliency Training (SMART).  The client was interested in determining for which of the four terms was there a significant change in resilience.</p>
+<p>Here are the data we&rsquo;re working with (<a href="../../files/cdrs_data_pre.csv">link to pre</a> | <a href="../../files/cdrs_data_post.csv">link to post</a>). <code>id</code> stands for a unique student identifier.  We also have responses to 18 of the CDRS items (each on a 5-point Likert scale).  The <code>post</code> data set also contains the student terms; notably this information is <em>not</em> available in the <code>pre</code> data set.</p>
+<pre><code class="language-r">library(dplyr)
+library(tidyr)
+library(ggplot2)
+pre &lt;- read.csv('cdrs_data_pre.csv')
+post &lt;- read.csv('cdrs_data_post.csv')
+head(post)
+names(pre) #missing term information!!
+</code></pre>
+<pre><code>##    id  Term CDRS_Q1 CDRS_Q2 CDRS_Q3 CDRS_Q4 CDRS_Q5 CDRS_Q6 CDRS_Q7 CDRS_Q8
+## 1  23 Term1       4       4       3       4       4       3       3       4
+## 2 183 Term1       3       4       4       3       4       3       4       2
+## 3  80 Term1       3       4       4       3       4       3       4       3
+## 4   1 Term1       3       4       4       3       3       2       4       4
+## 5 166 Term1       3       4       3       4       4       4       4       4
+## 6  15 Term1       3       3       2       3       3       2       3       3
+##   CDRS_Q9 CDRS_Q10 CDRS_Q11 CDRS_Q12 CDRS_Q20 CDRS_Q21 CDRS_Q22 CDRS_Q23
+## 1       4        4        4        3        2        3        3        3
+## 2       3        3        3        3        3        3        3        3
+## 3       4        4        4        4        4        4        4        3
+## 4       4        4        4        4        2        3        3        2
+## 5       4        4        4        4        3        4        4        4
+## 6       2        3        3        3        2        3        3        3
+##   CDRS_Q24 CDRS_Q25
+## 1        4        4
+## 2        4        4
+## 3        4        4
+## 4        3        4
+## 5        4        4
+## 6        3        3
+</code></pre>
+<pre><code>##  [1] &quot;id&quot;       &quot;CDRS_Q1&quot;  &quot;CDRS_Q2&quot;  &quot;CDRS_Q3&quot;  &quot;CDRS_Q4&quot;  &quot;CDRS_Q5&quot; 
+##  [7] &quot;CDRS_Q6&quot;  &quot;CDRS_Q7&quot;  &quot;CDRS_Q8&quot;  &quot;CDRS_Q9&quot;  &quot;CDRS_Q10&quot; &quot;CDRS_Q11&quot;
+## [13] &quot;CDRS_Q12&quot; &quot;CDRS_Q20&quot; &quot;CDRS_Q21&quot; &quot;CDRS_Q22&quot; &quot;CDRS_Q23&quot; &quot;CDRS_Q24&quot;
+## [19] &quot;CDRS_Q25&quot;
+</code></pre>
+<p>Note that the data are not <a href="https://www.jstatsoft.org/article/view/v059i10" target="_blank" rel="noopener">tidy</a> in the sense that each row is a person, and we have variable information on the questions in columns.  I&rsquo;ll return to this in a bit.</p>
+<p>Here ultimately is a visualization that we could use to determine for which terms are the SMART effects strongest, and for which terms is the effect statistically significant:</p>
+<p><img src="/post/dsci-consulting_files/figure-html/unnamed-chunk-3-1.png" width="576" /></p>
+<p>We can see that the average resilience pre-SMART was lower than average resilience post-SMART, and that these differences were most extreme for students in Terms 2 and 3 (which were also the only statistically significant differences).  Additionally, students in Term 4 had very high pre- and post-SMART resilience (they&rsquo;re seasoned veterans, after all!)</p>
+<p>A simple plot, with a simple interpretation.  But the path to get there is anything but!  To create this plot we need:</p>
+<ol>
+<li>to average the 18 CDRS items for each student;</li>
+<li>join the data sets;</li>
+<li>compute paired t-tests for each term;</li>
+<li>prepare data for plotting;</li>
+<li>plot</li>
+</ol>
+<p>So, let&rsquo;s proceed!</p>
+<h2 id="average-the-cdrs-items">Average the CDRS items</h2>
+<p>This is perhaps the most interesting step in the process.  As mentioned earlier, the data are not tidy in the sense that we have variable information in columns instead of rows.  We could reshape (&ldquo;gather&rdquo; or &ldquo;melt&rdquo;) to average CDRS score by term.  Doing this for the post data set:</p>
+<pre><code class="language-r">post_melt &lt;- post %&gt;% 
+  gather(key = 'Question',value='Response',CDRS_Q1:CDRS_Q25)
+head(post_melt)
+</code></pre>
+<pre><code>##    id  Term Question Response
+## 1  23 Term1  CDRS_Q1        4
+## 2 183 Term1  CDRS_Q1        3
+## 3  80 Term1  CDRS_Q1        3
+## 4   1 Term1  CDRS_Q1        3
+## 5 166 Term1  CDRS_Q1        3
+## 6  15 Term1  CDRS_Q1        3
+</code></pre>
+<pre><code class="language-r">post_melt %&gt;% 
+  group_by(id,Term) %&gt;%
+  summarize(post_mean = mean(Response))
+</code></pre>
+<pre><code>## `summarise()` regrouping output by 'id' (override with `.groups` argument)
+</code></pre>
+<pre><code>## # A tibble: 67 x 3
+## # Groups:   id [67]
+##       id Term  post_mean
+##    &lt;int&gt; &lt;chr&gt;     &lt;dbl&gt;
+##  1     1 Term1      3.33
+##  2     2 Term3      3   
+##  3     4 Term2      2.83
+##  4     8 Term2      3.11
+##  5     9 Term1      2.72
+##  6    13 Term4      2.72
+##  7    15 Term1      2.78
+##  8    20 Term1      3   
+##  9    23 Term1      3.5 
+## 10    26 Term4      2.56
+## # ... with 57 more rows
+</code></pre>
+<p>We could also forego the melting, since ultimately all we want is the average response for each student.  We can use the original <code>post</code> data set, and an application of the <code>rowMeans()</code> function within which is nested the <code>select()</code> command:</p>
+<pre><code class="language-r">post2 &lt;- post %&gt;%
+  mutate(post_mean = rowMeans(select(.,CDRS_Q1:CDRS_Q25))) %&gt;%
+  select(id, Term, post_mean)
+head(post2)
+</code></pre>
+<pre><code>##    id  Term post_mean
+## 1  23 Term1  3.500000
+## 2 183 Term1  3.277778
+## 3  80 Term1  3.722222
+## 4   1 Term1  3.333333
+## 5 166 Term1  3.833333
+## 6  15 Term1  2.777778
+</code></pre>
+<p>One could argue that the first approach (using <code>gather()</code>) is the best, since it first creates a &ldquo;tidy&rdquo; data set and is arguably more readable.  But the second appears more succinct.  I&rsquo;ll use the second approach to carry out the same task on the <code>pre</code> data:</p>
+<pre><code class="language-r">pre2 &lt;- pre %&gt;%
+  mutate(pre_mean = rowMeans(select(.,CDRS_Q1:CDRS_Q25))) %&gt;%
+  select(id, pre_mean)
+</code></pre>
+<h2 id="join-pre-and-post">Join pre and post</h2>
+<p>This step is easy!</p>
+<pre><code class="language-r">both &lt;- inner_join(pre2,post2,by='id')
+head(both)
+</code></pre>
+<pre><code>##   id pre_mean  Term post_mean
+## 1  1 3.333333 Term1  3.333333
+## 2  2 2.944444 Term3  3.000000
+## 3  4 2.888889 Term2  2.833333
+## 4  8 2.944444 Term2  3.111111
+## 5  9 2.444444 Term1  2.722222
+## 6 13 2.944444 Term4  2.722222
+</code></pre>
+<h2 id="carry-out-paired-t-tests-by-term">Carry out paired t-tests by term</h2>
+<p>Here is the lone &ldquo;formal&rdquo; statistical aspect of the whole problem!  We can carry out paired t-tests by term as follows using some ugly base-R code: the <code>by()</code> command.  I won&rsquo;t show the output, but here we can see that only for Terms 2 and 3 is the SMART effect statistically significant:</p>
+<pre><code class="language-r">by(both, both$Term, function(df) t.test(df$pre_mean,df$post_mean,paired=TRUE))
+</code></pre>
+<h2 id="prepare-data-for-plotting">Prepare data for plotting</h2>
+<p>Referring back to the figure, the geometric mapping includes four points for the four pre-SMART CDRS averages (one for each term); four points for the post-SMART CDRS averages (one for each term); and a line segment connecting them.  We can use the joined data set to form our &ldquo;plotting&rdquo; data set.</p>
+<pre><code class="language-r">toplot &lt;- both %&gt;%
+  group_by(Term) %&gt;%
+  summarize(avg_pre = mean(pre_mean),avg_post = mean(post_mean)) %&gt;% 
+  mutate(sig = c('no','yes','yes','no'))
+</code></pre>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)
+</code></pre>
+<pre><code class="language-r">toplot
+</code></pre>
+<pre><code>## # A tibble: 4 x 4
+##   Term  avg_pre avg_post sig  
+##   &lt;chr&gt;   &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;
+## 1 Term1    2.97     3.10 no   
+## 2 Term2    2.98     3.16 yes  
+## 3 Term3    2.95     3.26 yes  
+## 4 Term4    3.21     3.2  no
+</code></pre>
+<p>Note that the <code>avg_pre</code> and <code>avg_post</code> columns are in fact &ldquo;means of means,&rdquo; and we have manually added a column to indicate whether the difference was statistically significant.</p>
+<h2 id="plot">Plot!</h2>
+<p>And now the fun begins!  Here is ggplot code to create the original figure:</p>
+<pre><code class="language-r">ggplot(data = toplot) + 
+  geom_point(aes(x = avg_pre, y = 1:4, shape='a',color=sig),size=2)  + 
+  geom_point(aes(x = avg_post, y = 1:4,shape='b',color=sig),size=2) + 
+  geom_segment(aes(x = avg_pre, xend = avg_post, y=1:4,yend=1:4,color=sig)) + 
+  scale_y_reverse() + xlab('average CDRS') + ylab('Term') + 
+  scale_shape_manual(name='',values=c('a'=19,'b'=17),labels=c('pre SMART','post SMART')) + 
+  scale_color_discrete(name='significant?')
+</code></pre>
+<p><img src="/post/dsci-consulting_files/figure-html/unnamed-chunk-10-1.png" width="576" /></p>
+<h2 id="moral">Moral</h2>
+<p>Wow!  The only truly &ldquo;statistical&rdquo; aspect of this whole process was a paired t-test.  And even that was a bit tricky: figuring out how to carry out these t-tests by term!  In reflecting back on the semester, I am struck that our data science students would do well to take our stat consulting course.  They would be kept very interested in data &ldquo;wrangling&rdquo; tasks such as this. On the flip side, it&rsquo;s an invaluable experience for our STAT majors (who comprise the usual audience of this course) to realize that the formal statistical analysis in which they are most trained is ultimately the last in a long series of data wrangling steps.</p>
+
+    </div>
+
+    
+
+
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tag/education/">education</a>
+  
+  <a class="badge badge-light" href="/tag/r/">R</a>
+  
+  <a class="badge badge-light" href="/tag/dplyr/">dplyr</a>
+  
+  <a class="badge badge-light" href="/tag/ggplot/">ggplot</a>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      
+      <img class="avatar mr-3 avatar-circle" src="/author/silas-bergen/avatar_hu31fb7ce6fe49d44d7c0137af066386f5_83804_270x270_fill_q75_lanczos_center.jpg" alt="Silas Bergen">
+    
+
+    <div class="media-body">
+      <h5 class="card-title">Silas Bergen</h5>
+      <h6 class="card-subtitle">Associate professor of statistics and data science</h6>
+      
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="/media/Bergen-CV-noemail.pdf" >
+        <i class="fas fa-file-pdf"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="http://github.com/silasbergen/driftlessdata-public" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.linkedin.com/in/silas-bergen-3039b785/" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/post/summarytools/">A word in favor of summarytools</a></li>
+      
+      <li><a href="/post/vitruvian/">Modeling the Vitruvian Man</a></li>
+      
+      <li><a href="/post/about-social-justice/">Public data resources with social justice applications</a></li>
+      
+      <li><a href="/post/ufl/">Data set gold mine</a></li>
+      
+      <li><a href="/post/lads/">Notes from Liberal Arts Data Science Workshop</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+
+
+  </div>
+</article>
+  </div>
+
+  <div class="page-footer">
+    
+    
+    <div class="container">
+      <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    © 2021 Silas Bergen
+  </p>
+
+  
+  
+
+
+
+
+
+
+  <p class="powered-by">
+    
+    
+    
+    Published with
+    <a href="https://wowchemy.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Wowchemy</a>  —
+    the free, <a href="https://github.com/wowchemy/wowchemy-hugo-modules" target="_blank" rel="noopener">
+    open source</a> website builder that empowers creators.
+    
+  </p>
+</footer>
+
+    </div>
+    
+  </div>
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+      
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/instant.page/5.1.0/instantpage.min.js" integrity="sha512-1+qUtKoh9XZW7j+6LhRMAyOrgSQKenQ4mluTR+cvxXjP1Z54RxZuzstR/H9kgPXQsVB8IW7DMDFUJpzLjvhGSQ==" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js" integrity="sha512-TDKKr+IvoqZnPzc3l35hdjpHD0m+b2EC2SrLEgKDRWpxf2rFCxemkgvJ5kfU48ip+Y+m2XVKyOCD85ybtlZDmw==" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/r.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/latex.min.js"></script>
+        
+      
+
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js" integrity="sha512-SeiQaaDh73yrb56sTW/RgVdi/mMqNeM2oBwubFHagc5BkixSpP1fvqF47mKzPGWYSSy4RwbBunrJBQ4Co8fRWA==" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'event' : "Events",
+        'slides' : "Slides"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+      
+    
+    
+    <script src="/js/wowchemy.min.aeecf26c1eff6b9588dbafc1a9f3953c.js"></script>
+
+    
+
+
+
+
+
+
+</body>
+</html>

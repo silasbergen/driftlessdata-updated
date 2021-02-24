@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data visualizationsss | Silas Bergen</title>
+    <link>/courses/dsci310/</link>
+      <atom:link href="/courses/dsci310/index.xml" rel="self" type="application/rss+xml" />
+    <description>Data visualizationsss</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2021 Silas Bergen</copyright><lastBuildDate>Sun, 09 Sep 2018 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/images/icon_hu88e77fda8259aec1ad610bc9dd60fa00_1241_512x512_fill_lanczos_center_2.png</url>
+      <title>Data visualizationsss</title>
+      <link>/courses/dsci310/</link>
+    </image>
+    
+    <item>
+      <title>Data visualizationsss</title>
+      <link>/courses/dsci310/playday-menu/</link>
+      <pubDate>Sun, 09 Sep 2018 00:00:00 +0000</pubDate>
+      <guid>/courses/dsci310/playday-menu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Play Day Task</title>
+      <link>/courses/dsci310/playday4/</link>
+      <pubDate>Tue, 07 Nov 2017 00:00:00 +0000</pubDate>
+      <guid>/courses/dsci310/playday4/</guid>
+      <description>&lt;p&gt;This play day is modified from a similar assignment by Jerzy Wieczorek of &lt;a href=&#34;http://civilstat.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CivilStat.com&lt;/a&gt; specifically &lt;a href=&#34;http://civilstat.com/datavis/36721F15/Assignments/HW2_VisualPerception.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;this one&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Consider &lt;a href=&#34;https://www.dropbox.com/s/6g864cc4s4rc9ni/degrees.csv?dl=0&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;data tablulated&lt;/a&gt; from the 2010 Digest of Education Statistics, &lt;a href=&#34;https://nces.ed.gov/programs/digest/d10/tables_3.asp#Ch3aSub4&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;tables 308 to 330.&lt;/a&gt;.  The intent of this data is to answer:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;In what fields are more women entering college?&lt;/li&gt;
+&lt;li&gt;How is each field&amp;rsquo;s gender balance changing?&lt;/li&gt;
+&lt;li&gt;Is there a difference in gender balance comparing STEM to non-STEM fields?&lt;/li&gt;
+&lt;li&gt;How has the gender balance in STEM fields changed relative to the balance in non-STEM fields over time?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Here is &lt;a href=&#34;https://public.tableau.com/views/STEMdataAvizforstudentcritique/Dashboard1?:embed=y&amp;amp;:display_count=yes&amp;amp;publish=yes&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;one take&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;step-1&#34;&gt;Step 1&lt;/h3&gt;
+&lt;p&gt;Critique this visualization at your tables, making a list of your critiques.  &lt;em&gt;&lt;strong&gt;Be specific&lt;/strong&gt;&lt;/em&gt;, considering:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;What comparisons do you want to make, and how easy is it to make those comparisons?&lt;/li&gt;
+&lt;li&gt;What are redesigns that would make those comparisons easier by better exploiting principles of visual perception?&lt;/li&gt;
+&lt;li&gt;What aesthetic attributes need changing?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Each student should submit critiques to the Play Day 4 submission folder on D2L.&lt;/p&gt;
+&lt;h3 id=&#34;step-2&#34;&gt;Step 2&lt;/h3&gt;
+&lt;p&gt;Create a visualization using &lt;a href=&#34;https://www.dropbox.com/s/6g864cc4s4rc9ni/degrees.csv?dl=0&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;the data&lt;/a&gt; that improves upon the one provided, incorporating the critiques you made in Step 1.  Submit the redesign to the Play Day 4 submission folder on D2L.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Play Day Task</title>
+      <link>/courses/dsci310/playday3/</link>
+      <pubDate>Mon, 16 Oct 2017 00:00:00 +0000</pubDate>
+      <guid>/courses/dsci310/playday3/</guid>
+      <description>&lt;p&gt;Consider the following data on &lt;a href=&#34;https://www.dropbox.com/s/f8t1p37kkueizom/migration.csv?dl=0&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;World Migration&lt;/a&gt; from the United Nations, Department of Economic and Social Affairs, Population Division, Trends in International Migrant Stock.&lt;/p&gt;
+&lt;p&gt;Questions to be answered visually (no restrictions!):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Which countries and regions have the most people leaving?  Where do they go?&lt;/li&gt;
+&lt;li&gt;Which countries and regions have the most people entering?  Where do they come from?&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Midterm project</title>
+      <link>/courses/dsci310/midterm/</link>
+      <pubDate>Mon, 09 Oct 2017 00:00:00 +0000</pubDate>
+      <guid>/courses/dsci310/midterm/</guid>
+      <description>&lt;p&gt;For this semester&amp;rsquo;s midterm project, we will be participating in the American Statistical Association&amp;rsquo;s &lt;a href=&#34;http://thisisstatistics.org/policedatachallenge&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Police Data Challenge&lt;/a&gt;. Read the information on the website for many more details.  For the midterm project, &lt;em&gt;&lt;strong&gt;all students&lt;/strong&gt;&lt;/em&gt; should visualize the Seattle data set.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;http://thisisstatistics.org/wp-content/uploads/2017/09/Police-Data-Challenge-Rules.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Detailed version of the rules&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Fill out &lt;a href=&#34;http://thisisstatistics.org/police-data-challenge-2017-declare-your-intent/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;declaration of intent form&lt;/a&gt; by &lt;em&gt;&lt;strong&gt;Friday, October 6&lt;/strong&gt;&lt;/em&gt;.  Only one team member needs to submit the form.  List me (Silas Bergen) as your sponsor.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;From the website:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Awards will be given in three categories (1) Best Overall Analysis, (2) Best Visualization, and (3) Best Use of External Data.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Winning teams will receive a $50 Amazon gift card, complimentary memberships to ASA, and a Police Data Challenge 2017 t-shirt, along with bragging rights and a chance to have an impact on local communities.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Winners also will be profiled and promoted to ASA&amp;rsquo;s membership of leading statisticians and data scientists in academia, industry, business, and government, and through ASA&amp;rsquo;s public education campaign, ThisisStatistics. Second and third place winners will also be recognized.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;###Requirements for the competition&lt;/p&gt;
+&lt;p&gt;Prepare the materials that you need to submit to the competition: PowerPoint presentation with up to 10 slides, and document with $\leq 500$ words detailing your process.  Each team should submit these files by Nov 3.&lt;/p&gt;
+&lt;p&gt;###Additional requirements for DSCI 310 Midterm&lt;/p&gt;
+&lt;p&gt;The main additional requirement is to use Census data &lt;em&gt;to some extent&lt;/em&gt; in your project.  One way is to merge Census Tract information with the Tract information in the Seattle data file.  A very nice R package for downloading Census data is &lt;code&gt;tidycensus&lt;/code&gt;, especially the function &lt;code&gt;get_acs()&lt;/code&gt;.  This function makes use of the Census API, specifically reading in data from the &lt;a href=&#34;https://www.census.gov/programs-surveys/acs/about.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;American Community Survey (ACS)&lt;/a&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.census.gov/data/developers/data-sets/acs-5year.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;More information on the ACS API&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://api.census.gov/data/2015/acs5/variables.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Complete list of 2011-2015 ACS variables&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://walkerke.github.io/tidycensus/articles/basic-usage.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Nice overview of &lt;code&gt;tidycensus&lt;/code&gt; by its author, Kyle Walker&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Additionally, each team will present their PowerPoint slides beginning on &lt;em&gt;&lt;strong&gt;October 27&lt;/strong&gt;&lt;/em&gt; (so really, the deadline to have your PowerPoint done is 10/27, not 11/3).&lt;/p&gt;
+&lt;h3 id=&#34;rubrics-for-dsci-310-midterm&#34;&gt;Rubrics for DSCI 310 midterm&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.dropbox.com/s/7h03rx03aqfuibz/GroupProjectRubric-Fall2017.docx?dl=0&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Rubric for the visualizations (50%)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.dropbox.com/s/vap4vrwwcayqbub/GroupPresentationRubric-Fall2017.docx?dl=0&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Rubric for presentations (30%)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://winona.az1.qualtrics.com/jfe/form/SV_4TOSbiNE6e3gzQ1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Link to group member evaluation (20%)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;relevant-resources&#34;&gt;Relevant resources&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.census.gov/geo/reference/geoidentifiers.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Understanding Census Geographic Identifiers&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;group-assignments&#34;&gt;Group assignments&lt;/h3&gt;
+&lt;p&gt;Professionally, you will not get to always choose your own groups.  For the midterm project you will be assigned into groups, which are listed below.  Divide the work, and conquer!&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Group presentation order:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;4, 2, 7, 1, 9, 8, 6, 5, 3&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Group 1:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Jack Barta&lt;/li&gt;
+&lt;li&gt;Sam Meyer&lt;/li&gt;
+&lt;li&gt;Mariah Quam&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Group 2:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Fengrui Xue&lt;/li&gt;
+&lt;li&gt;Thomas Gathje&lt;/li&gt;
+&lt;li&gt;Max Oelerking&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Group 3:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Kapil Khanal&lt;/li&gt;
+&lt;li&gt;Luke Peacock&lt;/li&gt;
+&lt;li&gt;Jimmy Hickey&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Group 4:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Will Diedrick&lt;/li&gt;
+&lt;li&gt;Yulun Xu&lt;/li&gt;
+&lt;li&gt;Adam Clemens&lt;/li&gt;
+&lt;li&gt;Lauren Willkom&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Group 5:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Salman Quraishi&lt;/li&gt;
+&lt;li&gt;Waheed Khan&lt;/li&gt;
+&lt;li&gt;Linh Nguyen&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Group 6:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Nathan Smith&lt;/li&gt;
+&lt;li&gt;Paul Boelter&lt;/li&gt;
+&lt;li&gt;David Stampley&lt;/li&gt;
+&lt;li&gt;Akif Khan&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Group 7:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Austin Ellingworth&lt;/li&gt;
+&lt;li&gt;Brad Erickson&lt;/li&gt;
+&lt;li&gt;Sam Dokkebakken&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Group 8:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Matthew Ladin&lt;/li&gt;
+&lt;li&gt;McHale Dye&lt;/li&gt;
+&lt;li&gt;Catherine Nead&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Group 9:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Stacey Miertschin&lt;/li&gt;
+&lt;li&gt;Reagan Buske&lt;/li&gt;
+&lt;li&gt;Ross Krueger&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Play Day Task 1</title>
+      <link>/courses/dsci310/playday1/</link>
+      <pubDate>Wed, 13 Sep 2017 00:00:00 +0000</pubDate>
+      <guid>/courses/dsci310/playday1/</guid>
+      <description>&lt;p&gt;Consider the &lt;a href=&#34;https://www.dropbox.com/s/yaqv5afaz1rp9j6/MLB-Standings-2016-2017.xlsx?dl=0&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Major League Baseball Standings data&lt;/a&gt;.  There are two worksheets in this Excel file: one with 2016 standings, and one with 2017 standings.  The important variables in each are the team names (Tm); actual winning percentage (W-L%); and predicted winning percentage (pythWPct), which is each team&amp;rsquo;s predicted winning percentage based on the number of points (&amp;ldquo;runs&amp;rdquo;) scored by and against that team.&lt;/p&gt;
+&lt;p&gt;Questions to be answered (no restrictions!):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Which teams&#39; winning percentages most improved the most from 2016-2017?  Which teams got much worse?&lt;/li&gt;
+&lt;li&gt;Which teams are most underperforming and overperforming their predicted winning percentage in 2017?&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Syllabus (Fall 2017)</title>
+      <link>/courses/dsci310/syllabus/</link>
+      <pubDate>Sun, 20 Aug 2017 00:00:00 +0000</pubDate>
+      <guid>/courses/dsci310/syllabus/</guid>
+      <description>&lt;h3 id=&#34;data-summarization-and-visualization-fall-2017dsci310-home&#34;&gt;&lt;a href=&#34;../dsci310-home/&#34;&gt;Data summarization and visualization (Fall 2017)&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;course-overview&#34;&gt;Course overview&lt;/h3&gt;
+&lt;p&gt;The amount and extent of data in our world is growing extremely rapidly. 
+As such there is an increasing need for analysts skilled in summarizing data. 
+Visualizations are an immensely popular way of summarizing data, as they allow viewers to efficiently translate data into information. 
+Modern visualizations are either static or interactive, with a growing trend towards the latter. 
+In this course we will discuss how we perceive information visually, how to identify and avoid data visualization pitfalls, 
+and how to create effective static and interactive visualizations.&lt;/p&gt;
+&lt;h3 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h3&gt;
+&lt;p&gt;Data Science 210. In DSCI 310 I will assume you have working knowledge of data management tools and techniques. 
+Some tasks in DSCI 310 will require a nontrivial amount of data manipulation and cleaning. 
+While I will provide support for this as needed, I will expect you to be able to obtain and &amp;ldquo;wrangle&amp;rdquo; some data on your own. 
+Examples of data tasks that you should be able to do include reshaping data between wide and long formats.&lt;/p&gt;
+&lt;h3 id=&#34;textbook&#34;&gt;Textbook&lt;/h3&gt;
+&lt;p&gt;There is no required textbook for this course. 
+Highly recommended resources are &lt;a href=&#34;https://www.amazon.com/Visual-Display-Quantitative-Information/dp/1930824130&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;The Visual Display of Quantitative Information&lt;/a&gt; by Edward Tufte, and &lt;a href=&#34;https://www.amazon.com/Communicating-Data-Tableau-Developing-Visualizations/dp/1449372023/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1513093596&amp;amp;sr=1-1&amp;amp;keywords=communicating&amp;#43;data&amp;#43;with&amp;#43;tableau&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Communicating Data with Tableau&lt;/a&gt; by Ben Jones.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Tufte&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Jones&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;img src=&#34;/img/tufte-book.jpg&#34; alt=&#34;&#34;&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;img src=&#34;/img/cdwt-book.jpg&#34; alt=&#34;&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;We will be looking at examples from these texts over the duration of the semester.&lt;/p&gt;
+&lt;h3 id=&#34;software&#34;&gt;Software&lt;/h3&gt;
+&lt;p&gt;We will be using the Tableau software (latest version: 10.2 as of Fall 2017) extensively throughout this semester.
+Tableau is quickly becoming the industry standard for data visualization, 
+as its drag-and-drop user interface is accessible to people who may be uncomfortable with command-line coding. 
+It is also a powerful way to interact with data through the creation of dashboards. Tableau Desktop 10.0 is not usually free, but is available to you as students through the WSU network. We will be uploading vizzes onto Tableau Public, which is free to anybody. Time permitting we will also cover the R package ggplot2. This is the standard for graphics within R, and is better suited for static statistical graphics than Tableau.&lt;/p&gt;
+&lt;h3 id=&#34;learning-outcomes&#34;&gt;Learning outcomes&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Students will be able to identify and describe the methods and techniques commonly used to describe data both numerically and visually.&lt;/li&gt;
+&lt;li&gt;Students will be able to use appropriate methods to summarize and visualize data based upon the data type and the goals of the analysis.&lt;/li&gt;
+&lt;li&gt;Students will be able to demonstrate the ability to clean and prepare data for the summarization and visualization process.&lt;/li&gt;
+&lt;li&gt;Students will demonstrate the ability to summarize and visualize relationships between variables appropriately given the data type of the variables involved.&lt;/li&gt;
+&lt;li&gt;Students will be able to construct an interactive data dashboard to summarize and display the important features of a data set.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;assessments&#34;&gt;Assessments&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Attendance and participation (10%)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;DSCI 310 will be heavy on in-class discussion and visualization designs. 
+It is important that all students are a part of these discussions. 
+There will also be many in-class data visualization activities in which it is important for you to participate.
+Accordingly, I will take attendance almost every day throughout the semester and it will be weighted at 10% of your final grade.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Visualization critiques (15%)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Students will be required to submit frequent critiques of assigned visualizations. 
+At the beginning of the semester, critiques will mostly be of visualizations I provide you. 
+As the semester progresses, you will also critique your peers&#39; visualizations using the peer grading resouce &lt;a href=&#34;https://www.crowdgrader.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CrowdGrader&lt;/a&gt;. 
+Becoming an effective critic is imperative for your own growth as a visualization designer; 
+hence completing thorough critiques is a non-trivial component of your final grade. 
+I will provide you with a rubric to use when you critique your peers&#39; visualizations.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Exam (10%)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;There will be one exam in this course, covering visual theory and best practices as well as visualization creation. 
+The exam will assess students’ abilities to critique visualizations, and suggest improvements, by applying perceptual theory and other concepts covered in class.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Design tasks (15%)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;There will be frequent design tasks where students will be presented with a data set and asked to create a viz summarizing important aspects of the data set. 
+Some design tasks will come with their own questions of interest, while others may require the student to explore the data in order to find and visualize their own 
+questions of interest. Some design tasks may require a nontrivial amount of data wrangling to get the data into a format suitable for visualizing. 
+All design tasks will include an editing process during which your visualization is critiqued by at least 2 peers and you will have a chance to edit your 
+visualization as a result of these critiques.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Midterm group project (20%)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;There will be one midterm group project at various points in the semester. This projects will consist of oral presentations of the projects to the entire class.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Final project (30%)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Each student will be required to find their own data set and visualize it using a series of interactive Dashboards. 
+Each student will prepare a presentation for the class providing the context of their data set, questions posed by the data, 
+and visualizations that communicate the answers to those questions. The data set and a set of preliminary questions must be approved by the instructor.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;tentative-course-topics&#34;&gt;Tentative course topics&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Principles of effective data visualization&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Historical background and examples&lt;/li&gt;
+&lt;li&gt;How we perceive information: Elementary perceptual tasks (EPT)&lt;/li&gt;
+&lt;li&gt;What makes a strong graphic?&lt;/li&gt;
+&lt;li&gt;What makes a poor graphic?&lt;/li&gt;
+&lt;li&gt;Designing for aesthetic&lt;/li&gt;
+&lt;li&gt;Data Type (categorical, ordinal, continuous)&lt;/li&gt;
+&lt;li&gt;Matching data type to the appropriate EPT&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Visualizing univariate data&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Visualization techniques for single categorical field&lt;/li&gt;
+&lt;li&gt;Visualization techniques for single quantitative field&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Visualizing multivariate data&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Mosaic and stacked bar charts&lt;/li&gt;
+&lt;li&gt;Time-series plots&lt;/li&gt;
+&lt;li&gt;2- and 3-way Scatterplots&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;Visualizing aggregated data&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Rates&lt;/li&gt;
+&lt;li&gt;Ratios&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;Visualizing spatial data&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Filled maps&lt;/li&gt;
+&lt;li&gt;Shape-size maps&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;6&#34;&gt;
+&lt;li&gt;Data Dashboards&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;The power of interaction&lt;/li&gt;
+&lt;li&gt;Interaction via filter&lt;/li&gt;
+&lt;li&gt;Interaction via parameterization&lt;/li&gt;
+&lt;li&gt;View filtering&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

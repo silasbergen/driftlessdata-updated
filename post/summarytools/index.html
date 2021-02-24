@@ -1,0 +1,1207 @@
+<!DOCTYPE html><html lang="en-us" >
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  
+  
+  <meta name="generator" content="Wowchemy 5.0.0-beta.1 for Hugo">
+  
+
+  
+
+  
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Silas Bergen">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Yesterday, I was preparing material for STAT 405 (biostatistics) I am teaching this spring, and was on the prowl for something that is an improvement upon the base R summary() function (it doesn&rsquo;t even give standard deviations!">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/summarytools/">
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#795548">
+  
+
+  
+  
+  
+  <script src="/js/mathjax-config.js"></script>
+  
+
+  
+  
+  
+  
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.0/css/academicons.min.css" integrity="sha512-W4yqoT1+8NLkinBLBZko+dFB2ZbHsYLDdr50VElllRcNt2Q4/GSs6u71UHKxB7S6JEMCp5Ve4xjh3eGQl/HRvg==" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha256-FMvZuGapsJLjouA6k7Eo2lusoAX9i0ShlWFG6qt7SLc=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous" media="print" onload="this.media='all'">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/github.min.css" crossorigin="anonymous" title="hl-light" media="print" onload="this.media='all'">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" media="print" onload="this.media='all'" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.css" integrity="sha512-1xoFisiGdy9nvho8EgXuXvnpR5GAMSjFwp40gSRE3NwdUdIMIKuPa7bqoUhLD0O/5tPNhteAsE5XyyMi5reQVA==" crossorigin="anonymous" media="print" onload="this.media='all'">
+    
+
+    
+
+    
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.2/lazysizes.min.js" integrity="sha512-TmDwFLhg3UA4ZG0Eb4MIyT1O1Mb+Oww5kFG0uHqXsdbyZz9DcvYQhKpGgNkamAI6h2lGGZq2X8ftOJvF/XjTUg==" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+
+  
+
+  
+  
+  
+    
+      
+      <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap" media="print" onload="this.media='all'">
+    
+  
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/wowchemy.6fb8abac2e86f269f834cb1c169b5f29.css">
+
+  
+
+
+
+
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+  <link rel="manifest" href="/index.webmanifest">
+  
+
+  <link rel="icon" type="image/png" href="/images/icon_hu88e77fda8259aec1ad610bc9dd60fa00_1241_32x32_fill_lanczos_center_2.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu88e77fda8259aec1ad610bc9dd60fa00_1241_192x192_fill_lanczos_center_2.png">
+
+  <link rel="canonical" href="/post/summarytools/">
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="og:site_name" content="Silas Bergen">
+  <meta property="og:url" content="/post/summarytools/">
+  <meta property="og:title" content="A word in favor of summarytools | Silas Bergen">
+  <meta property="og:description" content="Yesterday, I was preparing material for STAT 405 (biostatistics) I am teaching this spring, and was on the prowl for something that is an improvement upon the base R summary() function (it doesn&rsquo;t even give standard deviations!"><meta property="og:image" content="/images/icon_hu88e77fda8259aec1ad610bc9dd60fa00_1241_512x512_fill_lanczos_center_2.png">
+  <meta property="twitter:image" content="/images/icon_hu88e77fda8259aec1ad610bc9dd60fa00_1241_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2019-01-08T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2019-01-08T00:00:00&#43;00:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/post/summarytools/"
+  },
+  "headline": "A word in favor of summarytools",
+  
+  "datePublished": "2019-01-08T00:00:00Z",
+  "dateModified": "2019-01-08T00:00:00Z",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Silas Bergen"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Silas Bergen",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/images/icon_hu88e77fda8259aec1ad610bc9dd60fa00_1241_192x192_fill_lanczos_center_2.png"
+    }
+  },
+  "description": "Yesterday, I was preparing material for STAT 405 (biostatistics) I am teaching this spring, and was on the prowl for something that is an improvement upon the base R summary() function (it doesn\u0026rsquo;t even give standard deviations!"
+}
+</script>
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>A word in favor of summarytools | Silas Bergen</title>
+
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper  ">
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <script src="/js/wowchemy-init.min.7d92a95e871a711a5c03f82410d0fe5d.js"></script>
+
+  
+
+<aside class="search-modal" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#" aria-label="Close"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control"
+        aria-label="Search...">
+        
+      </div>
+
+      
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+
+  <div class="page-header">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/">Silas Bergen</a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/">Silas Bergen</a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#talks_and_workshops"><span>Talks and workshops</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#teaching"><span>Teaching</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/media/Bergen-CV-noemail.pdf"><span>CV</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+
+      
+      
+        
+      
+
+      
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      
+
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  </div>
+
+  <div class="page-body">
+    <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>A word in favor of summarytools</h1>
+
+  
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Jan 8, 2019
+  </span>
+  
+
+  
+
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      <p>Yesterday, I was preparing material for STAT 405 (biostatistics) I am teaching this spring, and was on the prowl for something that is an improvement upon the base R <code>summary()</code> function (it doesn&rsquo;t even give standard deviations!).  The ideal package would also improve upon the base R <code>table()</code> method, for which getting row and/or column percents is a huge pain. Base function <code>xtabs()</code> is great for getting arrays of contigency tables, but no percents.  My first stop was the <a href="https://cran.r-project.org/web/packages/Hmisc/Hmisc.pdf" target="_blank" rel="noopener"><code>Hmisc</code> package</a>, which has a good summary method via its <code>describe()</code> function.<br>
+To demonstrate I use the <a href="http://www.biostat.ucsf.edu/vgsm/data.html" target="_blank" rel="noopener">Western Collaborative Group Survey (WCGS)</a> data from Eric Vittingoff&rsquo;s excellent book <em>Regression Methods in Biostatistics</em>.</p>
+<pre><code class="language-r">Hmisc::describe(wcgs[,1:5])
+</code></pre>
+<pre><code>## wcgs[, 1:5] 
+## 
+##  5  Variables      3154  Observations
+## --------------------------------------------------------------------------------
+## age 
+##        n  missing distinct     Info     Mean      Gmd      .05      .10 
+##     3154        0       21    0.996    46.28    6.256       39       40 
+##      .25      .50      .75      .90      .95 
+##       42       45       50       55       57 
+## 
+## lowest : 39 40 41 42 43, highest: 55 56 57 58 59
+## --------------------------------------------------------------------------------
+## arcus 
+##        n  missing distinct     Info      Sum     Mean      Gmd 
+##     3152        2        2    0.628      941   0.2985    0.419 
+## 
+## --------------------------------------------------------------------------------
+## behpat 
+##        n  missing distinct 
+##     3154        0        4 
+##                                   
+## Value         A1    A2    B3    B4
+## Frequency    264  1325  1216   349
+## Proportion 0.084 0.420 0.386 0.111
+## --------------------------------------------------------------------------------
+## bmi 
+##        n  missing distinct     Info     Mean      Gmd      .05      .10 
+##     3154        0      679        1    24.52    2.803    20.59    21.52 
+##      .25      .50      .75      .90      .95 
+##    22.96    24.39    25.84    27.45    28.73 
+## 
+## lowest : 11.19061 15.66050 16.87200 17.21633 17.22242
+## highest: 36.04248 37.22973 37.24805 37.65281 38.94737
+## --------------------------------------------------------------------------------
+## chd69 
+##        n  missing distinct 
+##     3154        0        2 
+##                       
+## Value         No   Yes
+## Frequency   2897   257
+## Proportion 0.919 0.081
+## --------------------------------------------------------------------------------
+</code></pre>
+<p>It also has a <code>summary</code> method for objects of class <code>formula</code> which ultimately can be used to create tables that are ready for markdown:</p>
+<pre><code class="language-r">summary(chd69~agec, data = wcgs,method='reverse')
+</code></pre>
+<pre><code>## 
+## 
+## Descriptive Statistics by chd69
+## 
+## +------------+-----------+-----------+
+## |            |No         |Yes        |
+## |            |(N=2897)   |(N=257)    |
+## +------------+-----------+-----------+
+## |agec : 35-40|18%  ( 512)|12%  (  31)|
+## +------------+-----------+-----------+
+## |    41-45   |36%  (1036)|21%  (  55)|
+## +------------+-----------+-----------+
+## |    46-50   |23%  ( 680)|27%  (  70)|
+## +------------+-----------+-----------+
+## |    51-55   |16%  ( 463)|25%  (  65)|
+## +------------+-----------+-----------+
+## |    56-60   | 7%  ( 206)|14%  (  36)|
+## +------------+-----------+-----------+
+</code></pre>
+<p>It does not work as well as you would expect for additional dimensions, however:</p>
+<pre><code class="language-r">summary(chd69~agec+behpat, data = wcgs,method='reverse')
+</code></pre>
+<pre><code>## 
+## 
+## Descriptive Statistics by chd69
+## 
+## +------------+-----------+-----------+
+## |            |No         |Yes        |
+## |            |(N=2897)   |(N=257)    |
+## +------------+-----------+-----------+
+## |agec : 35-40|18%  ( 512)|12%  (  31)|
+## +------------+-----------+-----------+
+## |    41-45   |36%  (1036)|21%  (  55)|
+## +------------+-----------+-----------+
+## |    46-50   |23%  ( 680)|27%  (  70)|
+## +------------+-----------+-----------+
+## |    51-55   |16%  ( 463)|25%  (  65)|
+## +------------+-----------+-----------+
+## |    56-60   | 7%  ( 206)|14%  (  36)|
+## +------------+-----------+-----------+
+## |behpat : A1 | 8%  ( 234)|12%  (  30)|
+## +------------+-----------+-----------+
+## |    A2      |41%  (1177)|58%  ( 148)|
+## +------------+-----------+-----------+
+## |    B3      |40%  (1155)|24%  (  61)|
+## +------------+-----------+-----------+
+## |    B4      |11%  ( 331)| 7%  (  18)|
+## +------------+-----------+-----------+
+</code></pre>
+<p>Enter <a href="https://cran.r-project.org/web/packages/summarytools/vignettes/Introduction.html" target="_blank" rel="noopener">summarytools</a>, immediately appealing in its simplicity.  Indeed it only has four primary functions, centered on its wonderful <code>dfSummary()</code> function:</p>
+<pre><code class="language-r">library(summarytools)
+</code></pre>
+<pre><code>## Registered S3 method overwritten by 'pryr':
+##   method      from
+##   print.bytes Rcpp
+</code></pre>
+<pre><code>## For best results, restart R session and update pander using devtools:: or remotes::install_github('rapporter/pander')
+</code></pre>
+<p><img src="../../img/dfsummary1.PNG" alt=""></p>
+<p>This is the prettiest, most thorough output I&rsquo;ve come across in a summary function, complete with ASCII bar graphs or histograms representing categorical or quantitative variables.  You can prettify it even further in the browser with the <code>view()</code> command:</p>
+<pre><code class="language-r">view(dfSummary(wcgs))
+</code></pre>
+<p><img src="../../img/dfsummary2.PNG" alt=""></p>
+<p>Two-way tables come by way of <code>ctable()</code>:</p>
+<pre><code class="language-r">ctable(wcgs$agec,wcgs$chd69)
+</code></pre>
+<pre><code>## Cross-Tabulation, Row Proportions  
+## agec * chd69  
+## Data Frame: wcgs  
+## 
+## ------- ------- -------------- ------------- ---------------
+##           chd69             No           Yes           Total
+##    agec                                                     
+##   35-40            512 (94.3%)    31 ( 5.7%)    543 (100.0%)
+##   41-45           1036 (95.0%)    55 ( 5.0%)   1091 (100.0%)
+##   46-50            680 (90.7%)    70 ( 9.3%)    750 (100.0%)
+##   51-55            463 (87.7%)    65 (12.3%)    528 (100.0%)
+##   56-60            206 (85.1%)    36 (14.9%)    242 (100.0%)
+##   Total           2897 (91.9%)   257 ( 8.1%)   3154 (100.0%)
+## ------- ------- -------------- ------------- ---------------
+</code></pre>
+<p>A couple drawbacks to <code>summarytools</code>: (1) It is not very compatible with the tidyverse, as you can see with the above use of <code>ctable()</code>.  (2) Even the nice 2x2 table is not easily extentable to higher dimensions.  You could use <code>by()</code>, but&hellip;who wants to do that?</p>
+<p>In finishing this post I see Adam Medcalf from Dabbling with Data has a <a href="https://dabblingwithdata.wordpress.com/2018/01/02/my-favourite-r-package-for-summarising-data/" target="_blank" rel="noopener">nice post</a> on Hmisc, summarytools, and a couple others as well.  For my money, I&rsquo;ll take summarytools, though I wish its beautiful 2x2 table displays were more easily extended and its <code>ctable()</code> and <code>descr()</code> functions more tidyverseable!</p>
+
+    </div>
+
+    
+
+
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tag/r/">R</a>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      
+      <img class="avatar mr-3 avatar-circle" src="/author/silas-bergen/avatar_hu31fb7ce6fe49d44d7c0137af066386f5_83804_270x270_fill_q75_lanczos_center.jpg" alt="Silas Bergen">
+    
+
+    <div class="media-body">
+      <h5 class="card-title">Silas Bergen</h5>
+      <h6 class="card-subtitle">Associate professor of statistics and data science</h6>
+      
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="/media/Bergen-CV-noemail.pdf" >
+        <i class="fas fa-file-pdf"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="http://github.com/silasbergen/driftlessdata-public" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.linkedin.com/in/silas-bergen-3039b785/" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/post/dsci-consulting/">Stat consulting: a data science playground</a></li>
+      
+      <li><a href="/post/viz-worldseries-wpa/">Quantifying thrill</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+
+
+  </div>
+</article>
+  </div>
+
+  <div class="page-footer">
+    
+    
+    <div class="container">
+      <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    © 2021 Silas Bergen
+  </p>
+
+  
+  
+
+
+
+
+
+
+  <p class="powered-by">
+    
+    
+    
+    Published with
+    <a href="https://wowchemy.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Wowchemy</a>  —
+    the free, <a href="https://github.com/wowchemy/wowchemy-hugo-modules" target="_blank" rel="noopener">
+    open source</a> website builder that empowers creators.
+    
+  </p>
+</footer>
+
+    </div>
+    
+  </div>
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+      
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/instant.page/5.1.0/instantpage.min.js" integrity="sha512-1+qUtKoh9XZW7j+6LhRMAyOrgSQKenQ4mluTR+cvxXjP1Z54RxZuzstR/H9kgPXQsVB8IW7DMDFUJpzLjvhGSQ==" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js" integrity="sha512-TDKKr+IvoqZnPzc3l35hdjpHD0m+b2EC2SrLEgKDRWpxf2rFCxemkgvJ5kfU48ip+Y+m2XVKyOCD85ybtlZDmw==" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/r.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/latex.min.js"></script>
+        
+      
+
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js" integrity="sha512-SeiQaaDh73yrb56sTW/RgVdi/mMqNeM2oBwubFHagc5BkixSpP1fvqF47mKzPGWYSSy4RwbBunrJBQ4Co8fRWA==" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'event' : "Events",
+        'slides' : "Slides"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+      
+    
+    
+    <script src="/js/wowchemy.min.aeecf26c1eff6b9588dbafc1a9f3953c.js"></script>
+
+    
+
+
+
+
+
+
+</body>
+</html>

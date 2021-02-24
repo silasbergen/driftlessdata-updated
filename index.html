@@ -1,0 +1,2186 @@
+<!DOCTYPE html><html lang="en-us" >
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  
+  
+  <meta name="generator" content="Wowchemy 5.0.0-beta.1 for Hugo">
+  
+
+  
+
+  
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Silas Bergen">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Associate professor of statistics and data science">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/">
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#795548">
+  
+
+  
+  
+  
+  <script src="/js/mathjax-config.js"></script>
+  
+
+  
+  
+  
+  
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.0/css/academicons.min.css" integrity="sha512-W4yqoT1+8NLkinBLBZko+dFB2ZbHsYLDdr50VElllRcNt2Q4/GSs6u71UHKxB7S6JEMCp5Ve4xjh3eGQl/HRvg==" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha256-FMvZuGapsJLjouA6k7Eo2lusoAX9i0ShlWFG6qt7SLc=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous" media="print" onload="this.media='all'">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/github.min.css" crossorigin="anonymous" title="hl-light" media="print" onload="this.media='all'">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" media="print" onload="this.media='all'" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.css" integrity="sha512-1xoFisiGdy9nvho8EgXuXvnpR5GAMSjFwp40gSRE3NwdUdIMIKuPa7bqoUhLD0O/5tPNhteAsE5XyyMi5reQVA==" crossorigin="anonymous" media="print" onload="this.media='all'">
+    
+
+    
+
+    
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.2/lazysizes.min.js" integrity="sha512-TmDwFLhg3UA4ZG0Eb4MIyT1O1Mb+Oww5kFG0uHqXsdbyZz9DcvYQhKpGgNkamAI6h2lGGZq2X8ftOJvF/XjTUg==" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+
+  
+
+  
+  
+  
+    
+      
+      <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap" media="print" onload="this.media='all'">
+    
+  
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/wowchemy.6fb8abac2e86f269f834cb1c169b5f29.css">
+
+  
+
+
+
+
+  
+
+  
+
+
+  
+  
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  
+
+  
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="Silas Bergen">
+  
+
+  
+  <link rel="manifest" href="/index.webmanifest">
+  
+
+  <link rel="icon" type="image/png" href="/images/icon_hu88e77fda8259aec1ad610bc9dd60fa00_1241_32x32_fill_lanczos_center_2.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu88e77fda8259aec1ad610bc9dd60fa00_1241_192x192_fill_lanczos_center_2.png">
+
+  <link rel="canonical" href="/">
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="og:site_name" content="Silas Bergen">
+  <meta property="og:url" content="/">
+  <meta property="og:title" content="Silas Bergen">
+  <meta property="og:description" content="Associate professor of statistics and data science"><meta property="og:image" content="/images/icon_hu88e77fda8259aec1ad610bc9dd60fa00_1241_512x512_fill_lanczos_center_2.png">
+  <meta property="twitter:image" content="/images/icon_hu88e77fda8259aec1ad610bc9dd60fa00_1241_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="en-us">
+  
+    <meta property="og:updated_time" content="2021-02-23T00:00:00-06:00">
+  
+
+  
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  },
+  "url": ""
+}
+</script>
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>Silas Bergen</title>
+
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#navbar-main" class="page-wrapper  ">
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <script src="/js/wowchemy-init.min.7d92a95e871a711a5c03f82410d0fe5d.js"></script>
+
+  
+
+<aside class="search-modal" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#" aria-label="Close"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control"
+        aria-label="Search...">
+        
+      </div>
+
+      
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+
+  <div class="page-header">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/">Silas Bergen</a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/">Silas Bergen</a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts" data-target="#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#talks_and_workshops" data-target="#talks_and_workshops"><span>Talks and workshops</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#teaching" data-target="#teaching"><span>Teaching</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/media/Bergen-CV-noemail.pdf"><span>CV</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact" data-target="#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+
+      
+      
+        
+      
+
+      
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      
+
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  </div>
+
+  <div class="page-body">
+    
+
+
+
+
+
+
+
+
+
+
+
+  
+<span class="js-widget-page d-none"></span>
+
+
+
+
+
+  
+  
+  
+  
+
+
+
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+    
+    
+    
+      
+      
+    
+    
+  
+
+  
+
+  
+    
+    
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+  <section id="demo" class="home-section wg-blank dark " style="padding: 300px 0 200px 0;" >
+   <div class="home-section-bg  bg-image parallax" style="background-image: url(&#39;media/headers/winona.jpg&#39;);background-size: cover;"></div>
+    <div class="container">
+
+    
+      <div class="row  justify-content-center">
+      
+    
+
+      
+
+
+
+  <div class="col-12">
+    
+  </div>
+
+
+
+    
+      </div>
+    
+
+    </div>
+  </section>
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+  <section id="about" class="home-section wg-about  "  >
+   <div class="home-section-bg " ></div>
+    <div class="container">
+
+    
+
+      
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<div class="row">
+  <div class="col-12 col-lg-4">
+    <div id="profile">
+
+      
+      
+      <img class="avatar avatar-circle" src="/author/silas-bergen/avatar_hu31fb7ce6fe49d44d7c0137af066386f5_83804_270x270_fill_q75_lanczos_center.jpg" alt="Silas Bergen">
+      
+
+      <div class="portrait-title">
+        <h2>Silas Bergen</h2>
+        <h3>Associate professor of statistics and data science</h3>
+
+        
+        <h3>
+          <a href="https://www.winona.edu/math-stat/" target="_blank" rel="noopener">
+          <span>Winona State University</span>
+          </a>
+        </h3>
+        
+      </div>
+
+      <ul class="network-icon" aria-hidden="true">
+        
+        
+        
+        
+          
+        
+        
+        
+        
+        
+          
+        
+        <li>
+          <a href="/media/Bergen-CV-noemail.pdf"  aria-label="file-pdf">
+            <i class="fas fa-file-pdf big-icon"></i>
+          </a>
+        </li>
+        
+        
+        
+        
+          
+        
+        
+        
+        
+        
+          
+        
+        <li>
+          <a href="http://github.com/silasbergen/driftlessdata-public" target="_blank" rel="noopener" aria-label="github">
+            <i class="fab fa-github big-icon"></i>
+          </a>
+        </li>
+        
+        
+        
+        
+          
+        
+        
+        
+        
+        
+          
+        
+        <li>
+          <a href="https://www.linkedin.com/in/silas-bergen-3039b785/" target="_blank" rel="noopener" aria-label="linkedin">
+            <i class="fab fa-linkedin big-icon"></i>
+          </a>
+        </li>
+        
+      </ul>
+
+    </div>
+  </div>
+  <div class="col-12 col-lg-8">
+
+    
+    <h1>About me</h1>
+
+    <div class="article-style">
+      <p>I am an associate professor of statistics and data science at Winona State University, located in the heart of the Mississippi River driftless region in Winona, MN. 
+My passion is teaching: specifically how to understand data and its limitations; generally how to foster hard thinking and deep understanding. Other professional interests include statistical consulting and data visualization best principles and practice. Check out my <a href="https://public.tableau.com/profile/silas.bergen#!/" target="_blank" rel="noopener">Tableau Public profile</a> for examples of my own and student visualizations.</p>
+<p>Outside work, I enjoy spending time outdoors (especially wilderness backpacking); racquetball; baseball; baking sourdough; gardening; board and card games; craft beer; fishing; hunting; and spending time with my wife and two boys.</p>
+
+    </div>
+
+    <div class="row">
+
+      
+      <div class="col-md-5">
+        <div class="section-subheading">Interests</div>
+        <ul class="ul-interests">
+          
+          <li>Data visualization</li>
+          
+          <li>Statistics and data science education</li>
+          
+          <li>Statistical consulting</li>
+          
+        </ul>
+      </div>
+      
+
+      
+      <div class="col-md-7">
+        <div class="section-subheading">Education</div>
+        <ul class="ul-edu fa-ul">
+          
+          <li>
+            <i class="fa-li fas fa-graduation-cap"></i>
+            <div class="description">
+              <p class="course">Ph.D. in Biostatistics, 2014</p>
+              <p class="institution">University of Washington</p>
+            </div>
+          </li>
+          
+          <li>
+            <i class="fa-li fas fa-graduation-cap"></i>
+            <div class="description">
+              <p class="course">B.S. in Statistics, 2009</p>
+              <p class="institution">Winona State University</p>
+            </div>
+          </li>
+          
+          <li>
+            <i class="fa-li fas fa-graduation-cap"></i>
+            <div class="description">
+              <p class="course">B.A. in Music Performance, 2009</p>
+              <p class="institution">Winona State University</p>
+            </div>
+          </li>
+          
+        </ul>
+      </div>
+      
+
+    </div>
+  </div>
+</div>
+
+
+    
+
+    </div>
+  </section>
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+  <section id="posts" class="home-section wg-pages  "  >
+   <div class="home-section-bg " ></div>
+    <div class="container">
+
+    
+      <div class="row  ">
+      
+        
+          <div class="col-12 col-lg-4 section-heading">
+            <h1>Recent Posts</h1>
+            
+          </div>
+        
+      
+    
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+<div class="col-12 col-lg-8">
+
+  
+
+  
+    
+      
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <div class="section-subheading article-title mb-0 mt-0">
+      <a href="/post/sabbatical1/" >A sabbatical of eagles (part 1)</a>
+    </div>
+
+    
+    <a href="/post/sabbatical1/"  class="summary-link">
+      <div class="article-style">
+        What happens when you combine the increasing need for carbon-free energy with an increasing eagle population? The potential for some not-so-pretty collisions! For my sabbatical research I have been collaborating with a great group of colleagues from USGS and Conservation Science Global on some fascinating data they&rsquo;ve collected from GPS devices attached to hundreds of bald eagles in the Midwest.
+      </div>
+    </a>
+    
+
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Feb 23, 2021
+  </span>
+  
+
+  
+
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+</div>
+
+      
+    </div>
+
+    
+
+  </div>
+  <div class="ml-3">
+    
+    
+  </div>
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <div class="section-subheading article-title mb-0 mt-0">
+      <a href="/post/mm6-2020-uswar/" >A life of war (MakeoverMonday Week 6)</a>
+    </div>
+
+    
+    <a href="/post/mm6-2020-uswar/"  class="summary-link">
+      <div class="article-style">
+        This week&rsquo;s MakeoverMonday is a good one. Without further ado, the original visualization by Philip Bump, appearing in his Washington Post article entitled Nearly a quarter of Americans have never experienced the U.
+      </div>
+    </a>
+    
+
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Feb 14, 2020
+  </span>
+  
+
+  
+
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+</div>
+
+      
+    </div>
+
+    
+
+  </div>
+  <div class="ml-3">
+    
+    
+  </div>
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <div class="section-subheading article-title mb-0 mt-0">
+      <a href="/post/makeovermondayweek2-pesticides/" >MakeoverMonday: Pesticide usage in US</a>
+    </div>
+
+    
+    <a href="/post/makeovermondayweek2-pesticides/"  class="summary-link">
+      <div class="article-style">
+        It&rsquo;s been a while since I&rsquo;ve posted! For a while I&rsquo;ve been interested in joining the MakeoverMonday community, a group of data visualizers who come together each week to critique and redesign a visualization provided by Eva Murray and Andy Kriebel.
+      </div>
+    </a>
+    
+
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Jan 17, 2020
+  </span>
+  
+
+  
+
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+</div>
+
+      
+    </div>
+
+    
+
+  </div>
+  <div class="ml-3">
+    
+    
+  </div>
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <div class="section-subheading article-title mb-0 mt-0">
+      <a href="/post/summarytools/" >A word in favor of summarytools</a>
+    </div>
+
+    
+    <a href="/post/summarytools/"  class="summary-link">
+      <div class="article-style">
+        Yesterday, I was preparing material for STAT 405 (biostatistics) I am teaching this spring, and was on the prowl for something that is an improvement upon the base R summary() function (it doesn&rsquo;t even give standard deviations!
+      </div>
+    </a>
+    
+
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Jan 8, 2019
+  </span>
+  
+
+  
+
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+</div>
+
+      
+    </div>
+
+    
+
+  </div>
+  <div class="ml-3">
+    
+    
+  </div>
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <div class="section-subheading article-title mb-0 mt-0">
+      <a href="/post/dsci-consulting/" >Stat consulting: a data science playground</a>
+    </div>
+
+    
+    <a href="/post/dsci-consulting/"  class="summary-link">
+      <div class="article-style">
+        This past semester I taught our STAT 370 (statistical consulting and communication) for the first time. This course gave student experience consulting for real clients from the university and community and focused on communicating with a client as well as report and presentation preparation best practices.
+      </div>
+    </a>
+    
+
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Jan 2, 2019
+  </span>
+  
+
+  
+
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+</div>
+
+      
+    </div>
+
+    
+
+  </div>
+  <div class="ml-3">
+    
+    
+  </div>
+</div>
+
+    
+  
+
+  
+  
+  
+
+    
+    
+      
+    
+
+    
+
+    <div class="see-all">
+      <a href="/post/">
+        See all posts
+        <i class="fas fa-angle-right"></i>
+      </a>
+    </div>
+  
+
+</div>
+
+
+    
+      </div>
+    
+
+    </div>
+  </section>
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+  <section id="talks_and_workshops" class="home-section wg-blank light " style="padding: 50px 0 50px 0;" >
+   <div class="home-section-bg " ></div>
+    <div class="container">
+
+    
+      <div class="row  ">
+      
+        
+          <div class="col-12 col-lg-4 section-heading">
+            <h1>Talks and workshops</h1>
+            
+          </div>
+        
+      
+    
+
+      
+
+
+
+  <div class="col-12 col-lg-8">
+    <h3 id="workshops">Workshops</h3>
+<ul>
+<li><a href="https://github.com/WSU-DataScience/SDSS19-dataviz-workshop" target="_blank" rel="noopener">Data Visualization: Principles and Applications in R, Tableau, and Python</a>
+<ul>
+<li><em>Pre-conference workshop at SDSS 2019. Bellevue, WA. With Todd Iverson</em></li>
+</ul>
+</li>
+<li><a href="https://github.com/WSU-DataScience/USCOTS19_workshop" target="_blank" rel="noopener">A core data science curriculum for undergraduates</a>
+<ul>
+<li><em>Pre-conference workshop at USCOTS 2019. Penn State, PA. Co-authors: Brant Deppa; Tisha Hooks; Todd Iverson; April Kerby; Chris Malone</em></li>
+</ul>
+</li>
+</ul>
+<h3 id="presentations">Presentations</h3>
+<ul>
+<li><a href="https://mediaspace.minnstate.edu/media/WWRM&#43;final&#43;draft/1_pcw8c5no" target="_blank" rel="noopener">Improved behavioral classification of flight behavior informs risk modeling of bald eagles at wind facilities in Iowa.</a>
+<ul>
+<li><em>Wind Wildlife Research Meeting. December 2020.  With Missy Braham, Adam Duerr, Manuela Huso, Todd Katzner, Tricia Miller, and Sara Schmuecker.</em></li>
+</ul>
+</li>
+<li><a href="https://www.dropbox.com/s/uvq6bhojjdkq0yu/Bergen_Gestalt_presentation_SDSS2020.pptx?dl=0" target="_blank" rel="noopener">Teaching the Gestalt Principles to Help Undergraduate Students Design Effective Tables and
+Graphs</a>
+<ul>
+<li><em>Symposium on Statistics and Data Science 2020.</em></li>
+</ul>
+</li>
+<li><a href="https://www.dropbox.com/s/4ktvhtye02tus61/dataviz_eposter.pptx?dl=0" target="_blank" rel="noopener">Extending the Grammar of Graphics beyond ggplot2.</a>
+<ul>
+<li><em>Symposium on Statistics and Data Science 2019. With Todd Iverson and Chris Malone.</em></li>
+</ul>
+</li>
+<li><a href="files/St-Olaf-Public-SocialJustice.pptx">Great public data sources with social justice applications</a>
+<ul>
+<li><em>St. Olaf College presentation. March 2018</em></li>
+</ul>
+</li>
+<li><a href="files/ASAREU_Presentation_Final.pdf">ASA REU Experiences at Winona State University</a>
+<ul>
+<li><em>Joint Statistical Meetings.  With Brant Deppa, Tisha Hooks, and Chris Malone.</em> July 2017</li>
+</ul>
+</li>
+<li><a href="https://www.causeweb.org/cause/webinar/teaching/2016-12" target="_blank" rel="noopener">A data visualization course for undergraduate data science students</a>
+<ul>
+<li><em>CAUSE webinar. Dec 2016</em></li>
+</ul>
+</li>
+<li>Melding data with social justice in undergraduate statistics and data science courses | <a href="https://iase-web.org/documents/papers/rt2016/Bergen.pdf" target="_blank" rel="noopener">Paper</a> | <a href="files/IASE-presentation.pptx">Slides</a>
+<ul>
+<li><em>IASE roundtable. July 2016</em></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+
+
+
+    
+      </div>
+    
+
+    </div>
+  </section>
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+  <section id="teaching" class="home-section wg-blank  "  >
+   <div class="home-section-bg " ></div>
+    <div class="container">
+
+    
+      <div class="row  ">
+      
+        
+          <div class="col-12 col-lg-4 section-heading">
+            <h1>Teaching</h1>
+            
+          </div>
+        
+      
+    
+
+      
+
+
+
+  <div class="col-12 col-lg-8">
+    <p>Courses I am teaching or have previously taught below. <a href="#contact">Reach out</a> if you are interested in specific course materials for a certain course.</p>
+<ul>
+<li>STAT 110: Fundamentals of statistics</li>
+<li>STAT 303: Introduction to engineering statistics</li>
+<li>STAT 310: Intermediate statistics</li>
+<li>STAT 370: Statistical consulting and communication</li>
+<li>DSCI 210: Data science</li>
+<li>DSCI 310: Data summarization and visualization</li>
+<li>STAT 365: Experimental design and analysis</li>
+<li>STAT 405: Biostatistics</li>
+<li>STAT 450: Mathematical statistics I</li>
+<li>STAT 460: Mathematical statistics II</li>
+</ul>
+
+  </div>
+
+
+
+    
+      </div>
+    
+
+    </div>
+  </section>
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+  <section id="contact" class="home-section wg-blank light " style="padding: 50px 0 50px 0;" >
+   <div class="home-section-bg " ></div>
+    <div class="container">
+
+    
+      <div class="row  ">
+      
+        
+          <div class="col-12 col-lg-4 section-heading">
+            <h1>Contact</h1>
+            
+          </div>
+        
+      
+    
+
+      
+
+
+
+  <div class="col-12 col-lg-8">
+    <p>sbergen at winona dot edu</p>
+
+  </div>
+
+
+
+    
+      </div>
+    
+
+    </div>
+  </section>
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+  <section id="tags" class="home-section wg-tag-cloud  "  >
+   <div class="home-section-bg " ></div>
+    <div class="container">
+
+    
+      <div class="row  ">
+      
+        
+          <div class="col-12 col-lg-4 section-heading">
+            <h1>Popular Topics</h1>
+            
+          </div>
+        
+      
+    
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+<div class="col-12 col-lg-8">
+  
+
+  
+
+    
+    
+    
+    
+    
+    
+
+    <div class="tag-cloud">
+      
+        
+        
+        
+        <a href="/tag/baseball/" style="font-size:0.7rem">baseball</a>
+      
+        
+        
+        
+        <a href="/tag/data-visualization/" style="font-size:1.916520466224962rem">data visualization</a>
+      
+        
+        
+        
+        <a href="/tag/dplyr/" style="font-size:0.7rem">dplyr</a>
+      
+        
+        
+        
+        <a href="/tag/education/" style="font-size:1.8201504169791678rem">education</a>
+      
+        
+        
+        
+        <a href="/tag/ggplot/" style="font-size:0.7rem">ggplot</a>
+      
+        
+        
+        
+        <a href="/tag/makeovermonday/" style="font-size:1.1333333333333333rem">MakeoverMonday</a>
+      
+        
+        
+        
+        <a href="/tag/r/" style="font-size:1.3868170836458344rem">R</a>
+      
+        
+        
+        
+        <a href="/tag/students/" style="font-size:1.706168841117857rem">students</a>
+      
+        
+        
+        
+        <a href="/tag/tableau/" style="font-size:1.3868170836458344rem">Tableau</a>
+      
+        
+        
+        
+        <a href="/tag/web-scraping/" style="font-size:0.7rem">web-scraping</a>
+      
+    </div>
+  
+
+</div>
+
+
+    
+      </div>
+    
+
+    </div>
+  </section>
+
+
+
+  </div>
+
+  <div class="page-footer">
+    
+    
+    <div class="container">
+      <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    © 2021 Silas Bergen
+  </p>
+
+  
+  
+
+
+
+
+
+
+  <p class="powered-by">
+    
+    
+    
+    Published with
+    <a href="https://wowchemy.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Wowchemy</a>  —
+    the free, <a href="https://github.com/wowchemy/wowchemy-hugo-modules" target="_blank" rel="noopener">
+    open source</a> website builder that empowers creators.
+    
+  </p>
+</footer>
+
+    </div>
+    
+  </div>
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+      
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/instant.page/5.1.0/instantpage.min.js" integrity="sha512-1+qUtKoh9XZW7j+6LhRMAyOrgSQKenQ4mluTR+cvxXjP1Z54RxZuzstR/H9kgPXQsVB8IW7DMDFUJpzLjvhGSQ==" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js" integrity="sha512-TDKKr+IvoqZnPzc3l35hdjpHD0m+b2EC2SrLEgKDRWpxf2rFCxemkgvJ5kfU48ip+Y+m2XVKyOCD85ybtlZDmw==" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/r.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/latex.min.js"></script>
+        
+      
+
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js" integrity="sha512-SeiQaaDh73yrb56sTW/RgVdi/mMqNeM2oBwubFHagc5BkixSpP1fvqF47mKzPGWYSSy4RwbBunrJBQ4Co8fRWA==" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'event' : "Events",
+        'slides' : "Slides"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+      
+    
+    
+    <script src="/js/wowchemy.min.aeecf26c1eff6b9588dbafc1a9f3953c.js"></script>
+
+    
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,1155 @@
+<!DOCTYPE html><html lang="en-us" >
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  
+  
+  <meta name="generator" content="Wowchemy 5.0.0-beta.1 for Hugo">
+  
+
+  
+
+  
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Silas Bergen">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="The fall semester is over and final grades are in, which means it&rsquo;s time to reflect on what just took place and how to grow from here. Today, I reflect on my third time teaching the data visualization course.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/income-gestalt/">
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#795548">
+  
+
+  
+  
+  
+  <script src="/js/mathjax-config.js"></script>
+  
+
+  
+  
+  
+  
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.0/css/academicons.min.css" integrity="sha512-W4yqoT1+8NLkinBLBZko+dFB2ZbHsYLDdr50VElllRcNt2Q4/GSs6u71UHKxB7S6JEMCp5Ve4xjh3eGQl/HRvg==" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha256-FMvZuGapsJLjouA6k7Eo2lusoAX9i0ShlWFG6qt7SLc=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous" media="print" onload="this.media='all'">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/github.min.css" crossorigin="anonymous" title="hl-light" media="print" onload="this.media='all'">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" media="print" onload="this.media='all'" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.css" integrity="sha512-1xoFisiGdy9nvho8EgXuXvnpR5GAMSjFwp40gSRE3NwdUdIMIKuPa7bqoUhLD0O/5tPNhteAsE5XyyMi5reQVA==" crossorigin="anonymous" media="print" onload="this.media='all'">
+    
+
+    
+
+    
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.2/lazysizes.min.js" integrity="sha512-TmDwFLhg3UA4ZG0Eb4MIyT1O1Mb+Oww5kFG0uHqXsdbyZz9DcvYQhKpGgNkamAI6h2lGGZq2X8ftOJvF/XjTUg==" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+
+  
+
+  
+  
+  
+    
+      
+      <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap" media="print" onload="this.media='all'">
+    
+  
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/wowchemy.6fb8abac2e86f269f834cb1c169b5f29.css">
+
+  
+
+
+
+
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+  <link rel="manifest" href="/index.webmanifest">
+  
+
+  <link rel="icon" type="image/png" href="/images/icon_hu88e77fda8259aec1ad610bc9dd60fa00_1241_32x32_fill_lanczos_center_2.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu88e77fda8259aec1ad610bc9dd60fa00_1241_192x192_fill_lanczos_center_2.png">
+
+  <link rel="canonical" href="/post/income-gestalt/">
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="og:site_name" content="Silas Bergen">
+  <meta property="og:url" content="/post/income-gestalt/">
+  <meta property="og:title" content="Gestalt principles and income inequality | Silas Bergen">
+  <meta property="og:description" content="The fall semester is over and final grades are in, which means it&rsquo;s time to reflect on what just took place and how to grow from here. Today, I reflect on my third time teaching the data visualization course."><meta property="og:image" content="/images/icon_hu88e77fda8259aec1ad610bc9dd60fa00_1241_512x512_fill_lanczos_center_2.png">
+  <meta property="twitter:image" content="/images/icon_hu88e77fda8259aec1ad610bc9dd60fa00_1241_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2017-12-12T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2017-12-12T00:00:00&#43;00:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/post/income-gestalt/"
+  },
+  "headline": "Gestalt principles and income inequality",
+  
+  "datePublished": "2017-12-12T00:00:00Z",
+  "dateModified": "2017-12-12T00:00:00Z",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Silas Bergen"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Silas Bergen",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/images/icon_hu88e77fda8259aec1ad610bc9dd60fa00_1241_192x192_fill_lanczos_center_2.png"
+    }
+  },
+  "description": "The fall semester is over and final grades are in, which means it\u0026rsquo;s time to reflect on what just took place and how to grow from here. Today, I reflect on my third time teaching the data visualization course."
+}
+</script>
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>Gestalt principles and income inequality | Silas Bergen</title>
+
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper  ">
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <script src="/js/wowchemy-init.min.7d92a95e871a711a5c03f82410d0fe5d.js"></script>
+
+  
+
+<aside class="search-modal" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#" aria-label="Close"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control"
+        aria-label="Search...">
+        
+      </div>
+
+      
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+
+  <div class="page-header">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/">Silas Bergen</a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/">Silas Bergen</a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#talks_and_workshops"><span>Talks and workshops</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#teaching"><span>Teaching</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/media/Bergen-CV-noemail.pdf"><span>CV</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+
+      
+      
+        
+      
+
+      
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      
+
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  </div>
+
+  <div class="page-body">
+    <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>Gestalt principles and income inequality</h1>
+
+  
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Dec 12, 2017
+  </span>
+  
+
+  
+
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      <p>The fall semester is over and final grades are in, which means it&rsquo;s time to reflect on what just took place and how to grow from here.  Today, I reflect on my third time teaching the <a href="/courses/dsci310/home/">data visualization course</a>.  This course has come a long way since the first time I taught it in Fall 2015, and yet there are still so many improvements to make!  One of the concepts I want to greater emphasize next time I teach the course are the <em>Gestalt principles</em>, which Gestalt psychologist Kurt Koffka summarizes as the idea that <a href="https://www.interaction-design.org/literature/topics/gestalt-principles" target="_blank" rel="noopener">&ldquo;The whole is <em>other</em> than the sum of the parts.&quot;</a>.  I like to think of the Gestalt principles as ground rules for how to create meaningful patterns out of chaos.</p>
+<p>Twain Taylor has an <a href="https://www.fusioncharts.com/blog/how-to-use-the-gestalt-principles-for-visual-storytelling-podv/" target="_blank" rel="noopener">excellent post</a> on how the Gestalt principles manifest in data visualization.  He summarizes the principles in this chart:</p>
+<p><img src="https://www.fusioncharts.com/blog/wp-content/uploads/2014/03/illustrations.jpg" alt=""></p>
+<p>Quoting from his <a href="https://www.fusioncharts.com/blog/how-to-use-the-gestalt-principles-for-visual-storytelling-podv/" target="_blank" rel="noopener">post</a>;</p>
+<blockquote>
+<p>Here is what we notice from each of the illustrations:</p>
+</blockquote>
+<blockquote>
+<ul>
+<li><strong>Proximity</strong>: We see three rows of dots instead of four columns of dots because they are closer horizontally than vertically.</li>
+<li><strong>Similarity</strong>: We see similar looking objects as part of the same group.</li>
+<li><strong>Enclosure</strong>: We group the first four and and last four dots as two rows instead of eight dots.</li>
+<li><strong>Symmetry</strong>: We see three pairs of symmetrical brackets rather than six individual brackets.</li>
+<li><strong>Closure</strong>: We automatically close the square and circle instead of seeing three disconnected paths.</li>
+<li><strong>Continuity</strong>: We see one continuous path instead of three arbitrary ones.</li>
+<li><strong>Connection</strong>: We group the connected dots as belonging to the same group.</li>
+<li><strong>Figure &amp; ground</strong>: We either notice the two faces, or the vase. Whichever we notice becomes the figure, and the other the ground</li>
+</ul>
+</blockquote>
+<p>In my experience visualizing data, it seems the most pervasive principles are <em>proximity</em>, <em>similarity</em>, <em>enclosure</em>, and <em>connection</em>.</p>
+<p>I was struck by the ubiquitousness of these principles as I was reviewing my students' final visualization projects.  One <a href="https://public.tableau.com/views/STEM_8/Salary?:embed=y&amp;:display_count=yes" target="_blank" rel="noopener">very fine project in particular</a> inspired me to write this post.  Next time I teach the visualization course, I hope to include the following example to illustrate these principles to my students.</p>
+<h3 id="illustrating-the-gestalt-principles-with-acs-income-data">Illustrating the Gestalt principles with ACS income data</h3>
+<p>As an example data set, I settled on data over 2009-2016 from the <a href="https://www.census.gov/programs-surveys/acs/" target="_blank" rel="noopener">American Community Survey</a>, which I requested from the <a href="https://usa.ipums.org/usa/index.shtml" target="_blank" rel="noopener">IPUMS USA</a> data request system.  I specifically requested incomes by year, sex, educational attainment, and field of degree.  I filtered the data to only include those with a Bachelor&rsquo;s degree or higher who were currently employed at the time of sampling, and created a new variable to indicate whether or not the field was a STEM field (using a combination of <a href="http://mentornet.org/service/stem_fields.html" target="_blank" rel="noopener">this source</a> and <a href="http://stemdegreelist.com/" target="_blank" rel="noopener">this source</a> to help me determine).</p>
+<p>The primary question I want to visualize is: <em><strong>What is the inequality in average income comparing males to females?</strong></em> Of course, average income depends on many other factors, including field of degree, type of degree, and year, to name just a few.  We&rsquo;ll focus on visualizing the gender income gap adjusting for these other factors as well.</p>
+<p>Here&rsquo;s a quick look at the first six rows of the data set.</p>
+<pre><code>##   Year    Sex              Educ    Field avg.income
+## 1 2009 Female Bachelor's degree Non-STEM   47440.41
+## 2 2009 Female Bachelor's degree     STEM   51423.20
+## 3 2009 Female   Doctoral degree Non-STEM   77378.22
+## 4 2009 Female   Doctoral degree     STEM   87257.88
+## 5 2009 Female   Master's degree Non-STEM   60549.57
+## 6 2009 Female   Master's degree     STEM   65621.16
+</code></pre>
+<p>Notably, the data set consists of one row per year/sex/education/field category, with <code>avg.income</code> indicating the average income for that combination.</p>
+<p>So let&rsquo;s visualize!  We want to investigate the gender income gap, so here&rsquo;s a first go:</p>
+<p><img src="/post/income-gestalt_files/figure-html/unnamed-chunk-2-1.png" width="288" /></p>
+<p>Mostly, this is chaos!  But we do see the Gestalt principle of <em><strong>proximity</strong></em> manifest itself: we perceive the incomes on the left (belonging to females) as a group, and the incomes on the right (belonging to males) as a group.  Let&rsquo;s incorporate <strong>Year</strong> on the horizontal, since we are accustomed to identifying trends across time:</p>
+<p><img src="/post/income-gestalt_files/figure-html/unnamed-chunk-3-1.png" width="384" /></p>
+<p>We now see year groupings by way of the <em><strong>proximity</strong></em> principle, and sex groupings via color-coding with the <em><strong>similarity</strong></em> principle.  There&rsquo;s still too much chaos, however.  Let&rsquo;s try again:</p>
+<p><img src="/post/income-gestalt_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>The amount of chaos is reduced dramatically, all by way of implementing the <em><strong>enclosure</strong></em> principle, specifically enclosing the highest level of educational attainments together in separate panels.  This particular type of enclosure is often referred to as <em>faceting</em> in the data visualization realm. The drastic reduction in chaos, and improvement of clarity, is due to the fact that there were four educational attainment groupings.  We would not have improved the clarity as much if we had, say, grouped by field of degree instead, which only has two groups:</p>
+<p><img src="/post/income-gestalt_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>Faceting by educational attainment is better, so let&rsquo;s continue working with that one, now indicating field of degree:</p>
+<p><img src="/post/income-gestalt_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>The new principle is <em><strong>connection</strong></em>.  Clearly, we perceive each line as an entity, representing now a Sex/Field combination (Male/STEM, for example).  Another instance of <em><strong>similarity</strong></em> is in play, since the lines for STEM fields are dashed, while the lines for non-STEM fields are solid.</p>
+<p>So, here we have it, a visualization that illustrates the principles of <em><strong>proximity</strong></em>, <em><strong>similarity</strong></em>, <em><strong>enclosure</strong></em>, and <em><strong>connection</strong></em>.  We&rsquo;ve implemented these principles to significantly reduce chaos and improve clarity.  But there&rsquo;s still an issue with this visualization.  Remember the intent of the visualization is to explore <strong>gender income inequality</strong>.  If we take another look at the above visualization, this is not the most obvious comparison to make.  Rather, due to the <em><strong>proximity</strong></em> and <em><strong>similarity</strong></em> of the lines within each sex (they are close together, and of the same color), the comparison our brain is encouraged to make is to compare incomes of STEM to non-STEM, <em>within</em> sex.  That&rsquo;s not the most important comparison!  It makes most sense to compare males to females, <em>within</em> field.</p>
+<p>This brings us to a related concept: <em>not all means of introducing similarity are created equal</em>.  When we group by similarity, we tend to first recognize similarities in <em>color</em>, then in <em>shape</em>.  Angela Wright, a color psychologist, states that <a href="http://businessadvance.com/wp-content/uploads/2015/04/white-paper-sequence-of-cognition.pdf" target="_blank" rel="noopener">&ldquo;color is noticed by the brain before shapes or wording.&quot;</a>  Thus if we want the encourage the viewer to compare the sexes, we should probably color-code by field instead, so we compare income by gender <em>within</em> field.  Here&rsquo;s how that looks:</p>
+<p><img src="/post/income-gestalt_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>I&rsquo;m still not convinced that this encourages the brain to first compare the sexes to each other.  The <em><strong>proximity</strong></em> of the STEM and non-STEM lines is too hard to overcome!  We might need to introduce another layer of <em><strong>enclosure</strong></em> (by way of faceting) to make the important comparison the most obvious:</p>
+<p><img src="/post/income-gestalt_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<h3 id="details-on-data-collection-and-visualization">Details on data collection and visualization</h3>
+<p>IPUMS stands for <em>Integrated Public-Use Microdata Series</em>.  The suite of <a href="https://www.ipums.org/" target="_blank" rel="noopener">IPUMS tools</a> is an excellent source of varied data, from health to education to international census data.  I aggregated the data for this example from the microdata extract, and you can download a <a href="https://www.dropbox.com/s/r729zbwjjxoboy1/ACS-stem-aggregated.csv?dl=0" target="_blank" rel="noopener">.csv of the aggregated data here</a>.</p>
+<p>R code for creating the &ldquo;final two&rdquo; visualizations is below:</p>
+<pre><code class="language-r">library(ggplot2)
+#Assuming file is in current working directory:
+stemdata &lt;- read.csv(&quot;ACS-stem-aggregated.csv&quot;)
+stemdata$Educ &lt;- factor(stemdata$Educ, levels = c(&quot;Bachelor's degree&quot;,&quot;Master's degree&quot;,&quot;Doctoral degree&quot;,&quot;Professional degree&quot;))
+
+#Faceting by education;
+#color-coding by field;
+#different lines for Sex:
+ggplot(data = stemdata) + 
+   geom_point(aes(x = Year, y = avg.income/1000,color=Field)) +
+     geom_line(aes(x = Year, y = avg.income/1000,color=Field,linetype=Sex)) +
+                facet_grid(.~Educ)+
+  ylab('Average income (in thousand $)')
+
+
+#Double faceting:
+ggplot(data = stemdata) + 
+  #geom_point(aes(x = Year, y = avg.income/1000, shape=Sex)) +
+     geom_line(aes(x = Year, y = avg.income/1000,linetype=Sex)) +
+                facet_grid(Field~ Educ)+
+  ylab('Average income (in thousand $)')
+</code></pre>
+
+    </div>
+
+    
+
+
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tag/data-visualization/">data visualization</a>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      
+      <img class="avatar mr-3 avatar-circle" src="/author/silas-bergen/avatar_hu31fb7ce6fe49d44d7c0137af066386f5_83804_270x270_fill_q75_lanczos_center.jpg" alt="Silas Bergen">
+    
+
+    <div class="media-body">
+      <h5 class="card-title">Silas Bergen</h5>
+      <h6 class="card-subtitle">Associate professor of statistics and data science</h6>
+      
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="/media/Bergen-CV-noemail.pdf" >
+        <i class="fas fa-file-pdf"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="http://github.com/silasbergen/driftlessdata-public" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.linkedin.com/in/silas-bergen-3039b785/" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/post/mm6-2020-uswar/">A life of war (MakeoverMonday Week 6)</a></li>
+      
+      <li><a href="/post/makeovermondayweek2-pesticides/">MakeoverMonday: Pesticide usage in US</a></li>
+      
+      <li><a href="/post/icots/">Data vizzing in Japan</a></li>
+      
+      <li><a href="/post/on-epts/">On elementary perceptual tasks</a></li>
+      
+      <li><a href="/post/policedatachallenge/">And the winner is...</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+
+
+  </div>
+</article>
+  </div>
+
+  <div class="page-footer">
+    
+    
+    <div class="container">
+      <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    © 2021 Silas Bergen
+  </p>
+
+  
+  
+
+
+
+
+
+
+  <p class="powered-by">
+    
+    
+    
+    Published with
+    <a href="https://wowchemy.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Wowchemy</a>  —
+    the free, <a href="https://github.com/wowchemy/wowchemy-hugo-modules" target="_blank" rel="noopener">
+    open source</a> website builder that empowers creators.
+    
+  </p>
+</footer>
+
+    </div>
+    
+  </div>
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+      
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/instant.page/5.1.0/instantpage.min.js" integrity="sha512-1+qUtKoh9XZW7j+6LhRMAyOrgSQKenQ4mluTR+cvxXjP1Z54RxZuzstR/H9kgPXQsVB8IW7DMDFUJpzLjvhGSQ==" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js" integrity="sha512-TDKKr+IvoqZnPzc3l35hdjpHD0m+b2EC2SrLEgKDRWpxf2rFCxemkgvJ5kfU48ip+Y+m2XVKyOCD85ybtlZDmw==" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/r.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/latex.min.js"></script>
+        
+      
+
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js" integrity="sha512-SeiQaaDh73yrb56sTW/RgVdi/mMqNeM2oBwubFHagc5BkixSpP1fvqF47mKzPGWYSSy4RwbBunrJBQ4Co8fRWA==" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'event' : "Events",
+        'slides' : "Slides"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+      
+    
+    
+    <script src="/js/wowchemy.min.aeecf26c1eff6b9588dbafc1a9f3953c.js"></script>
+
+    
+
+
+
+
+
+
+</body>
+</html>
