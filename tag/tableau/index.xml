@@ -2,25 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tableau | Silas Bergen</title>
-    <link>/tag/tableau/</link>
-      <atom:link href="/tag/tableau/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://silasbergen.github.io/testsite/tag/tableau/</link>
+      <atom:link href="https://silasbergen.github.io/testsite/tag/tableau/index.xml" rel="self" type="application/rss+xml" />
     <description>Tableau</description>
     <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2021 Silas Bergen</copyright><lastBuildDate>Fri, 14 Feb 2020 00:00:00 -0600</lastBuildDate>
     <image>
-      <url>/images/icon_hu88e77fda8259aec1ad610bc9dd60fa00_1241_512x512_fill_lanczos_center_2.png</url>
+      <url>https://silasbergen.github.io/testsite/images/icon_hu88e77fda8259aec1ad610bc9dd60fa00_1241_512x512_fill_lanczos_center_2.png</url>
       <title>Tableau</title>
-      <link>/tag/tableau/</link>
+      <link>https://silasbergen.github.io/testsite/tag/tableau/</link>
     </image>
     
     <item>
       <title>A life of war (MakeoverMonday Week 6)</title>
-      <link>/post/mm6-2020-uswar/</link>
+      <link>https://silasbergen.github.io/testsite/post/mm6-2020-uswar/</link>
       <pubDate>Fri, 14 Feb 2020 00:00:00 -0600</pubDate>
-      <guid>/post/mm6-2020-uswar/</guid>
+      <guid>https://silasbergen.github.io/testsite/post/mm6-2020-uswar/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://data.world/makeovermonday/2020w6&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;This week&amp;rsquo;s MakeoverMonday&lt;/a&gt; is a good one.  Without further ado, the original visualization by Philip Bump, appearing in his &lt;a href=&#34;https://www.washingtonpost.com/politics/2020/01/08/nearly-quarter-americans-have-never-experienced-us-time-peace/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Washington Post article&lt;/a&gt; entitled &lt;em&gt;Nearly 
 a quarter of Americans have never experienced the U.S. in a time of peace&lt;/em&gt;:&lt;/p&gt;
 &lt;figure&gt; 
-&lt;img src=&#34;/img/mm6-original.png&#34; alt=&#34;placeholder&#34; title=&#34;original graph&#34; height=&#34;400&#34; width=&#34;400&#34; /&gt;
+&lt;img src=&#34;https://silasbergen.github.io/testsite/img/mm6-original.png&#34; alt=&#34;placeholder&#34; title=&#34;original graph&#34; height=&#34;400&#34; width=&#34;400&#34; /&gt;
 &lt;/figure&gt;
 &lt;p&gt;This graph triggered my pedagogical Pavlovian dog.  Not just because it&amp;rsquo;s easy to malign the poor pie chart (of which this graph has 115!), but because I had a hunch that a 
 redesign would reveal features of the data that are obscured above.&lt;/p&gt;
@@ -33,7 +33,7 @@ compare quantities.  We are very bad at making accurate comparisons when the qua
 during a U.S. war; those born in the early 20th century lived a much smaller portion of their lives during war.  What is &lt;em&gt;much less&lt;/em&gt; obvious is the nature of the upward trend: was it monotone?  Up-and-down? 
 This is hard to tell!  It doesn&amp;rsquo;t help that in the original article, with my desktop Chrome browser at normal zoom, the graph is so tall that you have to scroll up and down to take it all in.&lt;/p&gt;
 &lt;p&gt;Here is my redesign (&lt;a href=&#34;https://public.tableau.com/views/WhatportionofyourlifehastheU_S_beenatwarMakeoverMondayW6/Dashboard1?:display_count=y&amp;amp;publish=yes&amp;amp;:origin=viz_share_link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Tableau Public link&lt;/a&gt;):&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/img/US_at_war.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://silasbergen.github.io/testsite/img/US_at_war.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;I like to think of area charts as pie charts that work over time.  The redesign still shows us what the original did: people born in the early 20th century lived a much smaller portion of their lives
 during war than people born in 2001.  We have preserved the &amp;ldquo;part-of-a-whole&amp;rdquo; story that pie charts have to tell. What the redesign reveals is that the upward trend is not monotone.  Rather we see a &amp;ldquo;sawtooth&amp;rdquo; pattern, where the saw teeth peak during wars
 and and dip following wars.  Now that we have mapped these percents to a common vertical axis instead of encoded them as angles in a pie chart, we can perceive differences between them much more clearly.   And as a bonus, we don&amp;rsquo;t have to do any scrolling!&lt;/p&gt;
@@ -44,15 +44,15 @@ and and dip following wars.  Now that we have mapped these percents to a common 
     
     <item>
       <title>MakeoverMonday: Pesticide usage in US</title>
-      <link>/post/makeovermondayweek2-pesticides/</link>
+      <link>https://silasbergen.github.io/testsite/post/makeovermondayweek2-pesticides/</link>
       <pubDate>Fri, 17 Jan 2020 00:00:00 -0600</pubDate>
-      <guid>/post/makeovermondayweek2-pesticides/</guid>
+      <guid>https://silasbergen.github.io/testsite/post/makeovermondayweek2-pesticides/</guid>
       <description>&lt;p&gt;It&amp;rsquo;s been a while since I&amp;rsquo;ve posted!  For a while I&amp;rsquo;ve been interested in joining the &lt;a href=&#34;https://www.makeovermonday.co.uk/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MakeoverMonday&lt;/a&gt; community, a group
 of data visualizers who come together each week to critique and redesign a visualization provided by Eva Murray and Andy Kriebel.  I haven&amp;rsquo;t, due to busyness mostly, but this semester I finally took the 
 dive and signed up!  Call it a 2020 resolution. I hope that this will become a regular opportunity for me to keep developing my visualization critique and design skills.&lt;/p&gt;
 &lt;p&gt;I enjoyed my first challenge, &lt;a href=&#34;https://data.world/makeovermonday/2020w2&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MakeoverMonday 2020 Week 2&lt;/a&gt;,  a simple visualization that nonetheless provides a lot to think about and was a challenging redesign.&lt;/p&gt;
 &lt;p&gt;Here&amp;rsquo;s the original visualization, Figure 1 from the &lt;em&gt;Environmental Health&lt;/em&gt; article &lt;a href=&#34;https://ehjournal.biomedcentral.com/articles/10.1186/s12940-019-0488-0&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;em&gt;The USA lags behind other agricultural nations in banning harmful pesticides&lt;/em&gt;:&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/img/mm2-original.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://silasbergen.github.io/testsite/img/mm2-original.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;The &lt;a href=&#34;https://data.world/makeovermonday/2020w2/workspace/file?filename=MM&amp;#43;data&amp;#43;week&amp;#43;2&amp;#43;2020.xlsx&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;data provided at data.world&lt;/a&gt; for the redesign don&amp;rsquo;t actually contain the same information on counts that we see in the original viz, but rather
 data on total weight of pesticides that are banned/phased out in other countries that were applied used in the U.S. in 2016.&lt;/p&gt;
 &lt;p&gt;My critiques of the original figure:&lt;/p&gt;
@@ -72,7 +72,7 @@ tell from the figure.&lt;/li&gt;
 &lt;p&gt;To accomplish this I had to dig a bit deeper than the data provided on Data World, and found what I was looking for with &lt;a href=&#34;https://static-content.springer.com/esm/art%3A10.1186%2Fs12940-019-0488-0/MediaObjects/12940_2019_488_MOESM5_ESM.xlsx&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Additional File 5, Tables S131-S133&lt;/a&gt; from
 the article.  I also had to do a bit of cleaning.  Here&amp;rsquo;s a &lt;a href=&#34;https://www.dropbox.com/s/oop1g8ws3dbwir3/pesticide_clean.csv?dl=0&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;link to the data&lt;/a&gt; I ultimately ended up connecting to in Tableau&lt;/p&gt;
 &lt;p&gt;Finally, my redesign (&lt;a href=&#34;https://public.tableau.com/views/pesticide_viz/Dashboard32?:display_count=y&amp;amp;publish=yes&amp;amp;:origin=viz_share_link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Tableau Public version&lt;/a&gt;):&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/img/mm2.PNG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://silasbergen.github.io/testsite/img/mm2.PNG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Some design comments:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;This accomplishes (I think) a clear visual of &amp;ldquo;the whole&amp;rdquo;: the giant (perhaps too giant) grey box with &amp;ldquo;328 million pounds&amp;rdquo; are the first things you see&lt;/li&gt;
@@ -110,14 +110,14 @@ write.csv(out, file = &#39;pesticide_clean.csv&#39;,row.names=FALSE)
     
     <item>
       <title>Quantifying thrill</title>
-      <link>/post/viz-worldseries-wpa/</link>
+      <link>https://silasbergen.github.io/testsite/post/viz-worldseries-wpa/</link>
       <pubDate>Tue, 31 Oct 2017 00:00:00 -0500</pubDate>
-      <guid>/post/viz-worldseries-wpa/</guid>
+      <guid>https://silasbergen.github.io/testsite/post/viz-worldseries-wpa/</guid>
       <description>&lt;p&gt;Monday morning, October 30, found me groggy and sandy-eyed.  The culprit was the 5-hour and 17-minute, 10-inning thriller between the LA Dodgers and Houston Astros in Game 5 of the 2017 the night before.  Thanks to living in the Central Time Zone, I went to bed around 1am. The Astros ended up defeating the Dodgers 13-12, but the game was insane, featuring three comebacks from deficits of 3 runs or more.  By the end, I was emotionally exhausted, and I didn&amp;rsquo;t even have a stake in either team!  Lots was written about the game over at &lt;a href=&#34;http://www.fangraphs.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Fangraphs&lt;/a&gt;, one of my favorite baseball analytics websites.&lt;/p&gt;
 &lt;p&gt;One &lt;a href=&#34;https://www.fangraphs.com/blogs/game-five-was-as-weird-as-it-felt/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;post in particular&lt;/a&gt; by Craig Edwards caught my attention from a data visualization perspective.  It compared the game to another epic game: &lt;a href=&#34;https://www.baseball-reference.com/boxes/SLN/SLN201110270.shtml&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Game 6 of the 2011 World Series&lt;/a&gt;, where the St. Louis Cardinals staved off elimination by defeating the Texas Rangers 10-9 in 11 innings.  The crux of the article was a table that listed the top-20 &amp;ldquo;most exciting events&amp;rdquo; of each World Series side-by-side.  Here is a screenshot of said table:&lt;/p&gt;
 &lt;center&gt;
 &lt;figure&gt; 
-&lt;img src=&#34;/img/wpa-table.JPG&#34; width=&#34;400&#34; /&gt;
+&lt;img src=&#34;https://silasbergen.github.io/testsite/img/wpa-table.JPG&#34; width=&#34;400&#34; /&gt;
 &lt;/figure&gt;
 &lt;/center&gt;
 &lt;p&gt;An &amp;ldquo;exciting event&amp;rdquo; is one that yields a large swing in the win expectancy of the game, as measured by Win Probability Added, or WPA.  Read Fangraph&amp;rsquo;s &lt;a href=&#34;https://www.fangraphs.com/library/misc/wpa/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;excellent glossary entry on WPA&lt;/a&gt; for more detail, but essentially, the bigger the WPA of an event, the more exciting it is.&lt;/p&gt;

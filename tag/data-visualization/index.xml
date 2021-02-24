@@ -2,25 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>data visualization | Silas Bergen</title>
-    <link>/tag/data-visualization/</link>
-      <atom:link href="/tag/data-visualization/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://silasbergen.github.io/testsite/tag/data-visualization/</link>
+      <atom:link href="https://silasbergen.github.io/testsite/tag/data-visualization/index.xml" rel="self" type="application/rss+xml" />
     <description>data visualization</description>
     <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2021 Silas Bergen</copyright><lastBuildDate>Fri, 14 Feb 2020 00:00:00 -0600</lastBuildDate>
     <image>
-      <url>/images/icon_hu88e77fda8259aec1ad610bc9dd60fa00_1241_512x512_fill_lanczos_center_2.png</url>
+      <url>https://silasbergen.github.io/testsite/images/icon_hu88e77fda8259aec1ad610bc9dd60fa00_1241_512x512_fill_lanczos_center_2.png</url>
       <title>data visualization</title>
-      <link>/tag/data-visualization/</link>
+      <link>https://silasbergen.github.io/testsite/tag/data-visualization/</link>
     </image>
     
     <item>
       <title>A life of war (MakeoverMonday Week 6)</title>
-      <link>/post/mm6-2020-uswar/</link>
+      <link>https://silasbergen.github.io/testsite/post/mm6-2020-uswar/</link>
       <pubDate>Fri, 14 Feb 2020 00:00:00 -0600</pubDate>
-      <guid>/post/mm6-2020-uswar/</guid>
+      <guid>https://silasbergen.github.io/testsite/post/mm6-2020-uswar/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://data.world/makeovermonday/2020w6&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;This week&amp;rsquo;s MakeoverMonday&lt;/a&gt; is a good one.  Without further ado, the original visualization by Philip Bump, appearing in his &lt;a href=&#34;https://www.washingtonpost.com/politics/2020/01/08/nearly-quarter-americans-have-never-experienced-us-time-peace/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Washington Post article&lt;/a&gt; entitled &lt;em&gt;Nearly 
 a quarter of Americans have never experienced the U.S. in a time of peace&lt;/em&gt;:&lt;/p&gt;
 &lt;figure&gt; 
-&lt;img src=&#34;/img/mm6-original.png&#34; alt=&#34;placeholder&#34; title=&#34;original graph&#34; height=&#34;400&#34; width=&#34;400&#34; /&gt;
+&lt;img src=&#34;https://silasbergen.github.io/testsite/img/mm6-original.png&#34; alt=&#34;placeholder&#34; title=&#34;original graph&#34; height=&#34;400&#34; width=&#34;400&#34; /&gt;
 &lt;/figure&gt;
 &lt;p&gt;This graph triggered my pedagogical Pavlovian dog.  Not just because it&amp;rsquo;s easy to malign the poor pie chart (of which this graph has 115!), but because I had a hunch that a 
 redesign would reveal features of the data that are obscured above.&lt;/p&gt;
@@ -33,7 +33,7 @@ compare quantities.  We are very bad at making accurate comparisons when the qua
 during a U.S. war; those born in the early 20th century lived a much smaller portion of their lives during war.  What is &lt;em&gt;much less&lt;/em&gt; obvious is the nature of the upward trend: was it monotone?  Up-and-down? 
 This is hard to tell!  It doesn&amp;rsquo;t help that in the original article, with my desktop Chrome browser at normal zoom, the graph is so tall that you have to scroll up and down to take it all in.&lt;/p&gt;
 &lt;p&gt;Here is my redesign (&lt;a href=&#34;https://public.tableau.com/views/WhatportionofyourlifehastheU_S_beenatwarMakeoverMondayW6/Dashboard1?:display_count=y&amp;amp;publish=yes&amp;amp;:origin=viz_share_link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Tableau Public link&lt;/a&gt;):&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/img/US_at_war.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://silasbergen.github.io/testsite/img/US_at_war.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;I like to think of area charts as pie charts that work over time.  The redesign still shows us what the original did: people born in the early 20th century lived a much smaller portion of their lives
 during war than people born in 2001.  We have preserved the &amp;ldquo;part-of-a-whole&amp;rdquo; story that pie charts have to tell. What the redesign reveals is that the upward trend is not monotone.  Rather we see a &amp;ldquo;sawtooth&amp;rdquo; pattern, where the saw teeth peak during wars
 and and dip following wars.  Now that we have mapped these percents to a common vertical axis instead of encoded them as angles in a pie chart, we can perceive differences between them much more clearly.   And as a bonus, we don&amp;rsquo;t have to do any scrolling!&lt;/p&gt;
@@ -44,15 +44,15 @@ and and dip following wars.  Now that we have mapped these percents to a common 
     
     <item>
       <title>MakeoverMonday: Pesticide usage in US</title>
-      <link>/post/makeovermondayweek2-pesticides/</link>
+      <link>https://silasbergen.github.io/testsite/post/makeovermondayweek2-pesticides/</link>
       <pubDate>Fri, 17 Jan 2020 00:00:00 -0600</pubDate>
-      <guid>/post/makeovermondayweek2-pesticides/</guid>
+      <guid>https://silasbergen.github.io/testsite/post/makeovermondayweek2-pesticides/</guid>
       <description>&lt;p&gt;It&amp;rsquo;s been a while since I&amp;rsquo;ve posted!  For a while I&amp;rsquo;ve been interested in joining the &lt;a href=&#34;https://www.makeovermonday.co.uk/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MakeoverMonday&lt;/a&gt; community, a group
 of data visualizers who come together each week to critique and redesign a visualization provided by Eva Murray and Andy Kriebel.  I haven&amp;rsquo;t, due to busyness mostly, but this semester I finally took the 
 dive and signed up!  Call it a 2020 resolution. I hope that this will become a regular opportunity for me to keep developing my visualization critique and design skills.&lt;/p&gt;
 &lt;p&gt;I enjoyed my first challenge, &lt;a href=&#34;https://data.world/makeovermonday/2020w2&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MakeoverMonday 2020 Week 2&lt;/a&gt;,  a simple visualization that nonetheless provides a lot to think about and was a challenging redesign.&lt;/p&gt;
 &lt;p&gt;Here&amp;rsquo;s the original visualization, Figure 1 from the &lt;em&gt;Environmental Health&lt;/em&gt; article &lt;a href=&#34;https://ehjournal.biomedcentral.com/articles/10.1186/s12940-019-0488-0&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;em&gt;The USA lags behind other agricultural nations in banning harmful pesticides&lt;/em&gt;:&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/img/mm2-original.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://silasbergen.github.io/testsite/img/mm2-original.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;The &lt;a href=&#34;https://data.world/makeovermonday/2020w2/workspace/file?filename=MM&amp;#43;data&amp;#43;week&amp;#43;2&amp;#43;2020.xlsx&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;data provided at data.world&lt;/a&gt; for the redesign don&amp;rsquo;t actually contain the same information on counts that we see in the original viz, but rather
 data on total weight of pesticides that are banned/phased out in other countries that were applied used in the U.S. in 2016.&lt;/p&gt;
 &lt;p&gt;My critiques of the original figure:&lt;/p&gt;
@@ -72,7 +72,7 @@ tell from the figure.&lt;/li&gt;
 &lt;p&gt;To accomplish this I had to dig a bit deeper than the data provided on Data World, and found what I was looking for with &lt;a href=&#34;https://static-content.springer.com/esm/art%3A10.1186%2Fs12940-019-0488-0/MediaObjects/12940_2019_488_MOESM5_ESM.xlsx&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Additional File 5, Tables S131-S133&lt;/a&gt; from
 the article.  I also had to do a bit of cleaning.  Here&amp;rsquo;s a &lt;a href=&#34;https://www.dropbox.com/s/oop1g8ws3dbwir3/pesticide_clean.csv?dl=0&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;link to the data&lt;/a&gt; I ultimately ended up connecting to in Tableau&lt;/p&gt;
 &lt;p&gt;Finally, my redesign (&lt;a href=&#34;https://public.tableau.com/views/pesticide_viz/Dashboard32?:display_count=y&amp;amp;publish=yes&amp;amp;:origin=viz_share_link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Tableau Public version&lt;/a&gt;):&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/img/mm2.PNG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://silasbergen.github.io/testsite/img/mm2.PNG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Some design comments:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;This accomplishes (I think) a clear visual of &amp;ldquo;the whole&amp;rdquo;: the giant (perhaps too giant) grey box with &amp;ldquo;328 million pounds&amp;rdquo; are the first things you see&lt;/li&gt;
@@ -110,29 +110,29 @@ write.csv(out, file = &#39;pesticide_clean.csv&#39;,row.names=FALSE)
     
     <item>
       <title>Data vizzing in Japan</title>
-      <link>/post/icots/</link>
+      <link>https://silasbergen.github.io/testsite/post/icots/</link>
       <pubDate>Sat, 14 Jul 2018 00:00:00 -0500</pubDate>
-      <guid>/post/icots/</guid>
+      <guid>https://silasbergen.github.io/testsite/post/icots/</guid>
       <description>&lt;p&gt;This July, my colleage Todd Iverson and I had the incredible opportunity to lead a &lt;a href=&#34;https://icots.info/10/?workshop=E&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;pre-conference workshop&lt;/a&gt; at &lt;a href=&#34;https://icots.info/10/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ICOTS 10&lt;/a&gt; in Kyoto, Japan.  Our workshop was titled &lt;em&gt;Data visualization: best practices and principles using Tableau Public and Python.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Our workshop began by covering &lt;a href=&#34;https://www.springer.com/us/book/9780387245447&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Leland Wilkinson&amp;rsquo;s grammar of graphics&lt;/a&gt;.  Most data visualization software (Tableau, Python, R, JMP) employ some version of this grammar, and with a firm understanding it becomes easy to transition between them.  We focused primarily on Tableau and Python in our workshop.  All the workshop materials are available at the designated &lt;a href=&#34;https://github.com/WSU-DataScience/ICOTS10_Data_Visualization&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Github repository&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;It was an engaging four hours that felt more like one hour, with participants from all over the world!  Our fantastic crew:&lt;/p&gt;
 &lt;center&gt;
  &lt;figure&gt;
-    &lt;img width=&#34;500&#34; src=&#34;/img/icots.jpg&#34;&gt;
+    &lt;img width=&#34;500&#34; src=&#34;https://silasbergen.github.io/testsite/img/icots.jpg&#34;&gt;
  &lt;/figure&gt;
 &lt;/center&gt; 
 &lt;p&gt;ICOTS 10 itself was fantastic, including keynotes from Chris Wild, Hillary Parker, and Anna Rosling Rönnlund. And of course, we made time to explore and sample the local cuisine.&lt;/p&gt;
-&lt;img src=&#34;/img/fushimi.jpg&#34;  style=&#34;float: left; width: 48%; margin-right: 1%; margin-bottom: 0.5em;&#34;&gt;
-&lt;img src=&#34;/img/ramen.jpg&#34;  style=&#34;float: left; width: 48%; margin-right: 1%; margin-bottom: 0.5em;&#34;&gt;
+&lt;img src=&#34;https://silasbergen.github.io/testsite/img/fushimi.jpg&#34;  style=&#34;float: left; width: 48%; margin-right: 1%; margin-bottom: 0.5em;&#34;&gt;
+&lt;img src=&#34;https://silasbergen.github.io/testsite/img/ramen.jpg&#34;  style=&#34;float: left; width: 48%; margin-right: 1%; margin-bottom: 0.5em;&#34;&gt;
 &lt;p style=&#34;clear: both;&#34;&gt;
 </description>
     </item>
     
     <item>
       <title>On elementary perceptual tasks</title>
-      <link>/post/on-epts/</link>
+      <link>https://silasbergen.github.io/testsite/post/on-epts/</link>
       <pubDate>Tue, 19 Dec 2017 00:00:00 +0000</pubDate>
-      <guid>/post/on-epts/</guid>
+      <guid>https://silasbergen.github.io/testsite/post/on-epts/</guid>
       <description>&lt;p&gt;One of the first concepts I talk about in my &lt;a href=&#34;../../courses/dsci310/dsci310-home/&#34;&gt;data visualization course&lt;/a&gt; is the idea of the &lt;a href=&#34;http://info.slis.indiana.edu/~katy/S637-S11/cleveland84.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;em&gt;elementary perceptual task&lt;/em&gt;&lt;/a&gt; (EPT), an idea explored in depth by visualization pioneers William S. Cleveland and Robert McGill.  Essentially, EPTs are visual building blocks for comparing quantities.  The EPTs are summarized nicely in Figure 1 from &lt;a href=&#34;http://info.slis.indiana.edu/~katy/S637-S11/cleveland84.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;em&gt;Graphical Perception: Theory, Experiementation, and Application to the Development of Graphical Methods&lt;/em&gt;&lt;/a&gt;:&lt;/p&gt;
 &lt;center&gt;
 &lt;figure&gt;
@@ -153,23 +153,23 @@ write.csv(out, file = &#39;pesticide_clean.csv&#39;,row.names=FALSE)
 &lt;h3 id=&#34;case-study-employment-level-by-sex&#34;&gt;Case study: employment level by sex&lt;/h3&gt;
 &lt;p&gt;In my &lt;a href=&#34;../income-gestalt/&#34;&gt;previous post&lt;/a&gt;, it was apparent that a gender gap in average annual income persisted even when accounting for year, highest degree, and field of degree.  Another important factor that explains income is level of employment, as measured by average hours worked per week.  The data for this example are once again &lt;a href=&#34;https://www.dropbox.com/s/0wmr2brny428lo3/ACS-income-data-aggregated.csv?dl=0&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;aggregated ACS data&lt;/a&gt; from the &lt;a href=&#34;https://usa.ipums.org/usa-action/variables/group&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;IPUMS USA&lt;/a&gt; extract system, filtered to include only employed individuals with at least a Bachelor&amp;rsquo;s degree.&lt;/p&gt;
 &lt;p&gt;Let&amp;rsquo;s start by sticking yet another pitchfork in the favorite straw man of data visualization: the pie chart.  With an understanding of EPTs, we can begin to understand why pie charts are &lt;a href=&#34;http://www.businessinsider.com/pie-charts-are-the-worst-2013-6&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;so&lt;/a&gt; &lt;a href=&#34;https://blog.funnel.io/why-we-dont-use-pie-charts-and-some-tips-on-better-data-visualizations&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;maligned&lt;/a&gt; in the data visualization community.  Take a look at the graph below, and try to determine how the percent of females working full time changes over the years:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/post/on-epts_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://silasbergen.github.io/testsite/post/on-epts_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Pie charts are fine for visualizing &lt;em&gt;parts of a single whole&lt;/em&gt; (it is easy to tell that, in any given year, a majority of women work full time), but they make it difficult to compare parts of &lt;em&gt;different wholes&lt;/em&gt; (how the percent working full time changes over the years).
 This comparison is difficult to make because we are comparing &lt;em&gt;&lt;strong&gt;angles&lt;/strong&gt;&lt;/em&gt;, an elementary perceptual task that we do not perform very efficiently or well.  Here are the same data, different graph:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/post/on-epts_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;480&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://silasbergen.github.io/testsite/post/on-epts_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;480&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Notice that it&amp;rsquo;s now much easier to discern that the percent of females working 40 or more hours per week is increasing over time, while the percent of females working part-time is decreasing.  We now compare the &lt;em&gt;&lt;strong&gt;position&lt;/strong&gt;&lt;/em&gt; of the quantities denoted by points along a common scale (the vertical Y-axis), rather than the &lt;em&gt;&lt;strong&gt;angle&lt;/strong&gt;&lt;/em&gt;.  We can also still clearly see that in each year, a majority of women work full time, by comparing the points along the common vertical scale within a single year.&lt;/p&gt;
 &lt;p&gt;Let&amp;rsquo;s turn now to comparing the hours worked for females to males, in 2016 alone.  We&amp;rsquo;ll  use a bar chart for this:
-&lt;img src=&#34;/post/on-epts_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;https://silasbergen.github.io/testsite/post/on-epts_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;What EPT are we using to compare the percents?  It is &lt;a href=&#34;http://flowingdata.com/2010/03/20/graphical-perception-learn-the-fundamentals-first/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;tempting to think&lt;/a&gt; that when we compare quantities in bar charts, we are comparing &lt;em&gt;&lt;strong&gt;lengths&lt;/strong&gt;&lt;/em&gt; of the bars.  But this is not the primary EPT we are using, here.  We are really comparing &lt;em&gt;&lt;strong&gt;position along a comon scale&lt;/strong&gt;&lt;/em&gt; once again.  This is clearer if we represent the quantities not as bars, but as points.  We are carrying out the same exact elementary perceptual task to compare the percents:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/post/on-epts_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://silasbergen.github.io/testsite/post/on-epts_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;This &amp;ldquo;point chart&amp;rdquo; has a much better &lt;a href=&#34;http://www.infovis-wiki.net/index.php/Data-Ink_Ratio&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;em&gt;data-to-ink ratio&lt;/em&gt;&lt;/a&gt; than the bar chart, a concept coined by &lt;a href=&#34;https://www.edwardtufte.com/tufte/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Edward Tufte&lt;/a&gt;.  One could argue that it is cleaner and more succinct; better emphasizes the data; and exploits the same exact EPT as the bar chart.  Why, then, are bar charts so pervasive while these &amp;ldquo;point charts&amp;rdquo; are not?  I think the reason is two-fold.  First, we just have a comfort level with bar charts.  The point of a data visualization is communication: if we can communicate quicker with a more familiar medium, that has advantages.  Second, perhaps more importantly, when we see points we immediately start looking for trends.  &lt;em&gt;&lt;strong&gt;Direction&lt;/strong&gt;&lt;/em&gt; is one of Cleveland and McGill&amp;rsquo;s EPTs; we are more inclined to try to visually connect points than the tops of bars.  However, we shouldn&amp;rsquo;t always connect points, especially if the categories on the horizontal have no sense of ordering (for example, if &amp;ldquo;race,&amp;rdquo; which has no ordering, was on the horizontal instead of employment level).&lt;/p&gt;
 &lt;p&gt;For these reasons, let&amp;rsquo;s go back to the bar chart.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/post/on-epts_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://silasbergen.github.io/testsite/post/on-epts_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;What comparison does this encourage us to make?  Because of the two separate panels for females and males (the &lt;a href=&#34;../income-gestalt/&#34;&gt;Gestalt principle&lt;/a&gt; of &lt;em&gt;&lt;strong&gt;enclosure&lt;/strong&gt;&lt;/em&gt;), the encouraged comparisons seem to be &lt;em&gt;within&lt;/em&gt; sex: among females, a much greater percent of them work 40 or more hours a week than are in the other 3 categories; the same can be said for males.  It is more likely that we want to compare &lt;em&gt;across&lt;/em&gt; sex: assess differences between males and females in work time.  How can we better encourage this comparison?  One approach is to group by hours worked, rather than sex:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/post/on-epts_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://silasbergen.github.io/testsite/post/on-epts_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;This better encourages us to compare females to males, but it still requires us to jump from panel to panel to make that comparison for each employment level.  Another major problem with the above graph is that the percents are calculated by conditioning &lt;em&gt;on sex&lt;/em&gt;, whereas the facets make it appear the conditioning is &lt;em&gt;on employment level&lt;/em&gt;.  For example, when we see two bars representing percents in a single panel, we are tempted to think that the total height of the two bars is 100%, which is clearly not the case.  The &amp;ldquo;whole&amp;rdquo; out of which the percents are taken is not at all clear.&lt;/p&gt;
 &lt;p&gt;Here&amp;rsquo;s one last take: a &lt;em&gt;stacked bar chart&lt;/em&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/post/on-epts_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://silasbergen.github.io/testsite/post/on-epts_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;This accomplishes two objectives previous visualizations lacked: A) making the most important comparison obvious (comparing females to males), and B) making obvious &amp;ldquo;the whole&amp;rdquo; out of which the percents are taken.  Note that when comparing females to males, we use &lt;em&gt;&lt;strong&gt;position along the common (vertical) axis&lt;/strong&gt;&lt;/em&gt; to compare the percents who work 40 or more hours (by determining which dark blue bar extends &lt;em&gt;highest&lt;/em&gt; on the vertical); and to compare the percents who work 20 or fewer hours (by determining which white bar extends &lt;em&gt;lowest&lt;/em&gt; on the vertical).  However, to compare the percent who work 21-30 or 31-39 across sex, we use &lt;em&gt;&lt;strong&gt;length&lt;/strong&gt;&lt;/em&gt;, since the middle bars do not share a common baseline.  Although we sacrifice making comparisons using &lt;em&gt;&lt;strong&gt;position along a common scale&lt;/strong&gt;&lt;/em&gt; with the stacked bar chart for two of the employment levels, we make up for it with fewer facets; more succinct presentation; and more obvious important comparisons.&lt;/p&gt;
 &lt;h3 id=&#34;data-notes&#34;&gt;Data notes&lt;/h3&gt;
 &lt;p&gt;Some of the averages in the &lt;a href=&#34;https://www.dropbox.com/s/0wmr2brny428lo3/ACS-income-data-aggregated.csv?dl=0&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;data set&lt;/a&gt; I used for this post (for example, average income for Alabaman males with a doctoral degree in 2009) are based on very few observations, and should be taken with a very large grain of salt.  Another brief data note: to aggregate this data set further, it is important to weight by the &lt;code&gt;N&lt;/code&gt; column, which indicates how many individuals in the population the average for that row represents.&lt;/p&gt;
@@ -226,10 +226,10 @@ ggplot(data = df) +
     
     <item>
       <title>Gestalt principles and income inequality</title>
-      <link>/post/income-gestalt/</link>
+      <link>https://silasbergen.github.io/testsite/post/income-gestalt/</link>
       <pubDate>Tue, 12 Dec 2017 00:00:00 +0000</pubDate>
-      <guid>/post/income-gestalt/</guid>
-      <description>&lt;p&gt;The fall semester is over and final grades are in, which means it&amp;rsquo;s time to reflect on what just took place and how to grow from here.  Today, I reflect on my third time teaching the &lt;a href=&#34;/courses/dsci310/home/&#34;&gt;data visualization course&lt;/a&gt;.  This course has come a long way since the first time I taught it in Fall 2015, and yet there are still so many improvements to make!  One of the concepts I want to greater emphasize next time I teach the course are the &lt;em&gt;Gestalt principles&lt;/em&gt;, which Gestalt psychologist Kurt Koffka summarizes as the idea that &lt;a href=&#34;https://www.interaction-design.org/literature/topics/gestalt-principles&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&amp;ldquo;The whole is &lt;em&gt;other&lt;/em&gt; than the sum of the parts.&amp;quot;&lt;/a&gt;.  I like to think of the Gestalt principles as ground rules for how to create meaningful patterns out of chaos.&lt;/p&gt;
+      <guid>https://silasbergen.github.io/testsite/post/income-gestalt/</guid>
+      <description>&lt;p&gt;The fall semester is over and final grades are in, which means it&amp;rsquo;s time to reflect on what just took place and how to grow from here.  Today, I reflect on my third time teaching the &lt;a href=&#34;https://silasbergen.github.io/testsite/courses/dsci310/home/&#34;&gt;data visualization course&lt;/a&gt;.  This course has come a long way since the first time I taught it in Fall 2015, and yet there are still so many improvements to make!  One of the concepts I want to greater emphasize next time I teach the course are the &lt;em&gt;Gestalt principles&lt;/em&gt;, which Gestalt psychologist Kurt Koffka summarizes as the idea that &lt;a href=&#34;https://www.interaction-design.org/literature/topics/gestalt-principles&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&amp;ldquo;The whole is &lt;em&gt;other&lt;/em&gt; than the sum of the parts.&amp;quot;&lt;/a&gt;.  I like to think of the Gestalt principles as ground rules for how to create meaningful patterns out of chaos.&lt;/p&gt;
 &lt;p&gt;Twain Taylor has an &lt;a href=&#34;https://www.fusioncharts.com/blog/how-to-use-the-gestalt-principles-for-visual-storytelling-podv/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;excellent post&lt;/a&gt; on how the Gestalt principles manifest in data visualization.  He summarizes the principles in this chart:&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://www.fusioncharts.com/blog/wp-content/uploads/2014/03/illustrations.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Quoting from his &lt;a href=&#34;https://www.fusioncharts.com/blog/how-to-use-the-gestalt-principles-for-visual-storytelling-podv/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;post&lt;/a&gt;;&lt;/p&gt;
@@ -264,21 +264,21 @@ ggplot(data = df) +
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Notably, the data set consists of one row per year/sex/education/field category, with &lt;code&gt;avg.income&lt;/code&gt; indicating the average income for that combination.&lt;/p&gt;
 &lt;p&gt;So let&amp;rsquo;s visualize!  We want to investigate the gender income gap, so here&amp;rsquo;s a first go:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/post/income-gestalt_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;288&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://silasbergen.github.io/testsite/post/income-gestalt_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;288&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Mostly, this is chaos!  But we do see the Gestalt principle of &lt;em&gt;&lt;strong&gt;proximity&lt;/strong&gt;&lt;/em&gt; manifest itself: we perceive the incomes on the left (belonging to females) as a group, and the incomes on the right (belonging to males) as a group.  Let&amp;rsquo;s incorporate &lt;strong&gt;Year&lt;/strong&gt; on the horizontal, since we are accustomed to identifying trends across time:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/post/income-gestalt_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;384&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://silasbergen.github.io/testsite/post/income-gestalt_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;384&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;We now see year groupings by way of the &lt;em&gt;&lt;strong&gt;proximity&lt;/strong&gt;&lt;/em&gt; principle, and sex groupings via color-coding with the &lt;em&gt;&lt;strong&gt;similarity&lt;/strong&gt;&lt;/em&gt; principle.  There&amp;rsquo;s still too much chaos, however.  Let&amp;rsquo;s try again:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/post/income-gestalt_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://silasbergen.github.io/testsite/post/income-gestalt_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;The amount of chaos is reduced dramatically, all by way of implementing the &lt;em&gt;&lt;strong&gt;enclosure&lt;/strong&gt;&lt;/em&gt; principle, specifically enclosing the highest level of educational attainments together in separate panels.  This particular type of enclosure is often referred to as &lt;em&gt;faceting&lt;/em&gt; in the data visualization realm. The drastic reduction in chaos, and improvement of clarity, is due to the fact that there were four educational attainment groupings.  We would not have improved the clarity as much if we had, say, grouped by field of degree instead, which only has two groups:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/post/income-gestalt_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://silasbergen.github.io/testsite/post/income-gestalt_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Faceting by educational attainment is better, so let&amp;rsquo;s continue working with that one, now indicating field of degree:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/post/income-gestalt_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://silasbergen.github.io/testsite/post/income-gestalt_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;The new principle is &lt;em&gt;&lt;strong&gt;connection&lt;/strong&gt;&lt;/em&gt;.  Clearly, we perceive each line as an entity, representing now a Sex/Field combination (Male/STEM, for example).  Another instance of &lt;em&gt;&lt;strong&gt;similarity&lt;/strong&gt;&lt;/em&gt; is in play, since the lines for STEM fields are dashed, while the lines for non-STEM fields are solid.&lt;/p&gt;
 &lt;p&gt;So, here we have it, a visualization that illustrates the principles of &lt;em&gt;&lt;strong&gt;proximity&lt;/strong&gt;&lt;/em&gt;, &lt;em&gt;&lt;strong&gt;similarity&lt;/strong&gt;&lt;/em&gt;, &lt;em&gt;&lt;strong&gt;enclosure&lt;/strong&gt;&lt;/em&gt;, and &lt;em&gt;&lt;strong&gt;connection&lt;/strong&gt;&lt;/em&gt;.  We&amp;rsquo;ve implemented these principles to significantly reduce chaos and improve clarity.  But there&amp;rsquo;s still an issue with this visualization.  Remember the intent of the visualization is to explore &lt;strong&gt;gender income inequality&lt;/strong&gt;.  If we take another look at the above visualization, this is not the most obvious comparison to make.  Rather, due to the &lt;em&gt;&lt;strong&gt;proximity&lt;/strong&gt;&lt;/em&gt; and &lt;em&gt;&lt;strong&gt;similarity&lt;/strong&gt;&lt;/em&gt; of the lines within each sex (they are close together, and of the same color), the comparison our brain is encouraged to make is to compare incomes of STEM to non-STEM, &lt;em&gt;within&lt;/em&gt; sex.  That&amp;rsquo;s not the most important comparison!  It makes most sense to compare males to females, &lt;em&gt;within&lt;/em&gt; field.&lt;/p&gt;
 &lt;p&gt;This brings us to a related concept: &lt;em&gt;not all means of introducing similarity are created equal&lt;/em&gt;.  When we group by similarity, we tend to first recognize similarities in &lt;em&gt;color&lt;/em&gt;, then in &lt;em&gt;shape&lt;/em&gt;.  Angela Wright, a color psychologist, states that &lt;a href=&#34;http://businessadvance.com/wp-content/uploads/2015/04/white-paper-sequence-of-cognition.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&amp;ldquo;color is noticed by the brain before shapes or wording.&amp;quot;&lt;/a&gt;  Thus if we want the encourage the viewer to compare the sexes, we should probably color-code by field instead, so we compare income by gender &lt;em&gt;within&lt;/em&gt; field.  Here&amp;rsquo;s how that looks:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/post/income-gestalt_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://silasbergen.github.io/testsite/post/income-gestalt_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;m still not convinced that this encourages the brain to first compare the sexes to each other.  The &lt;em&gt;&lt;strong&gt;proximity&lt;/strong&gt;&lt;/em&gt; of the STEM and non-STEM lines is too hard to overcome!  We might need to introduce another layer of &lt;em&gt;&lt;strong&gt;enclosure&lt;/strong&gt;&lt;/em&gt; (by way of faceting) to make the important comparison the most obvious:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/post/income-gestalt_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://silasbergen.github.io/testsite/post/income-gestalt_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;h3 id=&#34;details-on-data-collection-and-visualization&#34;&gt;Details on data collection and visualization&lt;/h3&gt;
 &lt;p&gt;IPUMS stands for &lt;em&gt;Integrated Public-Use Microdata Series&lt;/em&gt;.  The suite of &lt;a href=&#34;https://www.ipums.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;IPUMS tools&lt;/a&gt; is an excellent source of varied data, from health to education to international census data.  I aggregated the data for this example from the microdata extract, and you can download a &lt;a href=&#34;https://www.dropbox.com/s/r729zbwjjxoboy1/ACS-stem-aggregated.csv?dl=0&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;.csv of the aggregated data here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;R code for creating the &amp;ldquo;final two&amp;rdquo; visualizations is below:&lt;/p&gt;
@@ -309,24 +309,24 @@ ggplot(data = stemdata) +
     
     <item>
       <title>And the winner is...</title>
-      <link>/post/policedatachallenge/</link>
+      <link>https://silasbergen.github.io/testsite/post/policedatachallenge/</link>
       <pubDate>Thu, 07 Dec 2017 00:00:00 -0600</pubDate>
-      <guid>/post/policedatachallenge/</guid>
-      <description>&lt;p&gt;The &lt;a href=&#34;/courses/dsci310/midterm/&#34;&gt;midterm project for my data visualization course&lt;/a&gt; this past fall required students to submit to the &lt;a href=&#34;http://thisisstatistics.org/policedatachallenge/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ASA&amp;rsquo;s Police Data Challenge&lt;/a&gt;.  The competition involved analyzing millions of 911 calls for one of three cities (Baltimore, Cincinnati, or Seattle).  I had the students investigate the Seattle data set, since it contained latitudes and longitudes of each call.&lt;/p&gt;
+      <guid>https://silasbergen.github.io/testsite/post/policedatachallenge/</guid>
+      <description>&lt;p&gt;The &lt;a href=&#34;https://silasbergen.github.io/testsite/courses/dsci310/midterm/&#34;&gt;midterm project for my data visualization course&lt;/a&gt; this past fall required students to submit to the &lt;a href=&#34;http://thisisstatistics.org/policedatachallenge/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ASA&amp;rsquo;s Police Data Challenge&lt;/a&gt;.  The competition involved analyzing millions of 911 calls for one of three cities (Baltimore, Cincinnati, or Seattle).  I had the students investigate the Seattle data set, since it contained latitudes and longitudes of each call.&lt;/p&gt;
 &lt;p&gt;Several weeks later, we received the exciting news that one of the teams won &lt;a href=&#34;http://thisisstatistics.org/police-data-challenge-congratulations-to-our-winners/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&amp;ldquo;Best Overall&amp;rdquo;&lt;/a&gt; among undergraduate teams!  Congratulations to Winona State students &lt;a href=&#34;https://www.linkedin.com/in/jimmyjhickey/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Jimmy Hickey&lt;/a&gt;, &lt;a href=&#34;https://www.linkedin.com/in/kapil-khanal/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Kapil Khanal&lt;/a&gt;, and Luke Peacock for their excellent work.&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Quantifying thrill</title>
-      <link>/post/viz-worldseries-wpa/</link>
+      <link>https://silasbergen.github.io/testsite/post/viz-worldseries-wpa/</link>
       <pubDate>Tue, 31 Oct 2017 00:00:00 -0500</pubDate>
-      <guid>/post/viz-worldseries-wpa/</guid>
+      <guid>https://silasbergen.github.io/testsite/post/viz-worldseries-wpa/</guid>
       <description>&lt;p&gt;Monday morning, October 30, found me groggy and sandy-eyed.  The culprit was the 5-hour and 17-minute, 10-inning thriller between the LA Dodgers and Houston Astros in Game 5 of the 2017 the night before.  Thanks to living in the Central Time Zone, I went to bed around 1am. The Astros ended up defeating the Dodgers 13-12, but the game was insane, featuring three comebacks from deficits of 3 runs or more.  By the end, I was emotionally exhausted, and I didn&amp;rsquo;t even have a stake in either team!  Lots was written about the game over at &lt;a href=&#34;http://www.fangraphs.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Fangraphs&lt;/a&gt;, one of my favorite baseball analytics websites.&lt;/p&gt;
 &lt;p&gt;One &lt;a href=&#34;https://www.fangraphs.com/blogs/game-five-was-as-weird-as-it-felt/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;post in particular&lt;/a&gt; by Craig Edwards caught my attention from a data visualization perspective.  It compared the game to another epic game: &lt;a href=&#34;https://www.baseball-reference.com/boxes/SLN/SLN201110270.shtml&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Game 6 of the 2011 World Series&lt;/a&gt;, where the St. Louis Cardinals staved off elimination by defeating the Texas Rangers 10-9 in 11 innings.  The crux of the article was a table that listed the top-20 &amp;ldquo;most exciting events&amp;rdquo; of each World Series side-by-side.  Here is a screenshot of said table:&lt;/p&gt;
 &lt;center&gt;
 &lt;figure&gt; 
-&lt;img src=&#34;/img/wpa-table.JPG&#34; width=&#34;400&#34; /&gt;
+&lt;img src=&#34;https://silasbergen.github.io/testsite/img/wpa-table.JPG&#34; width=&#34;400&#34; /&gt;
 &lt;/figure&gt;
 &lt;/center&gt;
 &lt;p&gt;An &amp;ldquo;exciting event&amp;rdquo; is one that yields a large swing in the win expectancy of the game, as measured by Win Probability Added, or WPA.  Read Fangraph&amp;rsquo;s &lt;a href=&#34;https://www.fangraphs.com/library/misc/wpa/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;excellent glossary entry on WPA&lt;/a&gt; for more detail, but essentially, the bigger the WPA of an event, the more exciting it is.&lt;/p&gt;

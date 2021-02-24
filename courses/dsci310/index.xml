@@ -2,29 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Data visualizationsss | Silas Bergen</title>
-    <link>/courses/dsci310/</link>
-      <atom:link href="/courses/dsci310/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://silasbergen.github.io/testsite/courses/dsci310/</link>
+      <atom:link href="https://silasbergen.github.io/testsite/courses/dsci310/index.xml" rel="self" type="application/rss+xml" />
     <description>Data visualizationsss</description>
     <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2021 Silas Bergen</copyright><lastBuildDate>Sun, 09 Sep 2018 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>/images/icon_hu88e77fda8259aec1ad610bc9dd60fa00_1241_512x512_fill_lanczos_center_2.png</url>
+      <url>https://silasbergen.github.io/testsite/images/icon_hu88e77fda8259aec1ad610bc9dd60fa00_1241_512x512_fill_lanczos_center_2.png</url>
       <title>Data visualizationsss</title>
-      <link>/courses/dsci310/</link>
+      <link>https://silasbergen.github.io/testsite/courses/dsci310/</link>
     </image>
     
     <item>
       <title>Data visualizationsss</title>
-      <link>/courses/dsci310/playday-menu/</link>
+      <link>https://silasbergen.github.io/testsite/courses/dsci310/playday-menu/</link>
       <pubDate>Sun, 09 Sep 2018 00:00:00 +0000</pubDate>
-      <guid>/courses/dsci310/playday-menu/</guid>
+      <guid>https://silasbergen.github.io/testsite/courses/dsci310/playday-menu/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Play Day Task</title>
-      <link>/courses/dsci310/playday4/</link>
+      <link>https://silasbergen.github.io/testsite/courses/dsci310/playday4/</link>
       <pubDate>Tue, 07 Nov 2017 00:00:00 +0000</pubDate>
-      <guid>/courses/dsci310/playday4/</guid>
+      <guid>https://silasbergen.github.io/testsite/courses/dsci310/playday4/</guid>
       <description>&lt;p&gt;This play day is modified from a similar assignment by Jerzy Wieczorek of &lt;a href=&#34;http://civilstat.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CivilStat.com&lt;/a&gt; specifically &lt;a href=&#34;http://civilstat.com/datavis/36721F15/Assignments/HW2_VisualPerception.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;this one&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Consider &lt;a href=&#34;https://www.dropbox.com/s/6g864cc4s4rc9ni/degrees.csv?dl=0&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;data tablulated&lt;/a&gt; from the 2010 Digest of Education Statistics, &lt;a href=&#34;https://nces.ed.gov/programs/digest/d10/tables_3.asp#Ch3aSub4&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;tables 308 to 330.&lt;/a&gt;.  The intent of this data is to answer:&lt;/p&gt;
 &lt;ol&gt;
@@ -49,9 +49,9 @@
     
     <item>
       <title>Play Day Task</title>
-      <link>/courses/dsci310/playday3/</link>
+      <link>https://silasbergen.github.io/testsite/courses/dsci310/playday3/</link>
       <pubDate>Mon, 16 Oct 2017 00:00:00 +0000</pubDate>
-      <guid>/courses/dsci310/playday3/</guid>
+      <guid>https://silasbergen.github.io/testsite/courses/dsci310/playday3/</guid>
       <description>&lt;p&gt;Consider the following data on &lt;a href=&#34;https://www.dropbox.com/s/f8t1p37kkueizom/migration.csv?dl=0&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;World Migration&lt;/a&gt; from the United Nations, Department of Economic and Social Affairs, Population Division, Trends in International Migrant Stock.&lt;/p&gt;
 &lt;p&gt;Questions to be answered visually (no restrictions!):&lt;/p&gt;
 &lt;ul&gt;
@@ -63,9 +63,9 @@
     
     <item>
       <title>Midterm project</title>
-      <link>/courses/dsci310/midterm/</link>
+      <link>https://silasbergen.github.io/testsite/courses/dsci310/midterm/</link>
       <pubDate>Mon, 09 Oct 2017 00:00:00 +0000</pubDate>
-      <guid>/courses/dsci310/midterm/</guid>
+      <guid>https://silasbergen.github.io/testsite/courses/dsci310/midterm/</guid>
       <description>&lt;p&gt;For this semester&amp;rsquo;s midterm project, we will be participating in the American Statistical Association&amp;rsquo;s &lt;a href=&#34;http://thisisstatistics.org/policedatachallenge&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Police Data Challenge&lt;/a&gt;. Read the information on the website for many more details.  For the midterm project, &lt;em&gt;&lt;strong&gt;all students&lt;/strong&gt;&lt;/em&gt; should visualize the Seattle data set.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -190,9 +190,9 @@
     
     <item>
       <title>Play Day Task 1</title>
-      <link>/courses/dsci310/playday1/</link>
+      <link>https://silasbergen.github.io/testsite/courses/dsci310/playday1/</link>
       <pubDate>Wed, 13 Sep 2017 00:00:00 +0000</pubDate>
-      <guid>/courses/dsci310/playday1/</guid>
+      <guid>https://silasbergen.github.io/testsite/courses/dsci310/playday1/</guid>
       <description>&lt;p&gt;Consider the &lt;a href=&#34;https://www.dropbox.com/s/yaqv5afaz1rp9j6/MLB-Standings-2016-2017.xlsx?dl=0&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Major League Baseball Standings data&lt;/a&gt;.  There are two worksheets in this Excel file: one with 2016 standings, and one with 2017 standings.  The important variables in each are the team names (Tm); actual winning percentage (W-L%); and predicted winning percentage (pythWPct), which is each team&amp;rsquo;s predicted winning percentage based on the number of points (&amp;ldquo;runs&amp;rdquo;) scored by and against that team.&lt;/p&gt;
 &lt;p&gt;Questions to be answered (no restrictions!):&lt;/p&gt;
 &lt;ul&gt;
@@ -204,9 +204,9 @@
     
     <item>
       <title>Syllabus (Fall 2017)</title>
-      <link>/courses/dsci310/syllabus/</link>
+      <link>https://silasbergen.github.io/testsite/courses/dsci310/syllabus/</link>
       <pubDate>Sun, 20 Aug 2017 00:00:00 +0000</pubDate>
-      <guid>/courses/dsci310/syllabus/</guid>
+      <guid>https://silasbergen.github.io/testsite/courses/dsci310/syllabus/</guid>
       <description>&lt;h3 id=&#34;data-summarization-and-visualization-fall-2017dsci310-home&#34;&gt;&lt;a href=&#34;../dsci310-home/&#34;&gt;Data summarization and visualization (Fall 2017)&lt;/a&gt;&lt;/h3&gt;
 &lt;h3 id=&#34;course-overview&#34;&gt;Course overview&lt;/h3&gt;
 &lt;p&gt;The amount and extent of data in our world is growing extremely rapidly. 
@@ -232,8 +232,8 @@ Highly recommended resources are &lt;a href=&#34;https://www.amazon.com/Visual-D
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;img src=&#34;/img/tufte-book.jpg&#34; alt=&#34;&#34;&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;img src=&#34;/img/cdwt-book.jpg&#34; alt=&#34;&#34;&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;img src=&#34;https://silasbergen.github.io/testsite/img/tufte-book.jpg&#34; alt=&#34;&#34;&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;img src=&#34;https://silasbergen.github.io/testsite/img/cdwt-book.jpg&#34; alt=&#34;&#34;&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
