@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>dplyr | Silas Bergen</title>
-    <link>https://silasbergen.github.io/testsite/tag/dplyr/</link>
-      <atom:link href="https://silasbergen.github.io/testsite/tag/dplyr/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://driftlessdata.space/tag/dplyr/</link>
+      <atom:link href="https://driftlessdata.space/tag/dplyr/index.xml" rel="self" type="application/rss+xml" />
     <description>dplyr</description>
     <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2021 Silas Bergen</copyright><lastBuildDate>Wed, 02 Jan 2019 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://silasbergen.github.io/testsite/images/icon_hu88e77fda8259aec1ad610bc9dd60fa00_1241_512x512_fill_lanczos_center_2.png</url>
+      <url>https://driftlessdata.space/images/icon_hu88e77fda8259aec1ad610bc9dd60fa00_1241_512x512_fill_lanczos_center_2.png</url>
       <title>dplyr</title>
-      <link>https://silasbergen.github.io/testsite/tag/dplyr/</link>
+      <link>https://driftlessdata.space/tag/dplyr/</link>
     </image>
     
     <item>
       <title>Stat consulting: a data science playground</title>
-      <link>https://silasbergen.github.io/testsite/post/dsci-consulting/</link>
+      <link>https://driftlessdata.space/post/dsci-consulting/</link>
       <pubDate>Wed, 02 Jan 2019 00:00:00 +0000</pubDate>
-      <guid>https://silasbergen.github.io/testsite/post/dsci-consulting/</guid>
+      <guid>https://driftlessdata.space/post/dsci-consulting/</guid>
       <description>&lt;p&gt;This past semester I taught our &lt;a href=&#34;../../courses/stat370/stat370-home/&#34;&gt;STAT 370 (statistical consulting and communication)&lt;/a&gt; for the first time.  This course gave student experience consulting for real clients from the university and community and focused on communicating with a client as well as report and presentation preparation best practices.  Most of the required analyses were simple: paired t-tests, simple linear regression, etc.  What struck me was the nontrivality of the data tidying process!  While STAT 370 is taken mostly by our statistics majors, so many of the examples we encountered would be beautiful case studies for our introductory DSCI (data science) curriculum. In this post I present an actual example from a client that illustrates this.&lt;/p&gt;
 &lt;p&gt;The data here concerned undergraduate nursing students in one of four terms of the nursing program.  Of interest was measuring the students&#39; resiliency as measured by the Connor-Davidson Resiliency Scale (CDRS), both prior to and following impelementation of a Stress Management and Resiliency Training (SMART).  The client was interested in determining for which of the four terms was there a significant change in resilience.&lt;/p&gt;
 &lt;p&gt;Here are the data we&amp;rsquo;re working with (&lt;a href=&#34;../../files/cdrs_data_pre.csv&#34;&gt;link to pre&lt;/a&gt; | &lt;a href=&#34;../../files/cdrs_data_post.csv&#34;&gt;link to post&lt;/a&gt;). &lt;code&gt;id&lt;/code&gt; stands for a unique student identifier.  We also have responses to 18 of the CDRS items (each on a 5-point Likert scale).  The &lt;code&gt;post&lt;/code&gt; data set also contains the student terms; notably this information is &lt;em&gt;not&lt;/em&gt; available in the &lt;code&gt;pre&lt;/code&gt; data set.&lt;/p&gt;
@@ -57,7 +57,7 @@ names(pre) #missing term information!!
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Note that the data are not &lt;a href=&#34;https://www.jstatsoft.org/article/view/v059i10&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;tidy&lt;/a&gt; in the sense that each row is a person, and we have variable information on the questions in columns.  I&amp;rsquo;ll return to this in a bit.&lt;/p&gt;
 &lt;p&gt;Here ultimately is a visualization that we could use to determine for which terms are the SMART effects strongest, and for which terms is the effect statistically significant:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://silasbergen.github.io/testsite/post/dsci-consulting_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://driftlessdata.space/post/dsci-consulting_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;We can see that the average resilience pre-SMART was lower than average resilience post-SMART, and that these differences were most extreme for students in Terms 2 and 3 (which were also the only statistically significant differences).  Additionally, students in Term 4 had very high pre- and post-SMART resilience (they&amp;rsquo;re seasoned veterans, after all!)&lt;/p&gt;
 &lt;p&gt;A simple plot, with a simple interpretation.  But the path to get there is anything but!  To create this plot we need:&lt;/p&gt;
 &lt;ol&gt;
@@ -170,7 +170,7 @@ head(both)
   scale_shape_manual(name=&#39;&#39;,values=c(&#39;a&#39;=19,&#39;b&#39;=17),labels=c(&#39;pre SMART&#39;,&#39;post SMART&#39;)) + 
   scale_color_discrete(name=&#39;significant?&#39;)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://silasbergen.github.io/testsite/post/dsci-consulting_files/figure-html/unnamed-chunk-10-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://driftlessdata.space/post/dsci-consulting_files/figure-html/unnamed-chunk-10-1.png&#34; width=&#34;576&#34; /&gt;&lt;/p&gt;
 &lt;h2 id=&#34;moral&#34;&gt;Moral&lt;/h2&gt;
 &lt;p&gt;Wow!  The only truly &amp;ldquo;statistical&amp;rdquo; aspect of this whole process was a paired t-test.  And even that was a bit tricky: figuring out how to carry out these t-tests by term!  In reflecting back on the semester, I am struck that our data science students would do well to take our stat consulting course.  They would be kept very interested in data &amp;ldquo;wrangling&amp;rdquo; tasks such as this. On the flip side, it&amp;rsquo;s an invaluable experience for our STAT majors (who comprise the usual audience of this course) to realize that the formal statistical analysis in which they are most trained is ultimately the last in a long series of data wrangling steps.&lt;/p&gt;
 </description>

@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>baseball | Silas Bergen</title>
-    <link>https://silasbergen.github.io/testsite/tag/baseball/</link>
-      <atom:link href="https://silasbergen.github.io/testsite/tag/baseball/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://driftlessdata.space/tag/baseball/</link>
+      <atom:link href="https://driftlessdata.space/tag/baseball/index.xml" rel="self" type="application/rss+xml" />
     <description>baseball</description>
     <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2021 Silas Bergen</copyright><lastBuildDate>Tue, 31 Oct 2017 00:00:00 -0500</lastBuildDate>
     <image>
-      <url>https://silasbergen.github.io/testsite/images/icon_hu88e77fda8259aec1ad610bc9dd60fa00_1241_512x512_fill_lanczos_center_2.png</url>
+      <url>https://driftlessdata.space/images/icon_hu88e77fda8259aec1ad610bc9dd60fa00_1241_512x512_fill_lanczos_center_2.png</url>
       <title>baseball</title>
-      <link>https://silasbergen.github.io/testsite/tag/baseball/</link>
+      <link>https://driftlessdata.space/tag/baseball/</link>
     </image>
     
     <item>
       <title>Quantifying thrill</title>
-      <link>https://silasbergen.github.io/testsite/post/viz-worldseries-wpa/</link>
+      <link>https://driftlessdata.space/post/viz-worldseries-wpa/</link>
       <pubDate>Tue, 31 Oct 2017 00:00:00 -0500</pubDate>
-      <guid>https://silasbergen.github.io/testsite/post/viz-worldseries-wpa/</guid>
+      <guid>https://driftlessdata.space/post/viz-worldseries-wpa/</guid>
       <description>&lt;p&gt;Monday morning, October 30, found me groggy and sandy-eyed.  The culprit was the 5-hour and 17-minute, 10-inning thriller between the LA Dodgers and Houston Astros in Game 5 of the 2017 the night before.  Thanks to living in the Central Time Zone, I went to bed around 1am. The Astros ended up defeating the Dodgers 13-12, but the game was insane, featuring three comebacks from deficits of 3 runs or more.  By the end, I was emotionally exhausted, and I didn&amp;rsquo;t even have a stake in either team!  Lots was written about the game over at &lt;a href=&#34;http://www.fangraphs.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Fangraphs&lt;/a&gt;, one of my favorite baseball analytics websites.&lt;/p&gt;
 &lt;p&gt;One &lt;a href=&#34;https://www.fangraphs.com/blogs/game-five-was-as-weird-as-it-felt/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;post in particular&lt;/a&gt; by Craig Edwards caught my attention from a data visualization perspective.  It compared the game to another epic game: &lt;a href=&#34;https://www.baseball-reference.com/boxes/SLN/SLN201110270.shtml&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Game 6 of the 2011 World Series&lt;/a&gt;, where the St. Louis Cardinals staved off elimination by defeating the Texas Rangers 10-9 in 11 innings.  The crux of the article was a table that listed the top-20 &amp;ldquo;most exciting events&amp;rdquo; of each World Series side-by-side.  Here is a screenshot of said table:&lt;/p&gt;
 &lt;center&gt;
 &lt;figure&gt; 
-&lt;img src=&#34;https://silasbergen.github.io/testsite/img/wpa-table.JPG&#34; width=&#34;400&#34; /&gt;
+&lt;img src=&#34;https://driftlessdata.space/img/wpa-table.JPG&#34; width=&#34;400&#34; /&gt;
 &lt;/figure&gt;
 &lt;/center&gt;
 &lt;p&gt;An &amp;ldquo;exciting event&amp;rdquo; is one that yields a large swing in the win expectancy of the game, as measured by Win Probability Added, or WPA.  Read Fangraph&amp;rsquo;s &lt;a href=&#34;https://www.fangraphs.com/library/misc/wpa/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;excellent glossary entry on WPA&lt;/a&gt; for more detail, but essentially, the bigger the WPA of an event, the more exciting it is.&lt;/p&gt;
